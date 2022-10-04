@@ -35,7 +35,7 @@ DB 계획
         * 매력
         * 친절
 2. 보석 - 규민
-   * jewel-slot0
+   * jewel-slot0~10
      * name
      * img
      * tear
@@ -45,52 +45,5 @@ DB 계획
      
      *if lv > class*
 
-  * jewel-slot1
-    * jewel-slot0
-    * name
-    * img
-    * tear
-    * trade
-    * lv
-    * skill-effect
-     
-    *if lv > class*
-
-  * jewel-slot2
-    * jewel-slot0
-    * name
-    * img
-    * tear
-    * trade
-    * lv
-    * skill-effect
-     
-    *if lv > class*
-
-  * jewel-slot3
-    * jewel-slot0
-    * name
-    * img
-    * tear
-    * trade
-    * lv
-    * skill-effect
-     
-    *if lv > class*
-
-  * jewel-slot4
-    * 위랑 동일
-  * jewel-slot5
-    * 위랑 동일
-  * jewel-slot6
-    * 위랑 동일
-  * jewel-slot7
-    * 위랑 동일
-  * jewel-slot8
-    * 위랑 동일
-  * jewel-slot9
-    * 위랑 동일
-  * jewel-slot10
-    * 위랑 동일
 3. 카드 - 재하
    * test
