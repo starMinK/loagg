@@ -20,6 +20,9 @@ DB 계획
         * 담력
         * 매력
         * 친절
+
+---
+
 2. 보석 - 규민
    * jewel-slot0
      * name
@@ -78,6 +81,21 @@ DB 계획
     * 위랑 동일
   * jewel-slot10
     * 위랑 동일
+
+---
+
 3. 카드 - 재하
+
+---
+
+1. search.html -> 이름 받기 -> db저장
+    * function save_name -> index.html line 140 cf
+    * py -> db.insert (name) -> 등록
+2. jewel.py -> 이름을 db에서 get -> 받아온 이름으로 크롤링
+    * list(db.jewel.find) -> name get
+    * 크롤링/{name} -> 크롤링 정보 get
+    * db에 저장?
+3. 크롤링된 정보들 -> db에 이름이 ?인 곳에 수정으로 내용 추가
+4. main.html -> db에서 이름으로 정보 불러오기
 
 

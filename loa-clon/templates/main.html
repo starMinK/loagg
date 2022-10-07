@@ -13,6 +13,7 @@
             crossorigin="anonymous"></script>
 
     <style>
+        /*Main - team*/
         body{
             width: 100%;
             height: 100%;
@@ -47,7 +48,7 @@
 
             position: relative;
         }
-/*----------------------------------------------*/
+        /*----------------------------------------------*/
         .profile-search > .navbar{
             display: flex;
             flex-direction: row;
@@ -60,7 +61,7 @@
             margin-top: -15px;
         }
 
-/*----------------------------------------------*/
+        /*----------------------------------------------*/
         .profile-ingame{
             /*background-color: #9b54f6;*/
             width: 100%;
@@ -133,9 +134,8 @@
 
             object-fit: cover;
         }
-/*----------------------------------------------*/
+        /*----------------------------------------------*/
         .profile-character{
-            /*background-color: #0080ff;*/
 
             width: 60%;
             height: 105%;
@@ -163,11 +163,15 @@
         }
 
         .profile-character-set_info{
-            background-color: rgb(21, 24, 29);
+            background-image: url("https://cutewallpaper.org/21/dark-blue-wallpaper-1920x1080/Download-1920x1080-Blue-Background,-Dark,-Texture-Wallpapers-.jpeg");
+            background-size: cover;
+
+            height: 75%;
+            width: 100%;
+
             color: white;
             margin-top: 25px;
             border-radius: 20px;
-            height: 75%;
 
             display: flex;
             flex-direction: column;
@@ -175,7 +179,267 @@
             align-items: center;
         }
 
+        /*Jewel - gyumin*/
+        .jewel{
+            height: 100%;
+            width: 100%;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .jewel-info{
+
+            height: 100%;
+            width: 70%;
+
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .jewel-list00to03, .jewel-list07to10{
+
+            width: 100%;
+            height: 20%;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .jewel-list04to06{
+
+            width: 100%;
+            height: 20%;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .jewel-list00to03 > ul{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            list-style:none;
+
+            margin-right: 30px;
+        }
+
+        .slot00-01, .slot02-03, .slot07-08, .slot09-10{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            list-style:none;
+
+            margin-right: 30px;
+        }
+
+        .slot04-06{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            list-style:none;
+
+            margin-right: 20px;
+        }
+
+        .slot00, .slot03, .slot05, .slot07, .slot10{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slot01, .slot06, .slot08{
+            margin-left: 50px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slot02, .slot04, .slot09{
+            margin-right: 50px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slot00 > li, .slot01 > li, .slot02 > li, .slot03 > li,.slot04 > li, .slot05 > li, .slot06 > li,
+        .slot07 > li, .slot08 > li, .slot09 > li, .slot10 > li{
+            background-color: #000000;
+            height: 70px;
+            width: 70px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            border: solid 4px #537081;
+            border-radius: 20%;
+        }
+
+        .slot00 > li > img, .slot01 > li > img, .slot02 > li > img, .slot03 > li > img, .slot04 > li > img,
+        .slot05 > li > img, .slot06 > li > img, .slot07 > li > img, .slot08 > li > img, .slot09 > li > img,
+        .slot10 > li > img{
+            height: 50px;
+            width: 50px;
+        }
+
+        .jewel-skill{
+            height: 100%;
+            width: 30%;
+            background-color: rgb(21, 24, 29);
+
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
     </style>
+
+    <script>
+        $(document).ready(function () {
+            load_jewel();
+        });
+
+        function load_jewel() {
+            $.ajax({
+                type: "GET",
+                url: "/api/jewels",
+                data: {},
+                success: function (response) {
+                    let rows = response['jewel']
+
+                    //보석 이미지
+                    let gem00_img = rows['gem00_img']
+                    let gem01_img = rows['gem01_img']
+                    let gem02_img = rows['gem02_img']
+                    let gem03_img = rows['gem03_img']
+                    let gem04_img = rows['gem04_img']
+                    let gem05_img = rows['gem05_img']
+                    let gem06_img = rows['gem06_img']
+                    let gem07_img = rows['gem07_img']
+                    let gem08_img = rows['gem08_img']
+                    let gem09_img = rows['gem09_img']
+                    let gem10_img = rows['gem10_img']
+
+                    //보석 레벨
+                    let gem00_lv = rows['gem00_lv']
+                    let gem01_lv = rows['gem01_lv']
+                    let gem02_lv = rows['gem02_lv']
+                    let gem03_lv = rows['gem03_lv']
+                    let gem04_lv = rows['gem04_lv']
+                    let gem05_lv = rows['gem05_lv']
+                    let gem06_lv = rows['gem06_lv']
+                    let gem07_lv = rows['gem07_lv']
+                    let gem08_lv = rows['gem08_lv']
+                    let gem09_lv = rows['gem09_lv']
+                    let gem10_lv = rows['gem10_lv']
+
+                    let temp_html00to03 = ``;
+                    let temp_html04to06 = ``;
+                    let temp_html07to10 = ``;
+
+
+                        temp_html00to03 = `
+                                           <ul class="slot00-01">
+                                               <div class="slot00">
+                                                   <li> <img src=${gem00_img}></li>
+                                                   <span>${gem00_lv}</span>
+                                               </div>
+                                               <div class="slot01">
+                                                   <li> <img src=${gem01_img}> </li>
+                                                   <span>${gem01_lv}</span>
+                                               </div>
+                                           </ul>
+
+                                           <ul class="slot02-03">
+                                                <div class="slot02">
+                                                    <li> <img src=${gem02_img}> </li>
+                                                    <span>${gem02_lv}</span>
+                                                </div>
+                                               <div class="slot03">
+                                                   <li> <img src=${gem03_img}> </li>
+                                                   <span>${gem03_lv}</span>
+                                               </div>
+
+                                           </ul>
+                                           `
+
+                        temp_html04to06 = `
+                                           <ul class="slot04-06">
+                                                <div class="slot04">
+                                                     <li> <img src=${gem04_img}> </li>
+                                                     <div>${gem04_lv}</div>
+                                                </div>
+
+                                                <div class="slot05">
+                                                     <li> <img src=${gem05_img}> </li>
+                                                     <div>${gem05_lv}</div>
+                                                </div>
+
+                                                <div class="slot06">
+                                                       <li> <img src=${gem06_img}> </li>
+                                                       <div>${gem06_lv}</div>
+                                                </div>
+                                           </ul>
+                                          `
+
+                        temp_html07to10 = `
+                                           <ul class="slot07-08">
+                                                <div class="slot07">
+                                                    <li> <img src=${gem07_img}> </li>
+                                                    <span>${gem07_lv}</span>
+                                                </div>
+
+                                                <div class="slot08">
+                                                    <li> <img src=${gem08_img}> </li>
+                                                    <span>${gem08_lv}</span>
+                                                </div>
+
+                                           </ul>
+
+                                           <ul class="slot09-10">
+                                               <div class="slot09">
+                                                   <li> <img src=${gem09_img}> </li>
+                                                   <span>${gem09_lv}</span>
+                                               </div>
+
+                                               <div class="slot10">
+                                                   <li> <img src=${gem10_img}> </li>
+                                                   <span>${gem10_lv}</span>
+                                               </div>
+                                           </ul>
+                                          `
+
+
+
+
+                    $('.jewel-list00to03').append(temp_html00to03);
+                    $('.jewel-list04to06').append(temp_html04to06);
+                    $('.jewel-list07to10').append(temp_html07to10);
+                }
+            });
+        }
+    </script>
 </head>
 <body>
     <!--페이지 전체(background) 페이지-->
@@ -244,7 +508,19 @@
                         </div>
 
                         <div class="profile-character-set_info">
-                            캐릭터 정보
+                            <div class="jewel">
+                                <div class="jewel-info">
+                                    <div class="jewel-list00to03">
+                                    </div>
+                                    <div class="jewel-list04to06">
+                                    </div>
+                                    <div class="jewel-list07to10">
+                                    </div>
+                                </div>
+                                <div class="jewel-skill">
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
