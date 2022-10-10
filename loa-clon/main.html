@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>로아.gg 콘티</title>
+    <!--Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            background-image: url("https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FV4B77%2FbtrNb3Qwckz%2F2fr6zfuczRI49ppRi9iO6k%2Fimg.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            /*background-color: #15181d;*/
+            overflow: hidden;
+        }
+
+        .middle {
+            background-color: rgb(37, 41, 49);
+
+            /*background-image: url("https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FV4B77%2FbtrNb3Qwckz%2F2fr6zfuczRI49ppRi9iO6k%2Fimg.jpg");*/
+            /*background-size: contain;*/
+            /*background-repeat: no-repeat;*/
+
+            width: 80%;
+            height: 100vh;
+
+            margin: auto;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #contents {
+            /*background-color: red;*/
+            width: 100%;
+            height: 80%;
+
+            position: relative;
+        }
+
+        /*----------------------------------------------*/
+        .profile-search > .navbar {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: end;
+
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+
+            margin-top: -15px;
+        }
+
+        /*----------------------------------------------*/
+        .profile-ingame {
+            /*background-color: #9b54f6;*/
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            flex-direction: row;
+        }
+
+        .profile-equipment_character {
+            background-image: url("https://img.lostark.co.kr/profile/2/10C4B4E078C5002A4BE8679DDD859D86BF535CB746D340F96E47F65481F069FD.PNG");
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 35%;
+            height: 100%;
+
+            margin-left: 30px;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            padding-right: 45px;
+
+            border-radius: 20px;
+        }
+
+        .profile-equipment_character > .profile-equipment {
+            list-style: none;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: end;
+        }
+
+        .profile-equipment_character > .profile-accessories {
+            list-style: none;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .profile-equipment_character > .profile-equipment > li,
+        .profile-equipment_character > .profile-accessories > li {
+            background: linear-gradient(135deg, #3d3325, #dcc999);
+
+            margin-top: 30px;
+
+            width: 50px;
+            height: 50px;
+
+            border-radius: 10px;
+
+            position: relative
+        }
+
+        .profile-equipment_character > .profile-equipment > li > img,
+        .profile-equipment_character > .profile-accessories > li > img {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        /*----------------------------------------------*/
+        .profile-character {
+            /*background-color: #0080ff;*/
+
+            width: 60%;
+            height: 105%;
+
+            margin: -40px auto;
+
+            position: relative;
+        }
+
+        .profile-character > .profile-character-name_into {
+            background-color: #15181d;
+            color: white;
+
+            width: 100%;
+            height: 15%;
+
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .profile-character-set_info {
+            background-color: rgb(21, 24, 29);
+
+            color: white;
+
+            margin-top: 25px;
+            border-radius: 20px;
+            height: 75%;
+
+
+        }
+
+        .character-stats {
+            background-color: #15181e;
+            width: 100%;
+            height: 100%;
+
+            border-radius: 20px;
+
+        }
+
+        .character {
+            background-color: black;
+
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ability-basic {
+            margin-left: 50px;
+            background-color: black;
+
+            width: 300px;
+            border: 1px solid white;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ability-power {
+            /*background-color: green;*/
+            width: 250px;
+            height: 50px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .ability-power > div {
+            margin-right: 40px;
+        }
+
+        .ability-life {
+
+            /*background-color: red;*/
+            width: 250px;
+            height: 50px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .ability-life > div {
+            margin-right: 15px;
+        }
+
+
+        .stats-basic {
+            text-align: center;
+
+            background-color: black;
+
+            width: 300px;
+            border: 1px solid white;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .stats-Critical {
+            /*background-color: red;*/
+            width: 250px;
+            height: 50px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .stats-Critical > div {
+            margin-right: 40px;
+        }
+
+        .stats-Specialization {
+            /*background-color: green;*/
+            width: 250px;
+            height: 50px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .stats-Specialization > div {
+            margin-right: 40px;
+        }
+
+        .stats-Domination {
+            /*background-color: red;*/
+            width: 250px;
+            height: 50px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .stats-Domination > div {
+            margin-right: 40px;
+        }
+
+        .stats-Swiftness {
+            /*background-color: green;*/
+            width: 250px;
+            height: 50px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .stats-Swiftness > div {
+            margin-right: 40px;
+        }
+
+        .stats-Endurance {
+            /*background-color: red;*/
+            width: 250px;
+            height: 50px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .stats-Endurance > div {
+            margin-right: 40px;
+        }
+
+        .stats-Expertise {
+            /*background-color: green;*/
+            width: 250px;
+            height: 50px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .stats-Expertise > div {
+            margin-right: 40px;
+        }
+
+        .main-engrave {
+            margin-left: 50px;
+
+            background-color: black;
+
+            width: 600px;
+            border: 1px solid white;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .side-engrave {
+            width: 600px;
+            height: 100px;
+
+            /*background-color: white;*/
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .engrave1-1 {
+            /*background-color: #9C1A1C;*/
+
+            width: 250px;
+            height: 50px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .tendency {
+
+            position: static;
+
+            background-color: black;
+            width: 300px;
+
+            border: 1px solid white;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .stats-basic-tendency {
+            width: 600px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            margin-left: 50px;
+        }
+
+        .tendency-intellect {
+            width: 250px;
+            height: 75px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .tendency-courage {
+            width: 250px;
+            height: 75px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .tendency-Charm {
+            width: 250px;
+            height: 75px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .tendency-kindness {
+
+            width: 250px;
+            height: 75px;
+
+            text-combine: 10px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .tendency-intellect > div {
+            margin-right: 40px;
+        }
+
+        .tendency-courage > div {
+            margin-right: 40px;
+        }
+
+        .tendency-Charm > div {
+            margin-right: 40px;
+        }
+
+        .tendency-kindness > div {
+            margin-right: 40px;
+        }
+
+        .Main-Information {
+            background-size: cover;
+            background-image: url("https://dcimg5.dcinside.com/dccon.php?no=62b5df2be09d3ca567b1c5bc12d46b394aa3b1058c6e4d0ca41648b651ee246e2c82dc4e007f2e8ca8018dfbfcd90cadfc08e31b8ca4fa9f46c840c0137db4f7f2c24ce43547611c3958");
+            background-position: center;
+
+            width: 500px;
+            height: 600px;
+
+            font-size: 20px;
+
+            position: absolute;
+            left: 700px;
+            top: 400px;
+        }
+
+
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+<!--페이지 전체(background) 페이지-->
+<div class="middle">
+    <!--내용-->
+    <main id="contents">
+
+        <!--정보 박스-->
+        <div class="profile-ingame">
+            <div class="profile-equipment_character">
+                <!--장비-->
+                <ul class="profile-equipment">
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_227.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_228.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_229.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_230.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_231.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_232.png"></li>
+                </ul>
+
+                <!--장신구-->
+                <ul class="profile-accessories">
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_204.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_113.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_104.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_11.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_11.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_304.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Ability/Ability_257.png"></li>
+                </ul>
+            </div>
+
+
+            <!--캐릭터 정보 컨테이너-->
+            <div class="profile-character">
+                <!--캐릭터 검색-->
+                <div class="profile-search">
+                    <nav class="navbar navbar-dark bg-dark">
+                        <div class="nav-tabs">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">장비</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">카드</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">보석</a>
+                                </li>
+
+                                <li class="search-item" style="margin-left: 400px">
+                                    <div class="container-fluid">
+                                        <form class="d-flex" role="search">
+                                            <input class="form-control me-2" type="search" placeholder="검색"
+                                                   aria-label="Search">
+                                            <button class="btn btn-outline-success" type="submit">🔍</button>
+                                        </form>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="profile-character-name_into">
+                    <h1>캐릭터명</h1>
+                </div>
+
+                <div class="profile-character-set_info">
+                    <div class="character-stats">
+                        <h1 class="character">캐릭터 정보</h1>
+                        <!--기본특성html-->
+                        <div class="ability-basic">
+                            <h4>기본특성</h4>
+                            <div class="ability-power">
+                                <div style="color:gold">공격력</div>
+                                <div>57583</div>
+                            </div>
+                            <div class="ability-life">
+                                <div style="color:gold">최대생명력</div>
+                                <div>175804</div>
+                            </div>
+                        </div>
+                        <!-- 전투특성+성향-->
+                        <div class="stats-basic-tendency">
+                            <!--성향html-->
+                            <div class="tendency">
+                                <h4>성향</h4>
+                                <div class="tendency-intellect">
+                                    <div style="color: gold">지성</div>
+                                    <div>15</div>
+                                </div>
+                                <div class="tendency-courage">
+                                    <div style="color: gold">담력</div>
+                                    <div>15</div>
+                                </div>
+                                <div class="tendency-Charm">
+                                    <div style="color: gold">매력</div>
+                                    <div>15</div>
+                                </div>
+                                <div class="tendency-kindness">
+                                    <div style="color: gold">친절</div>
+                                    <div>15</div>
+                                </div>
+
+                                <!--전투특성-->
+                            </div>
+                            <div class="stats-basic">
+                                <h4>전투특성</h4>
+
+                                <div>
+                                    <div class="stats-Critical">
+                                        <div style="color: gold">치명</div>
+                                        <div>351</div>
+                                    </div>
+
+                                    <div class="stats-Specialization">
+                                        <div style="color: gold">특화</div>
+                                        <div>1428</div>
+                                    </div>
+
+                                    <div class="stats-Domination">
+                                        <div style="color: gold">제압</div>
+                                        <div>62</div>
+                                    </div>
+
+                                    <div class="stats-Swiftness">
+                                        <div style="color: gold">신속</div>
+                                        <div>550</div>
+                                    </div>
+
+                                    <div class="stats-Endurance">
+                                        <div style="color: gold">인내</div>
+                                        <div>62</div>
+                                    </div>
+
+                                    <div class="stats-Expertise">
+                                        <div style="color: gold">숙련</div>
+                                        <div>62</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="main-engrave">
+                            <h4>각인 효과</h4>
+                            <div class="side-engrave">
+                                <div class="engrave1-1" style="color: gold">원한 lv. 3</div>
+                                <div class="engrave1-1" style="color: gold">강화 무기 lv. 3</div>
+                                <div class="engrave1-1" style="color: gold">예리한 둔기 lv. 3</div>
+                            </div>
+                            <div class="side-engrave">
+                                <div class="engrave1-1" style="color: gold">저주받은 인형 lv. 3</div>
+                                <div class="engrave1-1" style="color: gold">기습의 대가 lv. 3</div>
+                                <div class="engrave1-1" style="color: gold">아드레날린 lv. 1</div>
+                            </div>
+                        </div>
+                        <div class="Main-Information">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</main>
+</div>
+</body>
+</html>
