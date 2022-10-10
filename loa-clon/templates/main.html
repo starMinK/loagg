@@ -49,16 +49,27 @@
             position: relative;
         }
         /*----------------------------------------------*/
-        .profile-search > .navbar{
+        .profile-search{
+            /*background: #15181d;*/
+            background: grey;
+            color: white;
+
             display: flex;
             flex-direction: row;
-            justify-content : center;
-            align-items: end;
+            align-items: center;
 
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
 
             margin-top: -15px;
+        }
+
+        .search{
+            background: #537081;
+
+            width: 50%;
+            display: flex;
+            justify-content: end;
         }
 
         /*----------------------------------------------*/
@@ -285,7 +296,6 @@
 
         .slot00 > li, .slot01 > li, .slot02 > li, .slot03 > li,.slot04 > li, .slot05 > li, .slot06 > li,
         .slot07 > li, .slot08 > li, .slot09 > li, .slot10 > li{
-            background: linear-gradient(135deg,#341a09,#a24006);
             height: 70px;
             width: 70px;
 
@@ -316,13 +326,19 @@
     </style>
 
     <script>
+        let target = ['.slot00 > li','.slot01 > li', '.slot02 > li', '.slot03 > li',
+            '.slot04 > li', '.slot05 > li', '.slot06 > li','.slot07 > li', '.slot08 > li',
+            '.slot09 > li', '.slot10 > li']
+
         $(document).ready(function () {
             load_jewel();
-            // jewel_backgruond_color();
+            jewel_backgruond_color();
         });
 
         let gem_img = [];
         let gem_lv = [];
+
+
 
         function load_jewel() {
             $.ajax({
@@ -366,7 +382,7 @@
                         temp_html00to03 = `
                                            <ul class="slot00-01">
                                                <div class="slot00">
-                                                   <li> <img src=${gem_img[0]}></li>
+                                                   <li id="jem00"> <img src=${gem_img[0]}></li>
                                                    <span>${gem_lv[0]}</span>
                                                </div>
                                                <div class="slot01">
@@ -435,25 +451,38 @@
                     $('.jewel-list00to03').append(temp_html00to03);
                     $('.jewel-list04to06').append(temp_html04to06);
                     $('.jewel-list07to10').append(temp_html07to10);
+
+                    for(let i = 0; i < gem_lv.length; i++){
+                        // if(gem_lv[i] == 'Lv.7')
+                        // $(target[i]).css({'background': 'linear-gradient(135deg,#3c2201,#a86200)'});
+                        switch (gem_lv[i]) {
+                            case 'Lv.10':
+                                $(target[i]).css({'background': 'linear-gradient(135deg,#3b1303,#a23405)'});
+                                break;
+                            case 'Lv.9':
+                            case 'Lv.8':
+                            case 'Lv.7':
+                                $(target[i]).css({'background': 'linear-gradient(135deg,#3c2201,#a86200)'});
+                                break;
+                            case 'Lv.6':
+                            case 'Lv.5':
+                                $(target[i]).css({'background': 'linear-gradient(135deg,#27013d,#6e00aa)'});
+                                break;
+                            case 'Lv.4':
+                            case 'Lv.3':
+                                $(target[i]).css({'background': 'linear-gradient(135deg,#111d29,#103550)'});
+                                break;
+                            case 'Lv.2':
+                            case 'Lv.1':
+                                $(target[i]).css({'background': 'linear-gradient(135deg,#1a230e,#374e18)'});
+                                break;
+
+                        }
+                    }
+
                 }
             });
         }
-
-        // function jewel_backgruond_color() {
-        //     for (let num = 0; num <= 10; num++) {
-        //         num = ('00' + num).slice(-2);
-        //             if(gem_lv[num] == 10){
-        //                 $(`.slot${num} > li`).css({
-        //                     "background": "linear-gradient(135deg,#341a09,#a24006)";
-        //                 })
-        //             }
-        //             else if(7 <= gem_lv[num] && gem_lv[num] <= 9){
-        //                 $(`.slot${num} > li`).css({
-        //                     "background": "linear-gradient(135deg,#341a09,#a24006)"
-        //                 })
-        //             }
-        //     }
-        // }
     </script>
 </head>
 <body>
@@ -492,31 +521,16 @@
                     <div class="profile-character">
                         <!--캐릭터 검색-->
                         <div class="profile-search">
-                            <nav class="navbar navbar-dark bg-dark">
-                                <div class="nav-tabs">
-                                    <ul class="nav nav-tabs">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#">장비</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">카드</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">보석</a>
-                                        </li>
+                            <div class="nav">
+                                <li>장비</li>
+                                <li>카드</li>
+                                <li>보석</li>
+                            </div>
 
-                                        <li class="search-item" style="margin-left: 400px">
-                                            <div class="container-fluid">
-                                                <form class="d-flex" role="search">
-                                                    <input class="form-control me-2" type="search" placeholder="검색"
-                                                           aria-label="Search">
-                                                    <button class="btn btn-outline-success" type="submit">🔍</button>
-                                                </form>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </nav>
+                            <div class="search">
+                                <input class="search-input" type="text"/>
+                                 <input class="mybtn" type="submit" value="검색"/>
+                            </div>
                         </div>
                         <div class="profile-character-name_into">
                             <h1>캐릭터명</h1>

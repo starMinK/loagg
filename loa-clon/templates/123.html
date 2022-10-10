@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <style>
+      .box{
+          background: #dcc999;
+          width: 50px;
+          height: 50px;
+      }
+      font-family: Noto Sans KR,Malgun Gothic,Apple SD Gothic NEO,gulim,dotum,sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    word-break: keep-all;
+    word-wrap: break-word;
+    color: #555;
+    text-align: center;
+    cursor: pointer;
+    width: 54px;
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg,#27013d,#6e00aa);
+  </style>
+
+    <script>
+        let target = ['.box > li']
+          $(document).ready(function () {
+              test();
+          })
+
+        function test(){
+             $(target[0]).css({'background': 'linear-gradient(135deg,#3c2201,#a86200)'});
+        }
+
+
+    </script>
+</head>
+<body>
+<div class="box">
+    <li>hello</li>
+</div>
+    <input class="myinput" type="text"/>
+    <input class="mybtn" type="submit" value="확인"/>
+</body>
+</html>
