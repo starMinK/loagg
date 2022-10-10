@@ -191,12 +191,17 @@
             align-items: center;
         }
 
-        .equip {
-            display: flex;
-        }
+        .cards{
+            height: 75%;
+            width: 100%;
 
-        .card {
+            margin-top: 25px;
+            border-radius: 20px;
+
             display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         /*Jewel - gyumin*/
@@ -335,8 +340,6 @@
             border-bottom-right-radius: 20px;
         }
 
-
-        /*card*/
         .card-1 {
             text-align: center;
             color: #c17502;
@@ -459,13 +462,13 @@
 
     <script>
         function jewelDisplayOn() {
-            $('.card').hide();
+            $('.cards').hide();
             $('.equip').hide();
             $('.jewel').show();
         }
 
         function equipDisplayOn() {
-            $('.card').hide();
+            $('.cards').hide();
             $('.jewel').hide();
             $('.equip').show();
         }
@@ -473,7 +476,7 @@
         function cardDisplayOn() {
             $('.jewel').hide();
             $('.equip').hide();
-            $('.card').show();
+            $('.cards').show();
         }
 
         let target = ['.slot00 > li', '.slot01 > li', '.slot02 > li', '.slot03 > li',
@@ -481,7 +484,7 @@
             '.slot09 > li', '.slot10 > li']
 
         $(document).ready(function () {
-            $('.card').hide();
+            $('.cards').hide();
             $('.jewel').hide();
             load_jewel();
         });
@@ -527,7 +530,6 @@
                     let temp_html00to03 = ``;
                     let temp_html04to06 = ``;
                     let temp_html07to10 = ``;
-
 
                     temp_html00to03 = `
                                            <ul class="slot00-01">
@@ -701,7 +703,11 @@
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="equip">
+
+                    </div>
+
+                    <div class="cards">
                         <div class="card-1">
                             <div class="cardimg-1">
                                 <img width="110px"
@@ -867,10 +873,6 @@
                             </div>
 
                         </div>
-                    </div>
-
-                    <div class="equip">
-                        equip
                     </div>
                 </div>
             </div>
