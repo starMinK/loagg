@@ -14,7 +14,7 @@
 
     <style>
         /*Main - team*/
-        body{
+        body {
             width: 100%;
             height: 100%;
             background-image: url("https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FV4B77%2FbtrNb3Qwckz%2F2fr6zfuczRI49ppRi9iO6k%2Fimg.jpg");
@@ -24,7 +24,7 @@
             overflow: hidden;
         }
 
-        .middle{
+        .middle {
             background-color: rgb(37, 41, 49);
 
             /*background-image: url("https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FV4B77%2FbtrNb3Qwckz%2F2fr6zfuczRI49ppRi9iO6k%2Fimg.jpg");*/
@@ -41,15 +41,16 @@
             align-items: center;
         }
 
-        #contents{
+        #contents {
             /*background-color: red;*/
             width: 100%;
             height: 80%;
 
             position: relative;
         }
+
         /*----------------------------------------------*/
-        .profile-search{
+        .profile-search {
             /*background: #15181d;*/
             background: grey;
             color: white;
@@ -64,7 +65,7 @@
             margin-top: -15px;
         }
 
-        .search{
+        .search {
             background: #537081;
 
             width: 50%;
@@ -73,7 +74,7 @@
         }
 
         /*----------------------------------------------*/
-        .profile-ingame{
+        .profile-ingame {
             /*background-color: #9b54f6;*/
             width: 100%;
             height: 100%;
@@ -82,7 +83,7 @@
             flex-direction: row;
         }
 
-        .profile-equipment_character{
+        .profile-equipment_character {
             background-image: url("https://img.lostark.co.kr/profile/2/10C4B4E078C5002A4BE8679DDD859D86BF535CB746D340F96E47F65481F069FD.PNG");
             background-size: cover;
             background-repeat: no-repeat;
@@ -101,8 +102,8 @@
             border-radius: 20px;
         }
 
-        .profile-equipment_character > .profile-equipment{
-            list-style:none;
+        .profile-equipment_character > .profile-equipment {
+            list-style: none;
 
             display: flex;
             flex-direction: column;
@@ -110,8 +111,8 @@
             align-items: end;
         }
 
-        .profile-equipment_character > .profile-accessories{
-            list-style:none;
+        .profile-equipment_character > .profile-accessories {
+            list-style: none;
 
             display: flex;
             flex-direction: column;
@@ -121,8 +122,8 @@
         }
 
         .profile-equipment_character > .profile-equipment > li,
-        .profile-equipment_character > .profile-accessories > li{
-            background: linear-gradient(135deg,#3d3325,#dcc999);
+        .profile-equipment_character > .profile-accessories > li {
+            background: linear-gradient(135deg, #3d3325, #dcc999);
 
             margin-top: 30px;
 
@@ -135,7 +136,7 @@
         }
 
         .profile-equipment_character > .profile-equipment > li > img,
-        .profile-equipment_character > .profile-accessories > li > img{
+        .profile-equipment_character > .profile-accessories > li > img {
             position: absolute;
             top: 0;
             left: 0;
@@ -145,8 +146,9 @@
 
             object-fit: cover;
         }
+
         /*----------------------------------------------*/
-        .profile-character{
+        .profile-character {
 
             width: 60%;
             height: 105%;
@@ -156,7 +158,7 @@
             position: relative;
         }
 
-        .profile-character > .profile-character-name_into{
+        .profile-character > .profile-character-name_into {
             background-color: #15181d;
             color: white;
 
@@ -173,9 +175,8 @@
 
         }
 
-        .profile-character-set_info{
-            background-image: url("https://cutewallpaper.org/21/dark-blue-wallpaper-1920x1080/Download-1920x1080-Blue-Background,-Dark,-Texture-Wallpapers-.jpeg");
-            background-size: cover;
+        .profile-character-set_info {
+            background-color: rgb(21, 24, 29);
 
             height: 75%;
             width: 100%;
@@ -190,16 +191,16 @@
             align-items: center;
         }
 
-        .equip{
+        .equip {
             display: flex;
         }
 
-        .card{
+        .card {
             display: flex;
         }
 
         /*Jewel - gyumin*/
-        .jewel{
+        .jewel {
             height: 100%;
             width: 100%;
 
@@ -208,7 +209,10 @@
             justify-content: center;
             align-items: center;
         }
-        .jewel-info{
+
+        .jewel-info {
+            background-image: url("https://cutewallpaper.org/21/dark-blue-wallpaper-1920x1080/Download-1920x1080-Blue-Background,-Dark,-Texture-Wallpapers-.jpeg");
+            background-size: cover;
 
             height: 100%;
             width: 70%;
@@ -222,7 +226,7 @@
             align-items: center;
         }
 
-        .jewel-list00to03, .jewel-list07to10{
+        .jewel-list00to03, .jewel-list07to10 {
             width: 100%;
             height: 20%;
 
@@ -232,7 +236,7 @@
             align-items: center;
         }
 
-        .jewel-list04to06{
+        .jewel-list04to06 {
 
             width: 100%;
             height: 20%;
@@ -243,47 +247,47 @@
             align-items: center;
         }
 
-        .jewel-list00to03 > ul{
+        .jewel-list00to03 > ul {
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
 
-            list-style:none;
+            list-style: none;
 
             margin-right: 30px;
         }
 
-        .slot00-01, .slot02-03, .slot07-08, .slot09-10{
+        .slot00-01, .slot02-03, .slot07-08, .slot09-10 {
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
 
-            list-style:none;
+            list-style: none;
 
             margin-right: 30px;
         }
 
-        .slot04-06{
+        .slot04-06 {
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
 
-            list-style:none;
+            list-style: none;
 
             margin-right: 20px;
         }
 
-        .slot00, .slot03, .slot05, .slot07, .slot10{
+        .slot00, .slot03, .slot05, .slot07, .slot10 {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
 
-        .slot01, .slot06, .slot08{
+        .slot01, .slot06, .slot08 {
             margin-left: 50px;
 
             display: flex;
@@ -292,7 +296,7 @@
             align-items: center;
         }
 
-        .slot02, .slot04, .slot09{
+        .slot02, .slot04, .slot09 {
             margin-right: 50px;
 
             display: flex;
@@ -301,8 +305,8 @@
             align-items: center;
         }
 
-        .slot00 > li, .slot01 > li, .slot02 > li, .slot03 > li,.slot04 > li, .slot05 > li, .slot06 > li,
-        .slot07 > li, .slot08 > li, .slot09 > li, .slot10 > li{
+        .slot00 > li, .slot01 > li, .slot02 > li, .slot03 > li, .slot04 > li, .slot05 > li, .slot06 > li,
+        .slot07 > li, .slot08 > li, .slot09 > li, .slot10 > li {
             height: 70px;
             width: 70px;
 
@@ -317,12 +321,12 @@
 
         .slot00 > li > img, .slot01 > li > img, .slot02 > li > img, .slot03 > li > img, .slot04 > li > img,
         .slot05 > li > img, .slot06 > li > img, .slot07 > li > img, .slot08 > li > img, .slot09 > li > img,
-        .slot10 > li > img{
+        .slot10 > li > img {
             height: 50px;
             width: 50px;
         }
 
-        .jewel-skill{
+        .jewel-skill {
             height: 100%;
             width: 30%;
             background-color: rgb(21, 24, 29);
@@ -330,29 +334,150 @@
             border-top-right-radius: 20px;
             border-bottom-right-radius: 20px;
         }
+
+
+        /*card*/
+        .card-1 {
+            text-align: center;
+            color: #c17502;
+            position: absolute;
+            top: 210px;
+            left: 10px;
+        }
+
+        .cardimg-1 {
+            border: 2px solid #c17502;
+            border-radius: 4px;
+        }
+
+        .card-2 {
+            text-align: center;
+            color: #c17502;
+            position: absolute;
+            top: 210px;
+            left: 130px;
+        }
+
+        .cardimg-2 {
+            border: 2px solid #c17502;
+            border-radius: 4px;
+        }
+
+        .card-3 {
+            text-align: center;
+            color: #c17502;
+            position: absolute;
+            top: 210px;
+            left: 250px;
+        }
+
+        .cardimg-3 {
+            border: 2px solid #c17502;
+            border-radius: 4px;
+        }
+
+        .card-4 {
+            text-align: center;
+            color: #c17502;
+            position: absolute;
+            top: 210px;
+            left: 370px;
+        }
+
+        .cardimg-4 {
+            border: 2px solid #c17502;
+            border-radius: 4px;
+        }
+
+        .card-5 {
+            text-align: center;
+            color: #c17502;
+            position: absolute;
+            top: 210px;
+            left: 490px;
+        }
+
+        .cardimg-5 {
+            border: 2px solid #c17502;
+            border-radius: 4px;
+        }
+
+        .card-6 {
+            text-align: center;
+            color: #c17502;
+            position: absolute;
+            top: 210px;
+            left: 610px;
+        }
+
+        .cardimg-6 {
+            border: 2px solid #c17502;
+            border-radius: 4px;
+        }
+
+        .card-awake {
+            width: 20px;
+            position: absolute;
+            left: 7px;
+            bottom: 0;
+            padding-bottom: 30px;
+            display: flex;
+            margin: 0 auto;
+        }
+
+        .awake > img {
+
+            height: 80%;
+        }
+
+        .awake {
+            max-width: 100%;
+        }
+
+        .card-active {
+            background-color: #212529;
+            width: 90%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .cardinfo {
+            /*background-color: red;*/
+            width: 70%;
+            height: 190px;
+            position: absolute;
+            top: 450px;
+            left: 85px;
+        }
+
+        .cardinfo-font {
+            margin: 6px;
+        }
     </style>
 
     <script>
-        function jewelDisplayOn(){
+        function jewelDisplayOn() {
             $('.card').hide();
             $('.equip').hide();
             $('.jewel').show();
         }
 
-        function equipDisplayOn(){
+        function equipDisplayOn() {
             $('.card').hide();
             $('.jewel').hide();
             $('.equip').show();
         }
 
-        function cardDisplayOn(){
+        function cardDisplayOn() {
             $('.jewel').hide();
             $('.equip').hide();
             $('.card').show();
         }
 
-        let target = ['.slot00 > li','.slot01 > li', '.slot02 > li', '.slot03 > li',
-            '.slot04 > li', '.slot05 > li', '.slot06 > li','.slot07 > li', '.slot08 > li',
+        let target = ['.slot00 > li', '.slot01 > li', '.slot02 > li', '.slot03 > li',
+            '.slot04 > li', '.slot05 > li', '.slot06 > li', '.slot07 > li', '.slot08 > li',
             '.slot09 > li', '.slot10 > li']
 
         $(document).ready(function () {
@@ -363,7 +488,6 @@
 
         let gem_img = [];
         let gem_lv = [];
-
 
 
         function load_jewel() {
@@ -405,7 +529,7 @@
                     let temp_html07to10 = ``;
 
 
-                        temp_html00to03 = `
+                    temp_html00to03 = `
                                            <ul class="slot00-01">
                                                <div class="slot00">
                                                    <li id="jem00"> <img src=${gem_img[0]}></li>
@@ -428,7 +552,7 @@
                                            </ul>
                                            `
 
-                        temp_html04to06 = `
+                    temp_html04to06 = `
                                            <ul class="slot04-06">
                                                 <div class="slot04">
                                                      <li> <img src=${gem_img[4]}> </li>
@@ -447,7 +571,7 @@
                                            </ul>
                                           `
 
-                        temp_html07to10 = `
+                    temp_html07to10 = `
                                            <ul class="slot07-08">
                                                 <div class="slot07">
                                                     <li> <img src=${gem_img[7]}> </li>
@@ -478,7 +602,7 @@
                     $('.jewel-list04to06').append(temp_html04to06);
                     $('.jewel-list07to10').append(temp_html07to10);
 
-                    for(let i = 0; i < gem_lv.length; i++){
+                    for (let i = 0; i < gem_lv.length; i++) {
                         // if(gem_lv[i] == 'Lv.7')
                         // $(target[i]).css({'background': 'linear-gradient(135deg,#3c2201,#a86200)'});
                         switch (gem_lv[i]) {
@@ -512,82 +636,246 @@
     </script>
 </head>
 <body>
-    <!--페이지 전체(background) 페이지-->
-    <div class="middle">
-            <!--내용-->
-            <main id="contents">
+<!--페이지 전체(background) 페이지-->
+<div class="middle">
+    <!--내용-->
+    <main id="contents">
 
-                <!--정보 박스-->
-                <div class="profile-ingame">
-                    <div class="profile-equipment_character">
-                        <!--장비-->
-                            <ul class="profile-equipment">
-                                <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_227.png"></li>
-                                <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_228.png"></li>
-                                <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_229.png"></li>
-                                <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_230.png"></li>
-                                <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_231.png"></li>
-                                <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_232.png"></li>
-                            </ul>
+        <!--정보 박스-->
+        <div class="profile-ingame">
+            <div class="profile-equipment_character">
+                <!--장비-->
+                <ul class="profile-equipment">
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_227.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_228.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_229.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_230.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_231.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_232.png"></li>
+                </ul>
 
-                            <!--장신구-->
-                            <ul class="profile-accessories">
-                                <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_204.png"></li>
-                                <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_113.png"></li>
-                                <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_104.png"></li>
-                                <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_11.png"></li>
-                                <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_11.png"></li>
-                                <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_304.png"></li>
-                                <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Ability/Ability_257.png"></li>
-                            </ul>
+                <!--장신구-->
+                <ul class="profile-accessories">
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_204.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_113.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_104.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_11.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_11.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_304.png"></li>
+                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Ability/Ability_257.png"></li>
+                </ul>
+            </div>
+
+
+            <!--캐릭터 정보 컨테이너-->
+            <div class="profile-character">
+                <!--캐릭터 검색-->
+                <div class="profile-search">
+                    <div class="nav">
+                        <li onclick="equipDisplayOn()">장비</li>
+                        <li onclick="cardDisplayOn()">카드</li>
+                        <li onclick="jewelDisplayOn()">보석</li>
                     </div>
 
-
-                    <!--캐릭터 정보 컨테이너-->
-                    <div class="profile-character">
-                        <!--캐릭터 검색-->
-                        <div class="profile-search">
-                            <div class="nav">
-                                <li onclick="equipDisplayOn()">장비</li>
-                                <li onclick="cardDisplayOn()">카드</li>
-                                <li onclick="jewelDisplayOn()">보석</li>
-                            </div>
-
-                            <div class="search">
-                                <input class="search-input" type="text"/>
-                                 <input class="mybtn" type="submit" value="검색"/>
-                            </div>
-                        </div>
-                        <div class="profile-character-name_into">
-                            <h1>캐릭터명</h1>
-                        </div>
-
-                        <div class="profile-character-set_info">
-                            <div class="jewel">
-                                <div class="jewel-info">
-                                    <div class="jewel-list00to03">
-                                    </div>
-                                    <div class="jewel-list04to06">
-                                    </div>
-                                    <div class="jewel-list07to10">
-                                    </div>
-                                </div>
-                                <div class="jewel-skill">
-
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                card
-                            </div>
-
-                            <div class="equip">
-                                equip
-                            </div>
-                        </div>
+                    <div class="search">
+                        <input class="search-input" type="text"/>
+                        <input class="mybtn" type="submit" value="검색"/>
                     </div>
                 </div>
-        </main>
-    </div>
+                <div class="profile-character-name_into">
+                    <h1>캐릭터명</h1>
+                </div>
+
+                <div class="profile-character-set_info">
+                    <div class="jewel">
+                        <div class="jewel-info">
+                            <div class="jewel-list00to03">
+                            </div>
+                            <div class="jewel-list04to06">
+                            </div>
+                            <div class="jewel-list07to10">
+                            </div>
+                        </div>
+                        <div class="jewel-skill">
+
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-1">
+                            <div class="cardimg-1">
+                                <img width="110px"
+                                     src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Card_Legend/Card_Legend_00_7.png">
+                                <div class="card-awake">
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div>쿠크세이튼</div>
+                        </div>
+                        <div class="card-2">
+                            <div class="cardimg-2">
+                                <img width="110px"
+                                     src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Card_Legend/Card_Legend_01_5.png">
+                                <div class="card-awake">
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div>아브렐슈드</div>
+                        </div>
+                        <div class="card-3">
+                            <div class="cardimg-3">
+                                <img width="110px"
+                                     src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Card_Legend/Card_Legend_01_4.png">
+                                <div class="card-awake">
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div>카멘</div>
+                        </div>
+                        <div class="card-4">
+                            <div class="cardimg-4">
+                                <img width="110px"
+                                     src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Card_Legend/Card_Legend_01_2.png">
+                                <div class="card-awake">
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div>일리아칸</div>
+                        </div>
+                        <div class="card-5">
+                            <div class="cardimg-5">
+                                <img width="110px"
+                                     src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Card_Legend/Card_Legend_00_2.png">
+                                <div class="card-awake">
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div>발탄</div>
+                        </div>
+                        <div class="card-6">
+                            <div class="cardimg-6">
+                                <img width="110px"
+                                     src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Card_Legend/Card_Legend_01_1.png">
+                                <div class="card-awake">
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                    <div class="awake">
+                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div>비아키스</div>
+                        </div>
+
+                        <div class="card-active">
+                            장착중인 카드 효과
+                        </div>
+                        <div class="cardinfo">
+                            <div class="cardinfo-font">
+                                <span style="color:#35c37b">카제로스의 군단장 2세트</span>
+                                <li>성속성 피해감소 10%</li>
+                            </div>
+
+                            <div class="cardinfo-font">
+                                <span style="color:#35c37b">카제로스의 군단장 4세트</span>
+                                <li>성속성 피해감소 10%</li>
+                            </div>
+
+                            <div class="cardinfo-font">
+                                <span style="color:#35c37b">카제로스의 군단장 6세트</span>
+                                <li>성속성 피해감소 10%</li>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="equip">
+                        equip
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
 </body>
 </html>
