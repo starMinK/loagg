@@ -28,63 +28,80 @@ def save_name():
 
     soup = BeautifulSoup(data.text, 'html.parser')
 
-    gem00_img = soup.select_one("#gem00 > span.jewel_img > img")['src']
-    gem01_img = soup.select_one("#gem01 > span.jewel_img > img")['src']
-    gem02_img = soup.select_one("#gem02 > span.jewel_img > img")['src']
-    gem03_img = soup.select_one("#gem03 > span.jewel_img > img")['src']
-    gem04_img = soup.select_one("#gem04 > span.jewel_img > img")['src']
-    gem05_img = soup.select_one("#gem05 > span.jewel_img > img")['src']
-    gem06_img = soup.select_one("#gem06 > span.jewel_img > img")['src']
-    gem07_img = soup.select_one("#gem07 > span.jewel_img > img")['src']
-    gem08_img = soup.select_one("#gem08 > span.jewel_img > img")['src']
-    gem09_img = soup.select_one("#gem09 > span.jewel_img > img")['src']
-    gem10_img = soup.select_one("#gem10 > span.jewel_img > img")['src']
 
-    gem00_lv = soup.select_one('#gem00 > span.jewel_level').text
-    gem01_lv = soup.select_one('#gem01 > span.jewel_level').text
-    gem02_lv = soup.select_one('#gem02 > span.jewel_level').text
-    gem03_lv = soup.select_one('#gem03 > span.jewel_level').text
-    gem04_lv = soup.select_one('#gem04 > span.jewel_level').text
-    gem05_lv = soup.select_one('#gem05 > span.jewel_level').text
-    gem06_lv = soup.select_one('#gem06 > span.jewel_level').text
-    gem07_lv = soup.select_one('#gem07 > span.jewel_level').text
-    gem08_lv = soup.select_one('#gem08 > span.jewel_level').text
-    gem09_lv = soup.select_one('#gem09 > span.jewel_level').text
-    gem10_lv = soup.select_one('#gem00 > span.jewel_level').text
+    isGemImgExistList = [soup.select_one("#gem00 > span.jewel_img > img"),
+                      soup.select_one("#gem01> span.jewel_img > img"),
+                      soup.select_one("#gem02 > span.jewel_img > img"),
+                      soup.select_one("#gem03 > span.jewel_img > img"),
+                      soup.select_one("#gem04 > span.jewel_img > img"),
+                      soup.select_one("#gem05 > span.jewel_img > img"),
+                      soup.select_one("#gem06 > span.jewel_img > img"),
+                      soup.select_one("#gem07 > span.jewel_img > img"),
+                      soup.select_one("#gem08 > span.jewel_img > img"),
+                      soup.select_one("#gem09 > span.jewel_img > img"),
+                      soup.select_one("#gem10 > span.jewel_img > img")]
+
+    isGemLvExistList = [soup.select_one(f'#gem00 > span.jewel_level'),
+                        soup.select_one(f'#gem01 > span.jewel_level'),
+                        soup.select_one(f'#gem02 > span.jewel_level'),
+                        soup.select_one(f'#gem03 > span.jewel_level'),
+                        soup.select_one(f'#gem04 > span.jewel_level'),
+                        soup.select_one(f'#gem05 > span.jewel_level'),
+                        soup.select_one(f'#gem06 > span.jewel_level'),
+                        soup.select_one(f'#gem07 > span.jewel_level'),
+                        soup.select_one(f'#gem08 > span.jewel_level'),
+                        soup.select_one(f'#gem09 > span.jewel_level'),
+                        soup.select_one(f'#gem10 > span.jewel_level')]
+
+    gemImgList = []
+    gemLvList = []
+
+
+    for a in isGemImgExistList:
+        if a is not None:
+            gemImgList.append(a['src'])
+        else:
+            gemImgList.append('none')
+
+
+    for a in isGemLvExistList:
+        if a is not None:
+            gemLvList.append(a.text)
+        else:
+            gemLvList.append("none")
 
     doc = {
-        #캐릭터명
+        # 캐릭터명
         'name': name,
 
-        #보석 이미지
-        'gem00_img': gem00_img,
-        'gem01_img': gem01_img,
-        'gem02_img': gem02_img,
-        'gem03_img': gem03_img,
-        'gem04_img': gem04_img,
-        'gem05_img': gem05_img,
-        'gem06_img': gem06_img,
-        'gem07_img': gem07_img,
-        'gem08_img': gem08_img,
-        'gem09_img': gem09_img,
-        'gem10_img': gem10_img,
+        # 보석 이미지
+        'gem00_img': gemImgList[0],
+        'gem01_img': gemImgList[1],
+        'gem02_img': gemImgList[2],
+        'gem03_img': gemImgList[3],
+        'gem04_img': gemImgList[4],
+        'gem05_img': gemImgList[5],
+        'gem06_img': gemImgList[6],
+        'gem07_img': gemImgList[7],
+        'gem08_img': gemImgList[8],
+        'gem09_img': gemImgList[9],
+        'gem10_img': gemImgList[10],
 
-        #보석 레벨
-        'gem00_lv': gem00_lv,
-        'gem01_lv': gem01_lv,
-        'gem02_lv': gem02_lv,
-        'gem03_lv': gem03_lv,
-        'gem04_lv': gem04_lv,
-        'gem05_lv': gem05_lv,
-        'gem06_lv': gem06_lv,
-        'gem07_lv': gem07_lv,
-        'gem08_lv': gem08_lv,
-        'gem09_lv': gem09_lv,
-        'gem10_lv': gem10_lv,
+        # 보석 레벨
+        'gem00_lv': gemLvList[0],
+        'gem01_lv': gemLvList[1],
+        'gem02_lv': gemLvList[2],
+        'gem03_lv': gemLvList[3],
+        'gem04_lv': gemLvList[4],
+        'gem05_lv': gemLvList[5],
+        'gem06_lv': gemLvList[6],
+        'gem07_lv': gemLvList[7],
+        'gem08_lv': gemLvList[8],
+        'gem09_lv': gemLvList[9],
+        'gem10_lv': gemLvList[10],
     }
 
     db.jewel.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True);
-
     return ""
 
 @app.route("/api/jewels", methods=["GET"])
