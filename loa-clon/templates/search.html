@@ -15,7 +15,11 @@
                 url: "/api/names",
                 data: {name_give: name},
                 success: function (response) {
-                    window.location.href='main'
+                    if(response['msg'] == "suc"){
+                        window.location.href='main'
+                    }else{
+                        alert(response['msg'])
+                    }
                 }
             });
         }
@@ -67,7 +71,7 @@
 
 <body>
     <div class="mysearch">
-           <input class="myinput" type="text"/>
+           <input class="myinput" type="text" maxlength="12"/>
            <input class="mybtn" type="submit" value="확인" onclick="save_name()"/>
     </div>
 </body>

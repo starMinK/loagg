@@ -22,6 +22,8 @@
             background-repeat: no-repeat;
             /*background-color: #15181d;*/
             overflow: hidden;
+
+            user-select : none;
         }
 
         .middle {
@@ -49,7 +51,7 @@
             position: relative;
         }
 
-        /*----------------------------------------------*/
+        /*************************nav*************************/
         .profile-search {
             background: #1d2026;
             width: 100%;
@@ -100,11 +102,6 @@
             justify-content: center;
         }
 
-        .search-input:visited {
-            border: solid 2px #cc0000;
-            color: red;
-        }
-
         .search-btn{
             background-color: transparent;
             border: solid 1px #a3a6ad;
@@ -132,7 +129,7 @@
 
             display: flex;
             align-items: end;
-            justify-content: center;
+            justify-content: start;
         }
 
         .nav > li::after{
@@ -145,13 +142,13 @@
             content: "";
         }
 
-        .nav > li>a{
-            padding: 0 50px;
+        .nav > li> a{
+            padding: 5px 50px;
 
             /*border: #537081 solid 1px;*/
         }
 
-        /*----------------------------------------------*/
+        /**************************************************/
         .profile-ingame {
             /*background-color: #9b54f6;*/
             width: 100%;
@@ -227,7 +224,6 @@
 
         /*----------------------------------------------*/
         .profile-character {
-
             width: 60%;
             height: 105%;
 
@@ -418,6 +414,8 @@
             border-bottom-right-radius: 20px;
         }
 
+        /***********재하-카드***********/
+
         .card-1 {
             text-align: center;
             color: #c17502;
@@ -507,7 +505,6 @@
         }
 
         .awake > img {
-
             height: 80%;
         }
 
@@ -543,28 +540,35 @@
             $('.cards').hide();
             $('.equip').hide();
             $('.jewel').show();
+
+            $('.nav-jewel').css('font-weight', 'bold');
+            $('.nav-equip').css('font-weight', 'normal');
+            $('.nav-card').css('font-weight', 'normal');
         }
 
         function equipDisplayOn() {
             $('.cards').hide();
             $('.jewel').hide();
             $('.equip').show();
+
+            $('.nav-jewel').css('font-weight', 'normal');
+            $('.nav-equip').css('font-weight', 'bold');
+            $('.nav-card').css('font-weight', 'normal');
         }
 
         function cardDisplayOn() {
             $('.jewel').hide();
             $('.equip').hide();
             $('.cards').show();
+
+            $('.nav-jewel').css('font-weight', 'normal');
+            $('.nav-equip').css('font-weight', 'normal');
+            $('.nav-card').css('font-weight', 'bold');
         }
 
-        let target = ['.slot00 > li', '.slot01 > li', '.slot02 > li', '.slot03 > li',
-            '.slot04 > li', '.slot05 > li', '.slot06 > li', '.slot07 > li', '.slot08 > li',
-            '.slot09 > li', '.slot10 > li']
-
         $(document).ready(function () {
-            $('.cards').hide();
-            $('.jewel').hide();
             load_jewel();
+            equipDisplayOn();
         });
 
         let gem_img = [];
@@ -682,9 +686,11 @@
                     $('.jewel-list04to06').append(temp_html04to06);
                     $('.jewel-list07to10').append(temp_html07to10);
 
+                    let target = ['.slot00 > li', '.slot01 > li', '.slot02 > li', '.slot03 > li',
+                                    '.slot04 > li', '.slot05 > li', '.slot06 > li', '.slot07 > li', '.slot08 > li',
+                                    '.slot09 > li', '.slot10 > li']
+
                     for (let i = 0; i < gem_lv.length; i++) {
-                        // if(gem_lv[i] == 'Lv.7')
-                        // $(target[i]).css({'background': 'linear-gradient(135deg,#3c2201,#a86200)'});
                         switch (gem_lv[i]) {
                             case 'Lv.10':
                                 $(target[i]).css({'background': 'linear-gradient(135deg,#3b1303,#a23405)'});
@@ -710,6 +716,27 @@
                         }
                     }
 
+                }
+            });
+        }
+
+        function search(){
+            $('.search-input').val("")
+        }
+
+        function searchBtn(){
+            let name = $('.search-input').val()
+
+            $.ajax({
+                type: "POST",
+                url: "/api/names",
+                data: {name_give: name},
+                success: function (response) {
+                    if(response['msg'] == "suc"){
+                        window.location.href='main'
+                    }else{
+                        alert(response['msg'])
+                    }
                 }
             });
         }
@@ -752,14 +779,14 @@
                 <!--캐릭터 검색-->
                 <div class="profile-search">
                     <div class="nav">
-                        <li onclick="equipDisplayOn()"><a>장비</a></li>
-                        <li onclick="cardDisplayOn()"><a>카드</a></li>
-                        <li onclick="jewelDisplayOn()"><a>보석</a></li>
+                        <li class="nav-equip" onclick="equipDisplayOn()"><a>장비</a></li>
+                        <li class="nav-card" onclick="cardDisplayOn()"><a>카드</a></li>
+                        <li class="nav-jewel" onclick="jewelDisplayOn()"><a >보석</a></li>
                     </div>
 
                     <div class="search">
-                        <input class="search-input" type="text" value="캐릭터명을 입력해주세요." maxlength="12"/>
-                        <input class="search-btn" type="image" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbeolmw%2FbtrOkdD1u2M%2Fx5Bn2SI1Kh2Ehr7tBS61BK%2Fimg.png"/>
+                        <input class="search-input" type="text" value="캐릭터명을 입력해주세요." maxlength="12" onclick="search()"/>
+                        <input class="search-btn" type="image" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbeolmw%2FbtrOkdD1u2M%2Fx5Bn2SI1Kh2Ehr7tBS61BK%2Fimg.png" onclick="searchBtn()"/>
                     </div>
                 </div>
                 <div class="profile-character-name_into">

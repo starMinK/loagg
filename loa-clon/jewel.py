@@ -101,8 +101,16 @@ def save_name():
         'gem10_lv': gemLvList[10],
     }
 
-    db.jewel.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True);
-    return ""
+    is_exist_name = 11
+    for a in gemImgList:
+        if a is "none":
+            is_exist_name -= 1
+
+    if is_exist_name == 0:
+        return jsonify({'msg': f'{name} 캐릭터 정보가 없습니다.\n캐릭터명을 확인해주세요.'});
+    else:
+        db.jewel.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True);
+        return jsonify({'msg': 'suc'})
 
 @app.route("/api/jewels", methods=["GET"])
 def bucket_get():
