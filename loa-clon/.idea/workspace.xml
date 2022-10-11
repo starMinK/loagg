@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c1c53bf-2f6a-4363-893d-897b8657c1ed" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/dbplan.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conti.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reference-style.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reference.html" beforeDir="false" />
-    </list>
+    <list default="true" id="2c1c53bf-2f6a-4363-893d-897b8657c1ed" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +21,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/wogk9/Desktop/loa/loagg",
     "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
@@ -38,6 +34,7 @@
       <option name="presentableId" value="Default" />
       <updated>1664874757206</updated>
       <workItem from="1664874760634" duration="2000" />
+      <workItem from="1665480884314" duration="41000" />
     </task>
     <servers />
   </component>
