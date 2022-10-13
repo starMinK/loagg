@@ -28,47 +28,57 @@ def save_name():
 
     soup = BeautifulSoup(data.text, 'html.parser')
 
-
-    isGemImgExistList = [soup.select_one("#gem00 > span.jewel_img > img"),
-                      soup.select_one("#gem01> span.jewel_img > img"),
-                      soup.select_one("#gem02 > span.jewel_img > img"),
-                      soup.select_one("#gem03 > span.jewel_img > img"),
-                      soup.select_one("#gem04 > span.jewel_img > img"),
-                      soup.select_one("#gem05 > span.jewel_img > img"),
-                      soup.select_one("#gem06 > span.jewel_img > img"),
-                      soup.select_one("#gem07 > span.jewel_img > img"),
-                      soup.select_one("#gem08 > span.jewel_img > img"),
-                      soup.select_one("#gem09 > span.jewel_img > img"),
-                      soup.select_one("#gem10 > span.jewel_img > img")]
-
-    isGemLvExistList = [soup.select_one(f'#gem00 > span.jewel_level'),
-                        soup.select_one(f'#gem01 > span.jewel_level'),
-                        soup.select_one(f'#gem02 > span.jewel_level'),
-                        soup.select_one(f'#gem03 > span.jewel_level'),
-                        soup.select_one(f'#gem04 > span.jewel_level'),
-                        soup.select_one(f'#gem05 > span.jewel_level'),
-                        soup.select_one(f'#gem06 > span.jewel_level'),
-                        soup.select_one(f'#gem07 > span.jewel_level'),
-                        soup.select_one(f'#gem08 > span.jewel_level'),
-                        soup.select_one(f'#gem09 > span.jewel_level'),
-                        soup.select_one(f'#gem10 > span.jewel_level')]
+    isGemExistList = [soup.select_one('#gem00'),
+                      soup.select_one('#gem01'),
+                      soup.select_one('#gem02'),
+                      soup.select_one('#gem03'),
+                      soup.select_one('#gem04'),
+                      soup.select_one('#gem05'),
+                      soup.select_one('#gem06'),
+                      soup.select_one('#gem07'),
+                      soup.select_one('#gem08'),
+                      soup.select_one('#gem09'),
+                      soup.select_one('#gem10'),]
 
     gemImgList = []
     gemLvList = []
 
+    isSkilExistList = [soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(1)'),
+                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(2)'),
+                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(3)'),
+                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(4)'),
+                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(5)'),
+                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(6)'),
+                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(7)'),
+                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(8)'),
+                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(9)'),
+                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(10)'),
+                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(11)')];
 
-    for a in isGemImgExistList:
+
+
+    global num
+    num = 0
+    numStr = str(num)
+
+    for a in isGemExistList:
         if a is not None:
-            gemImgList.append(a['src'])
+            gemImg = soup.select_one(f'#gem{numStr.zfill(2)} > span.jewel_img > img')
+            print(numStr.zfill(2))
+            print(gemImg['src'])
+            gemImgList.append(gemImg['src']);
+            gemLv = soup.select_one(f'#gem{numStr.zfill(2)} > span.jewel_level')
+            print(gemLv.text)
+            gemLvList.append(gemLv.text);
+            num += 1
         else:
             gemImgList.append('none')
-
-
-    for a in isGemLvExistList:
-        if a is not None:
-            gemLvList.append(a.text)
-        else:
             gemLvList.append("none")
+            num += 1
+
+    # for a in isSkilExistList:
+    #     if a is not None:
+
 
     doc = {
         # 캐릭터명
@@ -101,12 +111,9 @@ def save_name():
         'gem10_lv': gemLvList[10],
     }
 
-    is_exist_name = 11
-    for a in gemImgList:
-        if a is "none":
-            is_exist_name -= 1
+    is_exist_name = soup.select_one('#lostark-wrapper > div > main > div > div.profile-character-info > img')
 
-    if is_exist_name == 0:
+    if is_exist_name is None:
         return jsonify({'msg': f'{name} 캐릭터 정보가 없습니다.\n캐릭터명을 확인해주세요.'});
     else:
         db.jewel.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True);
