@@ -161,13 +161,12 @@
         }
 
         .profile-equipment_character {
-            background-image: url("https://img.lostark.co.kr/profile/2/10C4B4E078C5002A4BE8679DDD859D86BF535CB746D340F96E47F65481F069FD.PNG");
-            background-size: cover;
-            background-repeat: no-repeat;
-            width: 35%;
-            height: 100%;
+            background-color: #15181d;
 
-            margin-left: 30px;
+            width: 35%;
+            height: 98%;
+
+            margin: auto 0 auto 30px;
 
             display: flex;
             flex-direction: row;
@@ -177,51 +176,6 @@
             padding-right: 45px;
 
             border-radius: 20px;
-        }
-
-        .profile-equipment_character > .profile-equipment {
-            list-style: none;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: end;
-        }
-
-        .profile-equipment_character > .profile-accessories {
-            list-style: none;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-        }
-
-        .profile-equipment_character > .profile-equipment > li,
-        .profile-equipment_character > .profile-accessories > li {
-            background: linear-gradient(135deg, #3d3325, #dcc999);
-
-            margin-top: 30px;
-
-            width: 50px;
-            height: 50px;
-
-            border-radius: 10px;
-
-            position: relative
-        }
-
-        .profile-equipment_character > .profile-equipment > li > img,
-        .profile-equipment_character > .profile-accessories > li > img {
-            position: absolute;
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
         }
 
         /*----------------------------------------------*/
@@ -423,7 +377,7 @@
             border-radius: 10px;
             border: #3e4248 2px solid;
 
-            height: 20%;
+            height: 15%;
             width: 100%;
 
             margin: 20px 0;
@@ -637,31 +591,20 @@
                 success: function (response) {
                     let rows = response['jewel']
 
-                    //보석 이미지
-                    gem_img[0] = rows['gem00_img']
-                    gem_img[1] = rows['gem01_img']
-                    gem_img[2] = rows['gem02_img']
-                    gem_img[3] = rows['gem03_img']
-                    gem_img[4] = rows['gem04_img']
-                    gem_img[5] = rows['gem05_img']
-                    gem_img[6] = rows['gem06_img']
-                    gem_img[7] = rows['gem07_img']
-                    gem_img[8] = rows['gem08_img']
-                    gem_img[9] = rows['gem09_img']
-                    gem_img[10] = rows['gem10_img']
+                    for(let i = 0; i < 11; i++){
+                        let zeroFillNum = String(i).padStart(2, '0');
+                        if(rows[`gem${zeroFillNum}_img`] != "none"){
+                            gem_img[i] = rows[`gem${zeroFillNum}_img`]
+                        }else{
+                            gem_img[i] = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbzGJFD%2FbtrOvc61n4N%2F5QWy1JkhlUvfAdNHiII1K1%2Fimg.png"
+                        }
 
-                    //보석 레벨
-                    gem_lv[0] = rows['gem00_lv']
-                    gem_lv[1] = rows['gem01_lv']
-                    gem_lv[2] = rows['gem02_lv']
-                    gem_lv[3] = rows['gem03_lv']
-                    gem_lv[4] = rows['gem04_lv']
-                    gem_lv[5] = rows['gem05_lv']
-                    gem_lv[6] = rows['gem06_lv']
-                    gem_lv[7] = rows['gem07_lv']
-                    gem_lv[8] = rows['gem08_lv']
-                    gem_lv[9] = rows['gem09_lv']
-                    gem_lv[10] = rows['gem10_lv']
+                        if(rows[`gem${zeroFillNum}_lv`] != "none") {
+                            gem_lv[i] = rows[`gem${zeroFillNum}_lv`]
+                        }else{
+                            gem_lv[i] = ""
+                        }
+                    }
 
                     let temp_html00to03 = ``;
                     let temp_html04to06 = ``;
@@ -802,33 +745,14 @@
     <!--내용-->
     <main id="contents">
 
-        <!--정보 박스-->
+        <!--캐릭터 장비 정보 박스 : 종열-->
         <div class="profile-ingame">
             <div class="profile-equipment_character">
-                <!--장비-->
-                <ul class="profile-equipment">
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_227.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_228.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_229.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_230.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_231.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_232.png"></li>
-                </ul>
 
-                <!--장신구-->
-                <ul class="profile-accessories">
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_204.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_113.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_104.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_11.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_11.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_304.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Ability/Ability_257.png"></li>
-                </ul>
             </div>
 
 
-            <!--캐릭터 정보 컨테이너-->
+            <!--캐릭터 정보 컨테이너 : 규민, 덕현, 재하-->
             <div class="profile-character">
                 <!--캐릭터 검색-->
                 <div class="profile-search">
@@ -858,21 +782,12 @@
                             </div>
                         </div>
                         <div class="jewel-skill">
-                            <div class="jewel-skill_00">
+                            <div>
                                 <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Skill/DH_Skill_01_3.png">
                                 <div>
                                     <font color="#33cbfe" size="3">종말의 전조</font>
                                     <p><font color="#FFD200" size="2">종말의 전조</font><font size="2">피해 30.00% 증가</font></p>
                                 </div>
-                            </div>
-                            <div class="jewel-skill_01">
-
-                            </div>
-                            <div class="jewel-skill_02">
-
-                            </div>
-                            <div class="jewel-skill_03">
-
                             </div>
                         </div>
                     </div>

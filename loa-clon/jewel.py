@@ -18,7 +18,7 @@ def main():
 
 #search에서 name 받아오기
 @app.route("/api/names", methods=["POST"])
-def save_name():
+def save_jewels():
     global name
     name = request.form['name_give']
 
@@ -38,7 +38,7 @@ def save_name():
                       soup.select_one('#gem07'),
                       soup.select_one('#gem08'),
                       soup.select_one('#gem09'),
-                      soup.select_one('#gem10'),]
+                      soup.select_one('#gem10')]
 
     gemImgList = []
     gemLvList = []
@@ -57,24 +57,18 @@ def save_name():
 
 
 
-    global num
     num = 0
-    numStr = str(num)
-
     for a in isGemExistList:
+        numStr = str(num)
         if a is not None:
             gemImg = soup.select_one(f'#gem{numStr.zfill(2)} > span.jewel_img > img')
-            print(numStr.zfill(2))
-            print(gemImg['src'])
-            gemImgList.append(gemImg['src']);
+            gemImgList.append(gemImg['src'])
             gemLv = soup.select_one(f'#gem{numStr.zfill(2)} > span.jewel_level')
-            print(gemLv.text)
-            gemLvList.append(gemLv.text);
-            num += 1
+            gemLvList.append(gemLv.text)
         else:
             gemImgList.append('none')
             gemLvList.append("none")
-            num += 1
+        num = num + 1
 
     # for a in isSkilExistList:
     #     if a is not None:
@@ -120,10 +114,36 @@ def save_name():
         return jsonify({'msg': 'suc'})
 
 @app.route("/api/jewels", methods=["GET"])
-def bucket_get():
+def jewels_get():
     jewel_get = db.jewel.find_one({'name':f'{name}'}, {'_id': False})
 
     return jsonify({'jewel': jewel_get})
+
+@app.route("/api/skills", methods=["POST"])
+def save_gem_skills():
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
+    data = requests.get(f'https://lostark.game.onstove.com/Profile/Character/{name}', headers=headers)
+
+    soup = BeautifulSoup(data.text, 'html.parser')
+
+    # gem_name, gem_effect, gem_img, gem_key
+
+    isSkillExistList = [soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(1)'),
+                      soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(2)'),
+                      soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(3)'),
+                      soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(4)'),
+                      soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(5)'),
+                      soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(6)'),
+                      soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(7)'),
+                      soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(8)'),
+                      soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(9)'),
+                      soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(10)'),
+                      soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(11)')]
+
+    # profile-jewel > div > div.jewel-effect__list > div > ul
+    skillList = soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul')
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
