@@ -141,9 +141,22 @@ def save_gem_skills():
                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(10)'),
                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(11)')]
 
-    # profile-jewel > div > div.jewel-effect__list > div > ul
-    skillList = soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul')
+    skillImg = []
+    skillName = []
+    skillEffect = []
 
+    num = 0
+    for a in isSkillExistList:
+        numStr = str(num)
+        if a is not None:
+            gemImg = soup.select_one(f'#gem{numStr.zfill(2)} > span.jewel_img > img')
+            gemImgList.append(gemImg['src'])
+            gemLv = soup.select_one(f'#gem{numStr.zfill(2)} > span.jewel_level')
+            gemLvList.append(gemLv.text)
+        else:
+            gemImgList.append('none')
+            gemLvList.append("none")
+        num = num + 1
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
