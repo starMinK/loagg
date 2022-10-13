@@ -23,6 +23,7 @@
             overflow: hidden;
         }
 
+
         .middle {
             background-color: rgb(37, 41, 49);
 
@@ -213,6 +214,7 @@
             font-size: 20px;
 
 
+
         }
 
         .ability-power > div {
@@ -237,6 +239,7 @@
         .ability-life > div {
             margin-right: 15px;
         }
+        /*어빌리티 끝*/
         .stats-Critical {
             /*background-color: red;*/
             width: 250px;
@@ -406,13 +409,13 @@
             width: 250px;
             height: 75px;
 
-            text-combine: 10px;
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
 
             font-size: 20px;
+
         }
 
         .tendency-courage {
@@ -543,7 +546,186 @@
             border-top-left-radius: 20px;
             border-bottom-left-radius: 20px;
         }
+        .Main-Text {
+            font-size: 25px;
+            margin-top: 5px;
 
+		}
+		.ability-power .tooltip-ability {
+            visibility: hidden;
+
+            width: 520px;
+
+            background-color: black;
+
+            margin-top: 10px;
+
+            color: white;
+
+            text-align: left;
+
+            position: absolute;
+
+            left: 300px;
+
+            z-index: 1;
+		}
+		.ability-power:hover .tooltip-ability { visibility: visible; }
+
+        .ability-life .tooltip-ability {
+            visibility: hidden;
+
+            width: 470px;
+
+            background-color: black;
+
+            margin-top: 10px;
+
+            color: white;
+
+            text-align: left;
+
+            position: absolute;
+
+            left: 600px;
+
+            z-index: 1;
+		}
+        .ability-life:hover .tooltip-ability { visibility: visible; }
+
+        .stats-Critical .tooltip-stats {
+            visibility: hidden;
+
+            width: 500px;
+
+            background-color: black;
+
+            margin-top: 10px;
+
+            color: white;
+
+            text-align: left;
+
+            position: absolute;
+
+            left: 600px;
+
+            z-index: 1;
+		}
+        .stats-Critical:hover .tooltip-stats { visibility: visible; }
+
+        .stats-Specialization .tooltip-stats {
+            visibility: hidden;
+
+            width: 500px;
+
+            background-color: black;
+
+            margin-top: 10px;
+
+            color: white;
+
+            text-align: left;
+
+            position: absolute;
+
+            left: 600px;
+
+            z-index: 1;
+		}
+        .stats-Specialization:hover .tooltip-stats { visibility: visible; }
+
+        .stats-Domination .tooltip-stats {
+            visibility: hidden;
+
+            width: 500px;
+
+            background-color: black;
+
+            margin-top: 10px;
+
+            color: white;
+
+            text-align: left;
+
+            position: absolute;
+
+            left: 600px;
+
+            z-index: 1;
+
+
+		}
+        .stats-Domination:hover .tooltip-stats { visibility: visible; }
+
+        .stats-Swiftness .tooltip-stats {
+            visibility: hidden;
+
+            width: 500px;
+
+            background-color: black;
+
+            margin-top: 10px;
+
+            color: white;
+
+            text-align: left;
+
+            position: absolute;
+
+            left: 600px;
+
+            z-index: 1;
+
+
+		}
+        .stats-Swiftness:hover .tooltip-stats { visibility: visible; }
+
+        .stats-Endurance .tooltip-stats {
+            visibility: hidden;
+
+            width: 500px;
+
+            background-color: black;
+
+            margin-top: 10px;
+
+            color: white;
+
+            text-align: left;
+
+            position: absolute;
+
+            left: 600px;
+
+            z-index: 1;
+
+
+		}
+        .stats-Endurance:hover .tooltip-stats { visibility: visible; }
+
+        .stats-Expertise .tooltip-stats {
+            visibility: hidden;
+
+            width: 500px;
+
+            background-color: black;
+
+            margin-top: 10px;
+
+            color: white;
+
+            text-align: left;
+
+            position: absolute;
+
+            left: 600px;
+
+            z-index: 1;
+
+
+		}
+        .stats-Expertise:hover .tooltip-stats { visibility: visible; }
     </style>
     <script>
 
@@ -620,16 +802,25 @@
                         <h1 class="character">캐릭터 정보</h1>
                         <!--기본특성html-->
                         <div class="ability-basic">
-                            <h4>기본특성</h4>
+                            <div class="Main-Text">기본특성</div>
                             <div class="ability-basic-1">
                             <div class="ability-power">
                                 <div style="color:gold">공격력</div>
                                 <div>57583</div>
-                                <div></div>
+                                <div class="tooltip-ability">
+			                        <li> 적에게 주는 피해를 계산할 때 기준이 되는 값입니다.</li>
+                                    <li> 힘, 민첩, 지능과 무기 공격력을 기반으로 증가한 기본 공격력은 <font color="#99ff99">49773</font>입니다.</li>
+                                    <li> 공격력 증감 효과로 공격력이 <font color="#99ff99">7964</font> 증가되었습니다.</li>
+                                </div>
                             </div>
                             <div class="ability-life">
                                 <div style="color:gold">최대생명력</div>
                                 <div>175804</div>
+                                <div class="tooltip-ability">
+			                        <li> 캐릭터의 최대 생명력을 나타냅니다.</li>
+                                    <li> 체력으로 최대 생명력이 <font color="#99ff99">119056</font> 증가되었습니다.</li>
+                                    <li> 생명 활성력으로 최대 생명력이 <font color="#99ff99">40.82%</font> 증가되었습니다.</li>
+                                </div>
                             </div>
                             </div>
                         </div>
@@ -637,7 +828,7 @@
                         <div class="stats-basic-tendency">
                             <!--성향html-->
                             <div class="tendency">
-                                <h4>성향</h4>
+                                <div class="Main-Text">성향</div>
                                 <div class="tendency-intellect">
                                     <div style="color: gold">지성</div>
                                     <div>15</div>
@@ -658,37 +849,81 @@
                                 <!--전투특성-->
                             </div>
                             <div class="stats-basic">
-                                <h4>전투특성</h4>
+                                <div class="Main-Text">전투특성</div>
 
                                 <div>
                                     <div class="stats-Critical">
                                         <div style="color: gold">치명</div>
                                         <div>351</div>
+                                        <div class="tooltip-stats">
+                                        <li> 치명타 적중률이 <font color="#99ff99">12.56%</font> 증가합니다.</li>
+                                        <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">28</font> 만큼 영구적으로 증가되었습니다.</li>
+                                        <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                        <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                        </div>
                                     </div>
 
                                     <div class="stats-Specialization">
                                         <div style="color: gold">특화</div>
                                         <div>1428</div>
+                                        <div class="tooltip-stats">
+                                        <li> 핸드건 스킬의 치명타 피해량이<font color="#99ff99">153.21%</font> 증가합니다. </li>
+                                        <li> 샷건 스킬의 피해량이<font color="#99ff99">51.07%</font> 증가합니다. </li>
+                                        <li> 라이플 스킬의 물리 / 마법 관통력이<font color="#99ff99">51.07%</font> 증가합니다.</li>
+                                        <li> 각성 스킬의 피해량이 <font color="#99ff99">78.03%</font> 증가합니다.</li>
+                                        <li> 물약 및 원정대 레벨 보상 효과로 <font color="#99ff99">24</font>만큼 영구적으로 증가되었습니다.</li>
+
+                                        </div>
+
                                     </div>
 
                                     <div class="stats-Domination">
                                         <div style="color: gold">제압</div>
                                         <div>62</div>
+                                        <div class="tooltip-stats">
+                                            <li> 피격이상 및 상태이상 대상에게 주는 피해량이 <font color="#99ff99">3.80%</font> 증가합니다.</li>
+                                            <li> 무력화 대상에게 주는 피해량이 <font color="#99ff99"></font> 증가합니다.</li>
+                                            <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">28</font>만큼 영구적으로 증가되었습니다.</li>
+                                            <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                        </div>
                                     </div>
 
                                     <div class="stats-Swiftness">
                                         <div style="color: gold">신속</div>
                                         <div>550</div>
+                                        <div class="tooltip-stats">
+                                            <li> 공격 속도가 <font color="#99ff99">9.44%</font> 증가합니다.</li>
+                                            <li> 이동 속도가 <font color="#99ff99">9.44%</font> 증가합니다.</li>
+                                            <li> 스킬 재사용 대기시간이<font color="#99ff99">11.81%</font>  감소합니다.</li>
+                                            <li> 물약 및 원정대 레벨 보상 효과로 <font color="#99ff99">24</font>만큼 영구적으로 증가되었습니다.</li>
+                                            <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                        </div>
                                     </div>
 
                                     <div class="stats-Endurance">
                                         <div style="color: gold">인내</div>
                                         <div>62</div>
+                                        <div class="tooltip-stats">
+                                            <li> 물리 방어력이 <font color="#99ff99">5.07%</font> 증가합니다.</li>
+                                            <li> 마법 방어력이 <font color="#99ff99">5.07%</font> 증가합니다.</li>
+                                            <li> 보호막 효과가 <font color="#99ff99">1.58%</font> 증가합니다.</li>
+                                            <li> 생명력 회복 효과가 <font color="#99ff99">2.21%</font> 증가합니다.</li>
+                                            <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">28</font>만큼 영구적으로 증가되었습니다. </li>
+                                            <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+
+                                        </div>
                                     </div>
 
                                     <div class="stats-Expertise">
                                         <div style="color: gold">숙련</div>
                                         <div>62</div>
+                                        <div class="tooltip-stats">
+                                            <li> 상태이상 공격 지속시간이<font color="#99ff99">2.66%</font> 증가합니다.</li>
+                                            <li> 상태이상 피해 지속시간이<font color="#99ff99">2.21%</font> 감소합니다.</li>
+                                            <li> 무력화 피해량이 <font color="#99ff99">1.77%</font> 증가합니다.</li>
+                                            <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">28</font>만큼 영구적으로 증가되었습니다.</li>
+                                            <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -696,7 +931,7 @@
                         </div>
 
                         <div class="main-engrave">
-                            <h4>각인 효과</h4>
+                            <div class="Main-Text">각인 효과</div>
                             <div class="side-engrave">
                                 <div class="engrave1-1" style="color: gold">원한 lv. 3</div>
                                 <div class="engrave1-1" style="color: gold">강화 무기 lv. 3</div>
