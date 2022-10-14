@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8e2716b4-9d27-4944-b206-81bf28356738" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loa-clon/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/loa-clon/templates/main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
