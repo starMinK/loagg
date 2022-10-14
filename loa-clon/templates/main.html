@@ -24,6 +24,8 @@
             background-repeat: no-repeat;
             /*background-color: #15181d;*/
             overflow: hidden;
+
+            user-select : none;
         }
 
         .middle {
@@ -51,7 +53,7 @@
             position: relative;
         }
 
-        /*----------------------------------------------*/
+        /*************************nav*************************/
         .profile-search {
             background: #1d2026;
             width: 100%;
@@ -102,11 +104,6 @@
             justify-content: center;
         }
 
-        .search-input:visited {
-            border: solid 2px #cc0000;
-            color: red;
-        }
-
         .search-btn{
             background-color: transparent;
             border: solid 1px #a3a6ad;
@@ -134,7 +131,7 @@
 
             display: flex;
             align-items: end;
-            justify-content: center;
+            justify-content: start;
         }
 
         .nav > li::after{
@@ -147,13 +144,13 @@
             content: "";
         }
 
-        .nav > li>a{
-            padding: 0 50px;
+        .nav > li> a{
+            padding: 5px 50px;
 
             /*border: #537081 solid 1px;*/
         }
 
-        /*----------------------------------------------*/
+        /**************************************************/
         .profile-ingame {
             /*background-color: #9b54f6;*/
             width: 100%;
@@ -164,13 +161,12 @@
         }
 
         .profile-equipment_character {
-            background-image: url("https://img.lostark.co.kr/profile/2/10C4B4E078C5002A4BE8679DDD859D86BF535CB746D340F96E47F65481F069FD.PNG");
-            background-size: cover;
-            background-repeat: no-repeat;
-            width: 35%;
-            height: 100%;
+            background-color: #15181d;
 
-            margin-left: 30px;
+            width: 35%;
+            height: 98%;
+
+            margin: auto 0 auto 30px;
 
             display: flex;
             flex-direction: row;
@@ -182,54 +178,8 @@
             border-radius: 20px;
         }
 
-        .profile-equipment_character > .profile-equipment {
-            list-style: none;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: end;
-        }
-
-        .profile-equipment_character > .profile-accessories {
-            list-style: none;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-        }
-
-        .profile-equipment_character > .profile-equipment > li,
-        .profile-equipment_character > .profile-accessories > li {
-            background: linear-gradient(135deg, #3d3325, #dcc999);
-
-            margin-top: 30px;
-
-            width: 50px;
-            height: 50px;
-
-            border-radius: 10px;
-
-            position: relative
-        }
-
-        .profile-equipment_character > .profile-equipment > li > img,
-        .profile-equipment_character > .profile-accessories > li > img {
-            position: absolute;
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-        }
-
         /*----------------------------------------------*/
         .profile-character {
-
             width: 60%;
             height: 105%;
 
@@ -418,7 +368,62 @@
 
             border-top-right-radius: 20px;
             border-bottom-right-radius: 20px;
+
+            overflow: scroll;
         }
+
+        .jewel-skill > div{
+            background-color: #1d2026;
+            border-radius: 10px;
+            border: #3e4248 2px solid;
+
+            height: 15%;
+            width: 100%;
+
+            margin: 20px 0;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .jewel-skill > div > img {
+            width: 50px;
+            height: 50px;
+
+            margin: 0 5px;
+
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(102, 102, 117, 0.91);
+        }
+
+        .jewel-skill > div > div{
+            /*border: white solid 1px;*/
+
+            height: 75%;
+            width: 80%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            margin-top: 15px;
+        }
+
+        .jewel-skill > div > div > font{
+            font-weight: bold;
+
+            word-break:break-all;
+        }
+
+        .jewel-skill > div > div > p{
+            line-height: 15px;
+
+            word-break:break-all;
+        }
+
+        /***********재하-카드***********/
 
         .card-1 {
             text-align: center;
@@ -509,7 +514,6 @@
         }
 
         .awake > img {
-
             height: 80%;
         }
 
@@ -553,38 +557,49 @@
     </style>
 
     <script>
+        // nav 버튼 기능
         function jewelDisplayOn() {
             $('.cards').hide();
             $('.equip').hide();
             $('.jewel').show();
+
+            $('.nav-jewel').css('font-weight', 'bold');
+            $('.nav-equip').css('font-weight', 'normal');
+            $('.nav-card').css('font-weight', 'normal');
         }
 
         function equipDisplayOn() {
             $('.cards').hide();
             $('.jewel').hide();
             $('.equip').show();
+
+            $('.nav-jewel').css('font-weight', 'normal');
+            $('.nav-equip').css('font-weight', 'bold');
+            $('.nav-card').css('font-weight', 'normal');
         }
 
         function cardDisplayOn() {
             $('.jewel').hide();
             $('.equip').hide();
             $('.cards').show();
+
+            $('.nav-jewel').css('font-weight', 'normal');
+            $('.nav-equip').css('font-weight', 'normal');
+            $('.nav-card').css('font-weight', 'bold');
         }
 
-        let target = ['.slot00 > li', '.slot01 > li', '.slot02 > li', '.slot03 > li',
-            '.slot04 > li', '.slot05 > li', '.slot06 > li', '.slot07 > li', '.slot08 > li',
-            '.slot09 > li', '.slot10 > li']
-
+        //새로고침시 실행
         $(document).ready(function () {
-            $('.cards').hide();
-            $('.jewel').hide();
             load_jewel();
+            load_skills();
+            equipDisplayOn();
         });
 
+        //gemHtml에 append될 변수 List
         let gem_img = [];
         let gem_lv = [];
 
-
+        //jewels info db에서 받아오기
         function load_jewel() {
             $.ajax({
                 type: "GET",
@@ -593,31 +608,20 @@
                 success: function (response) {
                     let rows = response['jewel']
 
-                    //보석 이미지
-                    gem_img[0] = rows['gem00_img']
-                    gem_img[1] = rows['gem01_img']
-                    gem_img[2] = rows['gem02_img']
-                    gem_img[3] = rows['gem03_img']
-                    gem_img[4] = rows['gem04_img']
-                    gem_img[5] = rows['gem05_img']
-                    gem_img[6] = rows['gem06_img']
-                    gem_img[7] = rows['gem07_img']
-                    gem_img[8] = rows['gem08_img']
-                    gem_img[9] = rows['gem09_img']
-                    gem_img[10] = rows['gem10_img']
+                    for(let i = 0; i < 11; i++){
+                        let zeroFillNum = String(i).padStart(2, '0');
+                        if(rows[`gem${zeroFillNum}_img`] != "none"){
+                            gem_img[i] = rows[`gem${zeroFillNum}_img`]
+                        }else{
+                            gem_img[i] = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbzGJFD%2FbtrOvc61n4N%2F5QWy1JkhlUvfAdNHiII1K1%2Fimg.png"
+                        }
 
-                    //보석 레벨
-                    gem_lv[0] = rows['gem00_lv']
-                    gem_lv[1] = rows['gem01_lv']
-                    gem_lv[2] = rows['gem02_lv']
-                    gem_lv[3] = rows['gem03_lv']
-                    gem_lv[4] = rows['gem04_lv']
-                    gem_lv[5] = rows['gem05_lv']
-                    gem_lv[6] = rows['gem06_lv']
-                    gem_lv[7] = rows['gem07_lv']
-                    gem_lv[8] = rows['gem08_lv']
-                    gem_lv[9] = rows['gem09_lv']
-                    gem_lv[10] = rows['gem10_lv']
+                        if(rows[`gem${zeroFillNum}_lv`] != "none") {
+                            gem_lv[i] = rows[`gem${zeroFillNum}_lv`]
+                        }else{
+                            gem_lv[i] = ""
+                        }
+                    }
 
                     let temp_html00to03 = ``;
                     let temp_html04to06 = ``;
@@ -696,9 +700,11 @@
                     $('.jewel-list04to06').append(temp_html04to06);
                     $('.jewel-list07to10').append(temp_html07to10);
 
+                    let target = ['.slot00 > li', '.slot01 > li', '.slot02 > li', '.slot03 > li',
+                                    '.slot04 > li', '.slot05 > li', '.slot06 > li', '.slot07 > li', '.slot08 > li',
+                                    '.slot09 > li', '.slot10 > li']
+
                     for (let i = 0; i < gem_lv.length; i++) {
-                        // if(gem_lv[i] == 'Lv.7')
-                        // $(target[i]).css({'background': 'linear-gradient(135deg,#3c2201,#a86200)'});
                         switch (gem_lv[i]) {
                             case 'Lv.10':
                                 $(target[i]).css({'background': 'linear-gradient(135deg,#3b1303,#a23405)'});
@@ -727,6 +733,70 @@
                 }
             });
         }
+
+        //skillHtml에 append될 변수 List
+        let skillsImgList = [];
+        let skillsNameList = [];
+        let skillsEffectList = [];
+
+        //skills info db에서 받아오기
+        function load_skills(){
+            $.ajax({
+                type: "GET",
+                url: "api/gem-skills",
+                data:{},
+                success: function (response) {
+                    let rows = response['gem_skills'];
+
+                    let temp_html= ``
+
+                    for(let i = 0; i < 11; i++){
+                        let zeroFillNum = String(i).padStart(2, '0');
+                        if(rows[`skillImg${zeroFillNum}`] == "none"){
+                            //투명 이미지
+                            skillsImgList[i] = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbzGJFD%2FbtrOvc61n4N%2F5QWy1JkhlUvfAdNHiII1K1%2Fimg.png"
+                            skillsNameList[i] = ""
+                            skillsEffectList[i] = ""
+                        }else{
+                            skillsImgList[i] = rows[`skillImg${zeroFillNum}`];
+                            skillsNameList[i] = rows[`skillName${zeroFillNum}`];
+                            skillsEffectList[i] = rows[`skillEffect${zeroFillNum}`];
+
+                            temp_html = `
+                                        <div>
+                                            <img src=${skillsImgList[i]}>
+                                            <div>
+                                                <font color="#33cbfe" size="3">${skillsNameList[i]}</font>
+                                                    <p><font color="#FFD200" size="2">${skillsEffectList[i]}</font></p>
+                                            </div>
+                                        </div>`
+                            $('.jewel-skill').append(temp_html);
+                        }
+                    }
+                }
+            })
+        }
+
+        function search(){
+            $('.search-input').val("")
+        }
+
+        function searchBtn(){
+            let name = $('.search-input').val()
+
+            $.ajax({
+                type: "POST",
+                url: "/api/save-info",
+                data: {name_give: name},
+                success: function (response) {
+                    if(response['msg'] == "suc"){
+                        window.location.href='main'
+                    }else{
+                        alert(response['msg'])
+                    }
+                }
+            });
+        }
     </script>
 </head>
 <body>
@@ -735,45 +805,26 @@
     <!--내용-->
     <main id="contents">
 
-        <!--정보 박스-->
+        <!--캐릭터 장비 정보 박스 : 종열-->
         <div class="profile-ingame">
             <div class="profile-equipment_character">
-                <!--장비-->
-                <ul class="profile-equipment">
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_227.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_228.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_229.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_230.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_231.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_232.png"></li>
-                </ul>
 
-                <!--장신구-->
-                <ul class="profile-accessories">
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_204.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_113.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_104.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_11.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_11.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_304.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Ability/Ability_257.png"></li>
-                </ul>
             </div>
 
 
-            <!--캐릭터 정보 컨테이너-->
+            <!--캐릭터 정보 컨테이너 : 규민, 덕현, 재하-->
             <div class="profile-character">
                 <!--캐릭터 검색-->
                 <div class="profile-search">
                     <div class="nav">
-                        <li onclick="equipDisplayOn()"><a>장비</a></li>
-                        <li onclick="cardDisplayOn()"><a>카드</a></li>
-                        <li onclick="jewelDisplayOn()"><a>보석</a></li>
+                        <li class="nav-equip" onclick="equipDisplayOn()"><a>장비</a></li>
+                        <li class="nav-card" onclick="cardDisplayOn()"><a>카드</a></li>
+                        <li class="nav-jewel" onclick="jewelDisplayOn()"><a >보석</a></li>
                     </div>
 
                     <div class="search">
-                        <input class="search-input" type="text" value="캐릭터명을 입력해주세요." maxlength="12"/>
-                        <input class="search-btn" type="image" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbeolmw%2FbtrOkdD1u2M%2Fx5Bn2SI1Kh2Ehr7tBS61BK%2Fimg.png"/>
+                        <input class="search-input" type="text" value="캐릭터명을 입력해주세요." maxlength="12" onclick="search()"/>
+                        <input class="search-btn" type="image" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbeolmw%2FbtrOkdD1u2M%2Fx5Bn2SI1Kh2Ehr7tBS61BK%2Fimg.png" onclick="searchBtn()"/>
                     </div>
                 </div>
                 <div class="profile-character-name_into">
@@ -790,6 +841,7 @@
                             <div class="jewel-list07to10">
                             </div>
                         </div>
+                        <!--skill info html-->
                         <div class="jewel-skill">
 
                         </div>
