@@ -82,7 +82,7 @@
             margin-right: 20px;
         }
 
-        .search-input{
+        .search-input {
             background-color: transparent;
             color: #a3a6ad;
 
@@ -107,7 +107,7 @@
             color: red;
         }
 
-        .search-btn{
+        .search-btn {
             background-color: transparent;
             border: solid 1px #a3a6ad;
 
@@ -122,11 +122,11 @@
             border-radius: 50%;
         }
 
-        .search-btn:hover{
+        .search-btn:hover {
             border: solid 2px #ffffff;
         }
 
-        .nav{
+        .nav {
             max-width: 500px;
             width: 90%;
             max-height: 40px;
@@ -137,17 +137,17 @@
             justify-content: center;
         }
 
-        .nav > li::after{
+        .nav > li::after {
             content: "ㅣ";
             float: right;
             display: block;
         }
 
-        .nav > li:last-child::after{
+        .nav > li:last-child::after {
             content: "";
         }
 
-        .nav > li>a{
+        .nav > li > a {
             padding: 0 50px;
 
             /*border: #537081 solid 1px;*/
@@ -183,7 +183,17 @@
             border-radius: 20px;
         }
 
-        .profile-equipment_character_under{
+        .profile-equipment__slot {
+
+            position: absolute;
+            width: 35%;
+            height: 100%;
+            margin-left: 30px;
+            z-index: 2;
+            display: inline-block;
+        }
+
+        .profile-equipment_character_under {
             position: absolute;
             bottom: 15px;
             left: 30px;
@@ -193,49 +203,116 @@
             color: white;
         }
 
-        .profile-equipment_character > .profile-equipment {
-            list-style: none;
+        .slot1 {
+            background-color: blue;
 
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: end;
-        }
-
-        .profile-equipment_character > .profile-accessories {
-            list-style: none;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            -ms-flex-align: center;
             align-items: center;
-
-        }
-
-        .profile-equipment_character > .profile-equipment > li,
-        .profile-equipment_character > .profile-accessories > li {
-            background: linear-gradient(135deg, #3d3325, #dcc999);
-
-            margin-top: 30px;
-
+            -ms-flex-pack: center;
+            justify-content: center;
+            position: absolute;
             width: 50px;
             height: 50px;
-
-            border-radius: 10px;
-
-            position: relative
+            box-sizing: border-box;
+            left: 37px;
+            top: 15%;
         }
 
-        .profile-equipment_character > .profile-equipment > li > img,
-        .profile-equipment_character > .profile-accessories > li > img {
+        .slot2 {
+            background-color: blue;
+
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: center;
+            justify-content: center;
             position: absolute;
-            top: 0;
-            left: 0;
+            width: 50px;
+            height: 50px;
+            box-sizing: border-box;
+            left: 37px;
+            top: 22%;
+        }
 
-            width: 100%;
-            height: 100%;
+        .slot3 {
+            background-color: blue;
 
-            object-fit: cover;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            box-sizing: border-box;
+            left: 37px;
+            top: 29%;
+        }
+
+        .slot4 {
+            background-color: blue;
+
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            box-sizing: border-box;
+            left: 37px;
+            top: 36%;
+        }
+
+        .slot5 {
+            background-color: blue;
+
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            box-sizing: border-box;
+            left: 37px;
+            top: 43%;
+        }
+
+        .slot6 {
+            background-color: blue;
+
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            box-sizing: border-box;
+            left: 37px;
+            top: 50%;
+        }
+
+        .slot9 {
+            background-color: blue;
+
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            box-sizing: border-box;
+            right: 67px;
+            top: 127px;
         }
 
         /*----------------------------------------------*/
@@ -282,7 +359,7 @@
             align-items: center;
         }
 
-        .cards{
+        .cards {
             height: 75%;
             width: 100%;
 
@@ -737,27 +814,42 @@
         <!--정보 박스-->
         <div class="profile-ingame">
             <div class="profile-equipment_character">
+                <img src="">
                 <span class="profile-equipment_character_under">캐릭터 착용 장비와 이미지는 게임 내 이미지와 상이할 수 있습니다.</span>
-                <!--장비-->
-                <ul class="profile-equipment">
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_227.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_228.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_229.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_230.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_231.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_232.png"></li>
-                </ul>
+                <div class="profile-equipment__slot">
 
-                <!--장신구-->
-                <ul class="profile-accessories">
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_204.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_113.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_104.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_11.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_11.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_304.png"></li>
-                    <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Ability/Ability_257.png"></li>
-                </ul>
+                    <div class="slot1">
+
+                    </div>
+                    <div class="slot2">
+
+                    </div>
+                    <div class="slot3">
+
+                    </div>
+                    <div class="slot4">
+
+                    </div>
+                    <div class="slot5">
+
+                    </div>
+                    <div class="slot6">
+
+                    </div>
+                    <div class="slot7">
+
+                    </div>
+                    <div class="slot8">
+
+                    </div>
+                    <div class="slot9">
+
+                    </div>
+
+                </div>
+
+                <!--장비-->
+
             </div>
 
 
@@ -773,7 +865,8 @@
 
                     <div class="search">
                         <input class="search-input" type="text" value="캐릭터명을 입력해주세요." maxlength="12"/>
-                        <input class="search-btn" type="image" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbeolmw%2FbtrOkdD1u2M%2Fx5Bn2SI1Kh2Ehr7tBS61BK%2Fimg.png"/>
+                        <input class="search-btn" type="image"
+                               src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbeolmw%2FbtrOkdD1u2M%2Fx5Bn2SI1Kh2Ehr7tBS61BK%2Fimg.png"/>
                     </div>
                 </div>
                 <div class="profile-character-name_into">
