@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, jsonify
 import requests
 from bs4 import BeautifulSoup
 from pymongo import MongoClient
-import json
 
 client = MongoClient('mongodb+srv://LOAGG:spatrateam4LOAGGprojectpassword@Cluster1.vlj5yqv.mongodb.net/?retryWrites=true&w=majority')
 db = client.loagg
@@ -61,23 +60,21 @@ def save_jewels():
 
             num = num + 1
 
-        # gem00 > span.jewel_level
-        # gem04 > span.jewel_level
-        doc = {}
-        doc['gemImgList'] = []
-        doc['gemLvList'] = []
+
+        gemImgDoc = {
+            'name': name
+        }
 
         num = 0
         for a in gemImgList:
             numStr = str(num)
+            column = f'gem{numStr.zfill(2)}_img'
 
-            doc['gemImgList'].append(a) #gemImgList[num]
-
-            doc['gemLvList'].append(gemLvList[num])
+            gemImgDoc.column = a
 
             num += 1
 
-        db.gemInfoList.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True)
+        db.gemImgList.update_one({"name": f'{name}'}, {'$set': gemImgList}, upsert=True)
 
         ###
 
@@ -109,44 +106,68 @@ def save_jewels():
                 skillEffect = soup.select_one(
                     (f'#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child({str(num)}) > p'))
                 skillEffectList.append(skillEffect.text)
+            else:
+                skillImgList.append("none")
+                skillNameList.append("none")
+                skillEffectList.append("none")
             num += 1
 
-        doc = {}
-        doc['skillImg'] = []
-        doc['skillName'] = []
-        doc['skillEffect'] = []
+        skill_doc = {
+            'name': name,
 
-        num = 0
-        for a in skillImgList:
-            numStr = str(num)
+            'skillImg00': skillImgList[0],
+            'skillImg01': skillImgList[1],
+            'skillImg02': skillImgList[2],
+            'skillImg03': skillImgList[3],
+            'skillImg04': skillImgList[4],
+            'skillImg05': skillImgList[5],
+            'skillImg06': skillImgList[6],
+            'skillImg07': skillImgList[7],
+            'skillImg08': skillImgList[8],
+            'skillImg09': skillImgList[9],
+            'skillImg10': skillImgList[10],
 
-            doc['skillImg'].append({
-                f'skill{numStr.zfill(2)}_img': a  # gemImgList[num]
-            })
+            'skillName00': skillNameList[0],
+            'skillName01': skillNameList[1],
+            'skillName02': skillNameList[2],
+            'skillName03': skillNameList[3],
+            'skillName04': skillNameList[4],
+            'skillName05': skillNameList[5],
+            'skillName06': skillNameList[6],
+            'skillName07': skillNameList[7],
+            'skillName08': skillNameList[8],
+            'skillName09': skillNameList[9],
+            'skillName10': skillNameList[10],
 
-            doc['skillName'].append({
-                f'skill{numStr.zfill(2)}_name': skillNameList[num]
-            })
+            'skillEffect00': skillEffectList[0],
+            'skillEffect01': skillEffectList[1],
+            'skillEffect02': skillEffectList[2],
+            'skillEffect03': skillEffectList[3],
+            'skillEffect04': skillEffectList[4],
+            'skillEffect05': skillEffectList[5],
+            'skillEffect06': skillEffectList[6],
+            'skillEffect07': skillEffectList[7],
+            'skillEffect08': skillEffectList[8],
+            'skillEffect09': skillEffectList[9],
+            'skillEffect10': skillEffectList[10]
+        }
 
-            doc['skillEffect'].append({
-                f'skill{numStr.zfill(2)}_effect': skillEffectList[num]
-            })
+    db.gem_skills.update_one({"name": f'{name}'}, {'$set': skill_doc}, upsert=True)
 
-            num += 1
+        # is_exist_name = soup.select_one('#lostark-wrapper > div > main > div > div.profile-character-info > img')
 
-        db.gemSkillsList.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True)
-    # db.gem_skills.update_one({"name": f'{name}'}, {'$set': skill_doc}, upsert=True)
+        # if is_exist_name is None:
+        #     return jsonify({'msg': f'{name} 캐릭터 정보가 없습니다.\n캐릭터명을 확인해주세요.'})
+        # else:
+        #     db.jewel.update_one({"name": f'{name}'}, {'$set': gem_doc}, upsert=True)
+        #     db.gem_skills.update_one({"name": f'{name}'}, {'$set': skill_doc}, upsert=True)
     return jsonify({'msg': 'suc'})
 
 @app.route("/api/jewels", methods=["GET"])
 def jewels_get():
-    jewels_get = db.gemInfoList.find_one({'name':f'{name}'}, {'_id': False})
+    jewel_get = db.jewel.find_one({'name':f'{name}'}, {'_id': False})
 
-    jewels_img = jewels_get['gemImgList']
-    jewels_lv = jewels_get['gemLvList']
-
-
-    return jsonify({'jewels_img': jewels_img, 'jewels_lv': jewels_lv})
+    return jsonify({'jewel': jewel_get})
 
 
 @app.route("/api/gem-skills", methods=["GET"])

@@ -494,7 +494,7 @@
         .slot00 .gem_slot_tooltip-box, .slot01 .gem_slot_tooltip-box, .slot02 .gem_slot_tooltip-box,
         .slot03 .gem_slot_tooltip-box, .slot04 .gem_slot_tooltip-box, .slot05 .gem_slot_tooltip-box,
         .slot06 .gem_slot_tooltip-box, .slot07 .gem_slot_tooltip-box, .slot08 .gem_slot_tooltip-box,
-        .slot09 .gem_slot_tooltip-box, .slot10 .gem_slot_tooltip-box{
+        .slot09 .gem_slot_tooltip-box, .slot10 .gem_slot_tooltip-box {
             visibility: hidden;
 
             width: 200px;
@@ -515,7 +515,7 @@
         .slot00:hover .gem_slot_tooltip-box, .slot01:hover .gem_slot_tooltip-box, .slot02:hover .gem_slot_tooltip-box,
         .slot03:hover .gem_slot_tooltip-box, .slot04:hover .gem_slot_tooltip-box, .slot05:hover .gem_slot_tooltip-box,
         .slot06:hover .gem_slot_tooltip-box, .slot07:hover .gem_slot_tooltip-box, .slot08:hover .gem_slot_tooltip-box,
-        .slot09:hover .gem_slot_tooltip-box, .slot10:hover .gem_slot_tooltip-box{
+        .slot09:hover .gem_slot_tooltip-box, .slot10:hover .gem_slot_tooltip-box {
             visibility: visible;
         }
 
@@ -1736,19 +1736,18 @@
                 url: "/api/jewels",
                 data: {},
                 success: function (response) {
-                    let rows = response['jewel']
+                    let imgRows = response['jewels_img']
+                    let lvRows = response['jewels_lv']
+
+
+                    for (let i = 0; i < Object.keys(imgRows).length; i++) {
+                        gem_img[i] = imgRows[i]
+                        gem_lv[i] = lvRows[i]
+                    }
 
                     for (let i = 0; i < 11; i++) {
-                        let zeroFillNum = String(i).padStart(2, '0');
-                        if (rows[`gem${zeroFillNum}_img`] != "none") {
-                            gem_img[i] = rows[`gem${zeroFillNum}_img`]
-                        } else {
+                        if(!gem_img[i]){
                             gem_img[i] = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbzGJFD%2FbtrOvc61n4N%2F5QWy1JkhlUvfAdNHiII1K1%2Fimg.png"
-                        }
-
-                        if (rows[`gem${zeroFillNum}_lv`] != "none") {
-                            gem_lv[i] = rows[`gem${zeroFillNum}_lv`]
-                        } else {
                             gem_lv[i] = ""
                         }
                     }
