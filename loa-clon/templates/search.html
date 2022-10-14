@@ -12,7 +12,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "/api/names",
+                url: "/api/save-info",
                 data: {name_give: name},
                 success: function (response) {
                     if(response['msg'] == "suc"){
