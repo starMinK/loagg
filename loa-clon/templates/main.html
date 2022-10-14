@@ -82,7 +82,7 @@
             margin-right: 20px;
         }
 
-        .search-input{
+        .search-input {
             background-color: transparent;
             color: #a3a6ad;
 
@@ -107,7 +107,7 @@
             color: red;
         }
 
-        .search-btn{
+        .search-btn {
             background-color: transparent;
             border: solid 1px #a3a6ad;
 
@@ -122,11 +122,11 @@
             border-radius: 50%;
         }
 
-        .search-btn:hover{
+        .search-btn:hover {
             border: solid 2px #ffffff;
         }
 
-        .nav{
+        .nav {
             max-width: 500px;
             width: 90%;
             max-height: 40px;
@@ -137,17 +137,17 @@
             justify-content: center;
         }
 
-        .nav > li::after{
+        .nav > li::after {
             content: "ㅣ";
             float: right;
             display: block;
         }
 
-        .nav > li:last-child::after{
+        .nav > li:last-child::after {
             content: "";
         }
 
-        .nav > li>a{
+        .nav > li > a {
             padding: 0 50px;
 
             /*border: #537081 solid 1px;*/
@@ -269,9 +269,11 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+
+            /*border:solid white 1px;*/
         }
 
-        .cards{
+        .cards {
             height: 75%;
             width: 100%;
 
@@ -538,6 +540,585 @@
         .cardinfo-font {
             margin: 6px;
         }
+
+
+
+        /*duk code*/
+        /*전체 박스*/
+        .character-title{
+            background-color: black;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .equip {
+            /*border: white solid 1px;*/
+
+            width: 100%;
+            height:100% ;
+        }
+        .ability-power {
+            /*background-color: green;*/
+            width: 250px;
+            height: 50px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+
+
+        }
+
+        .ability-power > div {
+            margin-right: 40px;
+        }
+
+        .ability-life {
+
+            /*background-color: red;*/
+            width: 250px;
+            height: 50px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .ability-life > div {
+            margin-right: 15px;
+        }
+
+        /*어빌리티 끝*/
+        .stats-Critical {
+            /*background-color: red;*/
+            width: 250px;
+            height: 50px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .stats-Critical > div {
+            margin-right: 40px;
+        }
+
+        .stats-Specialization {
+            /*background-color: green;*/
+            width: 250px;
+            height: 50px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .stats-Specialization > div {
+            margin-right: 40px;
+        }
+
+        .stats-Domination {
+            /*background-color: red;*/
+            width: 250px;
+            height: 50px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .stats-Domination > div {
+            margin-right: 40px;
+        }
+
+        .stats-Swiftness {
+            /*background-color: green;*/
+            width: 250px;
+            height: 50px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .stats-Swiftness > div {
+            margin-right: 40px;
+        }
+
+        .stats-Endurance {
+            /*background-color: red;*/
+            width: 250px;
+            height: 50px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .stats-Endurance > div {
+            margin-right: 40px;
+        }
+
+        .stats-Expertise {
+            /*background-color: green;*/
+            width: 250px;
+            height: 50px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .stats-Expertise > div {
+            margin-right: 40px;
+        }
+
+        .main-engrave {
+            margin: 20px 0px 0px 50px;
+
+            background-color: black;
+
+            width: 600px;
+            border: 1px solid white;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 20px;
+        }
+
+        .side-engrave {
+            width: 600px;
+            height: 100px;
+
+            /*background-color: white;*/
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .engrave1-1 {
+            /*background-color: #9C1A1C;*/
+
+            width: 250px;
+            height: 50px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+
+        .stats-basic-tendency {
+            width: 600px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            margin-left: 50px;
+        }
+
+        .tendency-intellect {
+            width: 250px;
+            height: 75px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+
+        }
+
+        .tendency-courage {
+            width: 250px;
+            height: 75px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .tendency-Charm {
+            width: 250px;
+            height: 75px;
+
+            text-combine: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .tendency-kindness {
+
+            width: 250px;
+            height: 75px;
+
+            text-combine: 10px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+        .tendency-intellect > div {
+            margin-right: 40px;
+        }
+
+        .tendency-courage > div {
+            margin-right: 40px;
+        }
+
+        .tendency-Charm > div {
+            margin-right: 40px;
+        }
+
+        .tendency-kindness > div {
+            margin-right: 40px;
+        }
+
+        .Main-Information {
+            background-size: cover;
+            background-image: url("https://dcimg5.dcinside.com/dccon.php?no=62b5df2be09d3ca567b1c5bc12d46b394aa3b1058c6e4d0ca41648b651ee246e2c82dc4e007f2e8ca8018dfbfcd90cadfc08e31b8ca4fa9f46c840c0137db4f7f2c24ce43547611c3958");
+            background-position: center;
+
+            width: 500px;
+            height: 600px;
+
+            font-size: 20px;
+
+            position: absolute;
+            left: 700px;
+            top: 400px;
+        }
+
+        .ability-basic {
+
+
+            margin: 20px 0px 20px 50px;
+            background-color: black;
+
+            width: 600px;
+            border: 1px solid white;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 20px;
+        }
+
+        .ability-basic-1 {
+            width: 600px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .stats-basic {
+            text-align: center;
+
+            background-color: black;
+
+            width: 300px;
+            border: 1px solid white;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .tendency {
+
+            position: static;
+
+            background-color: black;
+            width: 300px;
+
+            border: 1px solid white;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        .Main-Text {
+            font-size: 25px;
+            margin-top: 5px ;
+
+        }
+            /*툴팁*/
+        .ability-power .tooltip-ability {
+            visibility: hidden;
+
+            width: 520px;
+
+            background-color: black;
+
+            margin-top: 10px;
+
+            color: white;
+
+            text-align: left;
+
+            position: absolute;
+
+            left: 300px;
+
+            z-index: 1;
+        }
+
+        .ability-power:hover .tooltip-ability {
+            visibility: visible;
+        }
+
+        .ability-life .tooltip-ability {
+            visibility: hidden;
+
+            width: 470px;
+
+            background-color: black;
+
+            margin-top: 10px;
+
+            color: white;
+
+            text-align: left;
+
+            position: absolute;
+
+            left: 600px;
+
+            z-index: 1;
+        }
+
+        .ability-life:hover .tooltip-ability {
+            visibility: visible;
+        }
+
+        .stats-Critical .tooltip-stats {
+            visibility: hidden;
+
+            width: 500px;
+
+            background-color: black;
+
+            margin-top: 10px;
+
+            color: white;
+
+            text-align: left;
+
+            position: absolute;
+
+            left: 600px;
+
+            z-index: 1;
+        }
+
+        .stats-Critical:hover .tooltip-stats {
+            visibility: visible;
+        }
+
+        .stats-Specialization .tooltip-stats {
+            visibility: hidden;
+
+            width: 500px;
+
+            background-color: black;
+
+            margin-top: 10px;
+
+            color: white;
+
+            text-align: left;
+
+            position: absolute;
+
+            left: 600px;
+
+            z-index: 1;
+        }
+
+        .stats-Specialization:hover .tooltip-stats {
+            visibility: visible;
+        }
+
+        .stats-Domination .tooltip-stats {
+            visibility: hidden;
+
+            width: 500px;
+
+            background-color: black;
+
+            margin-top: 10px;
+
+            color: white;
+
+            text-align: left;
+
+            position: absolute;
+
+            left: 600px;
+
+            z-index: 1;
+
+
+        }
+
+        .stats-Domination:hover .tooltip-stats {
+            visibility: visible;
+        }
+
+        .stats-Swiftness .tooltip-stats {
+            visibility: hidden;
+
+            width: 500px;
+
+            background-color: black;
+
+            margin-top: 10px;
+
+            color: white;
+
+            text-align: left;
+
+            position: absolute;
+
+            left: 600px;
+
+            z-index: 1;
+
+
+        }
+
+        .stats-Swiftness:hover .tooltip-stats {
+            visibility: visible;
+        }
+
+        .stats-Endurance .tooltip-stats {
+            visibility: hidden;
+
+            width: 500px;
+
+            background-color: black;
+
+            margin-top: 10px;
+
+            color: white;
+
+            text-align: left;
+
+            position: absolute;
+
+            left: 600px;
+
+            z-index: 1;
+
+
+        }
+
+        .stats-Endurance:hover .tooltip-stats {
+            visibility: visible;
+        }
+
+        .stats-Expertise .tooltip-stats {
+            visibility: hidden;
+
+            width: 500px;
+
+            background-color: black;
+
+            margin-top: 10px;
+
+            color: white;
+
+            text-align: left;
+
+            position: absolute;
+
+            left: 600px;
+
+            z-index: 1;
+
+
+        }
+
+        .stats-Expertise:hover .tooltip-stats {
+            visibility: visible;
+        }
+
     </style>
 
     <script>
@@ -761,7 +1342,8 @@
 
                     <div class="search">
                         <input class="search-input" type="text" value="캐릭터명을 입력해주세요." maxlength="12"/>
-                        <input class="search-btn" type="image" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbeolmw%2FbtrOkdD1u2M%2Fx5Bn2SI1Kh2Ehr7tBS61BK%2Fimg.png"/>
+                        <input class="search-btn" type="image"
+                               src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbeolmw%2FbtrOkdD1u2M%2Fx5Bn2SI1Kh2Ehr7tBS61BK%2Fimg.png"/>
                     </div>
                 </div>
                 <div class="profile-character-name_into">
@@ -782,182 +1364,354 @@
 
                         </div>
                     </div>
+                    <!--?dukdukdukdukdukdukdukdukdukdukduk-->
+                       <div class="equip">
+                           <div class="character-title">
+                               <h1>캐릭터정보</h1>
+                           </div>
+                        <div class="character-stats">
+                                <!--기본특성html-->
+                                <div class="ability-basic">
 
-                    <div class="equip">
-
-                    </div>
-
-                    <div class="cards">
-                        <div class="card-1">
-                            <div class="cardimg-1">
-                                <img width="110px"
-                                     src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Card_Legend/Card_Legend_00_7.png">
-                                <div class="card-awake">
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                    <div class="Main-Text">기본특성</div>
+                                    <div class="ability-basic-1">
+                                        <div class="ability-power">
+                                            <div style="color:gold">공격력</div>
+                                            <div>57583</div>
+                                            <div></div>
+                                            <div class="tooltip-ability">
+                                                <li> 적에게 주는 피해를 계산할 때 기준이 되는 값입니다.</li>
+                                                <li> 힘, 민첩, 지능과 무기 공격력을 기반으로 증가한 기본 공격력은 <font
+                                                        color="#99ff99">49773</font>입니다.
+                                                </li>
+                                                <li> 공격력 증감 효과로 공격력이 <font color="#99ff99">7964</font> 증가되었습니다.</li>
+                                            </div>
+                                        </div>
+                                        <div class="ability-life">
+                                            <div style="color:gold">최대생명력</div>
+                                            <div>175804</div>
+                                            <div class="tooltip-ability">
+                                                <li> 캐릭터의 최대 생명력을 나타냅니다.</li>
+                                                <li> 체력으로 최대 생명력이 <font color="#99ff99">119056</font> 증가되었습니다.</li>
+                                                <li> 생명 활성력으로 최대 생명력이 <font color="#99ff99">40.82%</font> 증가되었습니다.</li>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div>쿠크세이튼</div>
-                        </div>
-                        <div class="card-2">
-                            <div class="cardimg-2">
-                                <img width="110px"
-                                     src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Card_Legend/Card_Legend_01_5.png">
-                                <div class="card-awake">
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                </div>
-                            </div>
-                            <div>아브렐슈드</div>
-                        </div>
-                        <div class="card-3">
-                            <div class="cardimg-3">
-                                <img width="110px"
-                                     src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Card_Legend/Card_Legend_01_4.png">
-                                <div class="card-awake">
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                </div>
-                            </div>
-                            <div>카멘</div>
-                        </div>
-                        <div class="card-4">
-                            <div class="cardimg-4">
-                                <img width="110px"
-                                     src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Card_Legend/Card_Legend_01_2.png">
-                                <div class="card-awake">
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                </div>
-                            </div>
-                            <div>일리아칸</div>
-                        </div>
-                        <div class="card-5">
-                            <div class="cardimg-5">
-                                <img width="110px"
-                                     src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Card_Legend/Card_Legend_00_2.png">
-                                <div class="card-awake">
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                </div>
-                            </div>
-                            <div>발탄</div>
-                        </div>
-                        <div class="card-6">
-                            <div class="cardimg-6">
-                                <img width="110px"
-                                     src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Card_Legend/Card_Legend_01_1.png">
-                                <div class="card-awake">
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                    <div class="awake">
-                                        <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                    </div>
-                                </div>
-                            </div>
-                            <div>비아키스</div>
-                        </div>
+                                <!-- 전투특성+성향-->
+                                <div class="stats-basic-tendency">
+                                    <!--성향html-->
+                                    <div class="tendency">
 
-                        <div class="card-active">
-                            장착중인 카드 효과
+                                        <div class="Main-Text">성향</div>
+                                        <div class="tendency-intellect">
+                                            <div style="color: gold">지성</div>
+                                            <div>15</div>
+                                        </div>
+                                        <div class="tendency-courage">
+                                            <div style="color: gold">담력</div>
+                                            <div>15</div>
+                                        </div>
+                                        <div class="tendency-Charm">
+                                            <div style="color: gold">매력</div>
+                                            <div>15</div>
+                                        </div>
+                                        <div class="tendency-kindness">
+                                            <div style="color: gold">친절</div>
+                                            <div>15</div>
+                                        </div>
+
+                                        <!--전투특성-->
+                                    </div>
+                                    <div class="stats-basic">
+
+                                        <div class="Main-Text">전투특성</div>
+
+                                        <div>
+                                            <div class="stats-Critical">
+                                                <div style="color: gold">치명</div>
+                                                <div>351</div>
+                                                <div class="tooltip-stats">
+                                                    <li> 치명타 적중률이 <font color="#99ff99">12.56%</font> 증가합니다.</li>
+                                                    <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">28</font> 만큼 영구적으로
+                                                        증가되었습니다.
+                                                    </li>
+                                                    <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                                    <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                                </div>
+                                            </div>
+
+                                            <div class="stats-Specialization">
+                                                <div style="color: gold">특화</div>
+                                                <div>1428</div>
+                                                <div class="tooltip-stats">
+                                                    <li> 핸드건 스킬의 치명타 피해량이<font color="#99ff99">153.21%</font> 증가합니다.
+                                                    </li>
+                                                    <li> 샷건 스킬의 피해량이<font color="#99ff99">51.07%</font> 증가합니다.</li>
+                                                    <li> 라이플 스킬의 물리 / 마법 관통력이<font color="#99ff99">51.07%</font> 증가합니다.
+                                                    </li>
+                                                    <li> 각성 스킬의 피해량이 <font color="#99ff99">78.03%</font> 증가합니다.</li>
+                                                    <li> 물약 및 원정대 레벨 보상 효과로 <font color="#99ff99">24</font>만큼 영구적으로
+                                                        증가되었습니다.
+                                                    </li>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="stats-Domination">
+                                                <div style="color: gold">제압</div>
+                                                <div>62</div>
+                                                <div class="tooltip-stats">
+                                                    <li> 피격이상 및 상태이상 대상에게 주는 피해량이 <font color="#99ff99">3.80%</font>
+                                                        증가합니다.
+                                                    </li>
+                                                    <li> 무력화 대상에게 주는 피해량이 <font color="#99ff99"></font> 증가합니다.</li>
+                                                    <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">28</font>만큼 영구적으로
+                                                        증가되었습니다.
+                                                    </li>
+                                                    <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                                </div>
+                                            </div>
+
+                                            <div class="stats-Swiftness">
+                                                <div style="color: gold">신속</div>
+                                                <div>550</div>
+                                                <div class="tooltip-stats">
+                                                    <li> 공격 속도가 <font color="#99ff99">9.44%</font> 증가합니다.</li>
+                                                    <li> 이동 속도가 <font color="#99ff99">9.44%</font> 증가합니다.</li>
+                                                    <li> 스킬 재사용 대기시간이<font color="#99ff99">11.81%</font> 감소합니다.</li>
+                                                    <li> 물약 및 원정대 레벨 보상 효과로 <font color="#99ff99">24</font>만큼 영구적으로
+                                                        증가되었습니다.
+                                                    </li>
+                                                    <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                                </div>
+                                            </div>
+
+                                            <div class="stats-Endurance">
+                                                <div style="color: gold">인내</div>
+                                                <div>62</div>
+                                                <div class="tooltip-stats">
+                                                    <li> 물리 방어력이 <font color="#99ff99">5.07%</font> 증가합니다.</li>
+                                                    <li> 마법 방어력이 <font color="#99ff99">5.07%</font> 증가합니다.</li>
+                                                    <li> 보호막 효과가 <font color="#99ff99">1.58%</font> 증가합니다.</li>
+                                                    <li> 생명력 회복 효과가 <font color="#99ff99">2.21%</font> 증가합니다.</li>
+                                                    <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">28</font>만큼 영구적으로
+                                                        증가되었습니다.
+                                                    </li>
+                                                    <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="stats-Expertise">
+                                                <div style="color: gold">숙련</div>
+                                                <div>62</div>
+                                                <div class="tooltip-stats">
+                                                    <li> 상태이상 공격 지속시간이<font color="#99ff99">2.66%</font> 증가합니다.</li>
+                                                    <li> 상태이상 피해 지속시간이<font color="#99ff99">2.21%</font> 감소합니다.</li>
+                                                    <li> 무력화 피해량이 <font color="#99ff99">1.77%</font> 증가합니다.</li>
+                                                    <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">28</font>만큼 영구적으로
+                                                        증가되었습니다.
+                                                    </li>
+                                                    <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="main-engrave">
+
+                                    <div class="Main-Text">각인 효과</div>
+                                    <div class="side-engrave">
+                                        <div class="engrave1-1" style="color: gold">원한 lv. 3</div>
+                                        <div class="engrave1-1" style="color: gold">강화 무기 lv. 3</div>
+                                        <div class="engrave1-1" style="color: gold">예리한 둔기 lv. 3</div>
+                                    </div>
+                                    <div class="side-engrave">
+                                        <div class="engrave1-1" style="color: gold">저주받은 인형 lv. 3</div>
+                                        <div class="engrave1-1" style="color: gold">기습의 대가 lv. 3</div>
+                                        <div class="engrave1-1" style="color: gold">아드레날린 lv. 1</div>
+                                    </div>
+                                </div>
+                                <div class="Main-Information">
+                                                </div>
+                                            </div>
+                                        </div>
+        <div class="cards">
+            <div class="card-1">
+                <div class="cardimg-1">
+                    <img width="110px"
+                         src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Card_Legend/Card_Legend_00_7.png">
+                    <div class="card-awake">
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
                         </div>
-                        <div class="cardinfo">
-                            <div class="cardinfo-font">
-                                <span style="color:#35c37b">카제로스의 군단장 2세트</span>
-                                <li>성속성 피해감소 10%</li>
-                            </div>
-
-                            <div class="cardinfo-font">
-                                <span style="color:#35c37b">카제로스의 군단장 4세트</span>
-                                <li>성속성 피해감소 10%</li>
-                            </div>
-
-                            <div class="cardinfo-font">
-                                <span style="color:#35c37b">카제로스의 군단장 6세트</span>
-                                <li>성속성 피해감소 10%</li>
-                            </div>
-
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
                         </div>
                     </div>
                 </div>
+                <div>쿠크세이튼</div>
             </div>
+            <div class="card-2">
+                <div class="cardimg-2">
+                    <img width="110px"
+                         src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Card_Legend/Card_Legend_01_5.png">
+                    <div class="card-awake">
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                    </div>
+                </div>
+                <div>아브렐슈드</div>
+            </div>
+            <div class="card-3">
+                <div class="cardimg-3">
+                    <img width="110px"
+                         src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Card_Legend/Card_Legend_01_4.png">
+                    <div class="card-awake">
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                    </div>
+                </div>
+                <div>카멘</div>
+            </div>
+            <div class="card-4">
+                <div class="cardimg-4">
+                    <img width="110px"
+                         src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Card_Legend/Card_Legend_01_2.png">
+                    <div class="card-awake">
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                    </div>
+                </div>
+                <div>일리아칸</div>
+            </div>
+            <div class="card-5">
+                <div class="cardimg-5">
+                    <img width="110px"
+                         src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Card_Legend/Card_Legend_00_2.png">
+                    <div class="card-awake">
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                    </div>
+                </div>
+                <div>발탄</div>
+            </div>
+            <div class="card-6">
+                <div class="cardimg-6">
+                    <img width="110px"
+                         src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Card_Legend/Card_Legend_01_1.png">
+                    <div class="card-awake">
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                        <div class="awake">
+                            <img src="https://static.loawa.com/icons/gem_active_0.png">
+                        </div>
+                    </div>
+                </div>
+                <div>비아키스</div>
+            </div>
+
+            <div class="card-active">
+                장착중인 카드 효과
+            </div>
+            <div class="cardinfo">
+                <div class="cardinfo-font">
+                    <span style="color:#35c37b">카제로스의 군단장 2세트</span>
+                    <li>성속성 피해감소 10%</li>
+                </div>
+
+                <div class="cardinfo-font">
+                    <span style="color:#35c37b">카제로스의 군단장 4세트</span>
+                    <li>성속성 피해감소 10%</li>
+                </div>
+
+                <div class="cardinfo-font">
+                    <span style="color:#35c37b">카제로스의 군단장 6세트</span>
+                    <li>성속성 피해감소 10%</li>
+                </div>
+
+            </div>
+
         </div>
-    </main>
+</div>
+</div>
+</div>
+</main>
 </div>
 </body>
 </html>
