@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .slot00 .gem_slot_tooltip-box {
+            visibility: hidden;
+
+            width: 200px;
+            height: 200px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+
+            position: absolute;
+            top: -5px;
+            left: 105%;
+            z-index: 1;
+        }
+
+        .slot00:hover{
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+<div class="slot00">
+    hover over me
+    <div class="gem_slot_tooltip-box">
+        tooltip index
+    </div>
+</div>
+
+</body>
+</html>

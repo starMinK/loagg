@@ -35,7 +35,7 @@
             /*background-size: contain;*/
             /*background-repeat: no-repeat;*/
 
-            width: 80%;
+            width: 70%;
             height: 100vh;
 
             margin: auto;
@@ -154,7 +154,7 @@
             /*border: #537081 solid 1px;*/
         }
 
-        /**************************************************/
+        /*********************종열*****************************/
         .profile-ingame {
             /*background-color: #9b54f6;*/
             width: 100%;
@@ -393,7 +393,7 @@
             background-size: cover;
 
             height: 100%;
-            width: 70%;
+            width: 65%;
 
             border-top-left-radius: 20px;
             border-bottom-left-radius: 20px;
@@ -459,6 +459,8 @@
         }
 
         .slot00, .slot03, .slot05, .slot07, .slot10 {
+            position: relative;
+
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -466,6 +468,8 @@
         }
 
         .slot01, .slot06, .slot08 {
+            position: relative;
+
             margin-left: 50px;
 
             display: flex;
@@ -475,12 +479,44 @@
         }
 
         .slot02, .slot04, .slot09 {
+            position: relative;
+
             margin-right: 50px;
 
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+        }
+
+        /*.slot04-06 > div .*/
+
+        .slot00 .gem_slot_tooltip-box, .slot01 .gem_slot_tooltip-box, .slot02 .gem_slot_tooltip-box,
+        .slot03 .gem_slot_tooltip-box, .slot04 .gem_slot_tooltip-box, .slot05 .gem_slot_tooltip-box,
+        .slot06 .gem_slot_tooltip-box, .slot07 .gem_slot_tooltip-box, .slot08 .gem_slot_tooltip-box,
+        .slot09 .gem_slot_tooltip-box, .slot10 .gem_slot_tooltip-box{
+            visibility: hidden;
+
+            width: 200px;
+            height: 200px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+
+            position: absolute;
+            top: -5px;
+            left: 105%;
+            z-index: 1;
+
+        }
+
+        .slot00:hover .gem_slot_tooltip-box, .slot01:hover .gem_slot_tooltip-box, .slot02:hover .gem_slot_tooltip-box,
+        .slot03:hover .gem_slot_tooltip-box, .slot04:hover .gem_slot_tooltip-box, .slot05:hover .gem_slot_tooltip-box,
+        .slot06:hover .gem_slot_tooltip-box, .slot07:hover .gem_slot_tooltip-box, .slot08:hover .gem_slot_tooltip-box,
+        .slot09:hover .gem_slot_tooltip-box, .slot10:hover .gem_slot_tooltip-box{
+            visibility: visible;
         }
 
         .slot00 > li, .slot01 > li, .slot02 > li, .slot03 > li, .slot04 > li, .slot05 > li, .slot06 > li,
@@ -504,15 +540,21 @@
             width: 50px;
         }
 
+
         .jewel-skill {
             height: 100%;
-            width: 30%;
+            width: 35%;
             background-color: rgb(21, 24, 29);
 
             border-top-right-radius: 20px;
             border-bottom-right-radius: 20px;
 
-            overflow: scroll;
+            overflow-y: scroll;
+            -ms-overflow-style: none;
+        }
+
+        .jewel-skill::-webkit-scrollbar {
+            display: none;
         }
 
         .jewel-skill > div {
@@ -520,10 +562,12 @@
             border-radius: 10px;
             border: #3e4248 2px solid;
 
-            height: 15%;
-            width: 100%;
+            box-shadow: 0px 0px 5px rgba(49, 57, 58, 0.93);
 
-            margin: 20px 0;
+            height: 15%;
+            width: 90%;
+
+            margin: 20px 10px;
 
             display: flex;
             flex-direction: row;
@@ -794,7 +838,6 @@
             top: 10%;
             right: 1%;
             word-spacing: 5%;
-
         }
 
         .lv10 {
@@ -910,19 +953,57 @@
             right: 78%;
         }
 
-        .btn11 {
-            display: inline-block;
+        /*.btn11 {*/
+        /*    display: inline-block;*/
+        /*    position: absolute;*/
+        /*    top: 62%;*/
+        /*    right: 85.5%;*/
+        /*    width: 2%;*/
+        /*    height: 15%;*/
+        /*}*/
+
+        input[id="menuicon"] + label {
+            display: block;
+            width: 60px;
+            height: 40px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        input[id="menuicon"] + label span {
+            display: block;
             position: absolute;
-            top: 62%;
-            right: 85.5%;
-            width: 2%;
-            height: 15%;
-            font-size: 0.5vw;
-            text-decoration: none;
-            text-align: center;
-            color: #fff;
-            border-radius: 10px;
-            border: 1px solid white;
+            width: 100%;
+            height: 5px;
+            border-radius: 30px;
+            background: white;
+            transition: all .35s;
+        }
+
+        input[id="menuicon"] + label span:nth-child(1) {
+            top: 0;
+        }
+
+        input[id="menuicon"] + label span:nth-child(2) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        input[id="menuicon"] + label span:nth-child(3) {
+            bottom: 0;
+        }
+
+        input[id="menuicon"]:checked + label span:nth-child(1) {
+            top: 50%;
+            transform: translateY(-50%) rotate(720deg);
+        }
+
+        input[id="menuicon"]:checked + label span:nth-child(2) {
+        }
+
+        input[id="menuicon"]:checked + label span:nth-child(3) {
+            bottom: 50%;
+            transform: translateY(50%) rotate(-720deg);
         }
 
         .popup {
@@ -931,7 +1012,7 @@
             left: 50%;
             top: 240%;
             transform: translate(-50%, -50%);
-            z-index: 5;
+            z-index: -1;
             width: 80%;
             height: 300%;
             border-radius: 10px;
@@ -942,7 +1023,6 @@
             opacity: 0;
             transition: all 0.5s;
             background-color: rgba(0, 0, 0, 0.8);
-
         }
 
         .popup a {
@@ -1682,20 +1762,36 @@
                                                <div class="slot00">
                                                    <li id="jem00"> <img src=${gem_img[0]}></li>
                                                    <span>${gem_lv[0]}</span>
+
+                                                   <div class="gem_slot_tooltip-box">
+
+                                                    </div>
                                                </div>
                                                <div class="slot01">
                                                    <li> <img src=${gem_img[1]}> </li>
                                                    <span>${gem_lv[1]}</span>
+
+                                                   <div class="gem_slot_tooltip-box">
+
+                                                    </div>
                                                </div>
                                            </ul>
                                            <ul class="slot02-03">
                                                 <div class="slot02">
                                                     <li> <img src=${gem_img[2]}> </li>
                                                     <span>${gem_lv[2]}</span>
+
+                                                    <div class="gem_slot_tooltip-box">
+
+                                                    </div>
                                                 </div>
                                                <div class="slot03">
                                                    <li> <img src=${gem_img[3]}> </li>
                                                    <span>${gem_lv[3]}</span>
+
+                                                   <div class="gem_slot_tooltip-box">
+
+                                                    </div>
                                                </div>
                                            </ul>
                                            `
@@ -1704,17 +1800,30 @@
                                            <ul class="slot04-06">
                                                 <div class="slot04">
                                                      <li> <img src=${gem_img[4]}> </li>
-                                                     <div>${gem_lv[4]}</div>
+                                                     <span>${gem_lv[4]}</span>
+
+                                                     <div class="gem_slot_tooltip-box">
+
+                                                    </div>
                                                 </div>
 
                                                 <div class="slot05">
                                                      <li> <img src=${gem_img[5]}> </li>
-                                                     <div>${gem_lv[5]}</div>
+                                                     <span>${gem_lv[5]}</span>
+
+                                                     <div class="gem_slot_tooltip-box">
+
+                                                    </div>
+
                                                 </div>
 
                                                 <div class="slot06">
                                                        <li> <img src=${gem_img[6]}> </li>
-                                                       <div>${gem_lv[6]}</div>
+                                                       <span>${gem_lv[6]}</span>
+
+                                                       <div class="gem_slot_tooltip-box">
+
+                                                    </div>
                                                 </div>
                                            </ul>
                                           `
@@ -1724,24 +1833,39 @@
                                                 <div class="slot07">
                                                     <li> <img src=${gem_img[7]}> </li>
                                                     <span>${gem_lv[7]}</span>
+
+                                                    <div class="gem_slot_tooltip-box">
+
+                                                    </div>
                                                 </div>
 
                                                 <div class="slot08">
                                                     <li> <img src=${gem_img[8]}> </li>
                                                     <span>${gem_lv[8]}</span>
-                                                </div>
 
+                                                    <div class="gem_slot_tooltip-box">
+
+                                                    </div>
+                                                </div>
                                            </ul>
 
                                            <ul class="slot09-10">
                                                <div class="slot09">
                                                    <li> <img src=${gem_img[9]}> </li>
                                                    <span>${gem_lv[9]}</span>
+
+                                                   <div class="gem_slot_tooltip-box">
+
+                                                    </div>
                                                </div>
 
                                                <div class="slot10">
                                                    <li> <img src=${gem_img[10]}> </li>
                                                    <span>${gem_lv[10]}</span>
+
+                                                   <div class="gem_slot_tooltip-box">
+
+                                                    </div>
                                                </div>
                                            </ul>
                                           `
@@ -1925,7 +2049,14 @@
                             <h1 class="job"><img class="profile-character-info__img"
                                                  src="https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/emblem_devil_hunter.png"
                                                  alt="데빌헌터"></h1>
-                            <a href="#pop1" class="btn11"></a>
+                            <!--                            <a href="#pop1" class="btn11"></a>-->
+
+                            <input class="btn11" type="checkbox" id="menuicon" href="#pop1">
+                            <label for="menuicon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </label>
 
                             <div class="popup" id="pop1">
                                 <a>
@@ -2321,7 +2452,7 @@
                             <div>비아키스</div>
                         </div>
 
-                         <div class="card-active">
+                        <div class="card-active">
                             장착중인 카드 효과
                         </div>
                         <div class="cardinfo">
