@@ -43,20 +43,6 @@ def save_jewels():
     gemImgList = []
     gemLvList = []
 
-    isSkilExistList = [soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(1)'),
-                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(2)'),
-                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(3)'),
-                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(4)'),
-                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(5)'),
-                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(6)'),
-                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(7)'),
-                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(8)'),
-                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(9)'),
-                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(10)'),
-                       soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(11)')];
-
-
-
     num = 0
     for a in isGemExistList:
         numStr = str(num)
@@ -69,9 +55,6 @@ def save_jewels():
             gemImgList.append('none')
             gemLvList.append("none")
         num = num + 1
-
-    # for a in isSkilExistList:
-    #     if a is not None:
 
 
     gem_doc = {
@@ -102,8 +85,10 @@ def save_jewels():
         'gem07_lv': gemLvList[7],
         'gem08_lv': gemLvList[8],
         'gem09_lv': gemLvList[9],
-        'gem10_lv': gemLvList[10],
+        'gem10_lv': gemLvList[10]
     }
+
+    ###
 
     isSkillExistList = [soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(1)'),
                         soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(2)'),
