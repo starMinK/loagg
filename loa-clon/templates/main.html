@@ -166,6 +166,7 @@
         .profile-equipment_character {
             background-image: url("https://img.lostark.co.kr/profile/2/10C4B4E078C5002A4BE8679DDD859D86BF535CB746D340F96E47F65481F069FD.PNG");
             background-size: cover;
+            background-position: center;
             background-repeat: no-repeat;
             width: 35%;
             height: 100%;
@@ -180,6 +181,16 @@
             padding-right: 45px;
 
             border-radius: 20px;
+        }
+
+        .profile-equipment_character_under{
+            position: absolute;
+            bottom: 15px;
+            left: 30px;
+            width: 35%;
+            text-align: center;
+            font-size: 12px;
+            color: white;
         }
 
         .profile-equipment_character > .profile-equipment {
@@ -726,6 +737,7 @@
         <!--정보 박스-->
         <div class="profile-ingame">
             <div class="profile-equipment_character">
+                <span class="profile-equipment_character_under">캐릭터 착용 장비와 이미지는 게임 내 이미지와 상이할 수 있습니다.</span>
                 <!--장비-->
                 <ul class="profile-equipment">
                     <li><img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_227.png"></li>
