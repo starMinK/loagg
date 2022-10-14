@@ -11,11 +11,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
+    <script>
+        function openCloseToc() {
+            if (document.getElementById('toc-content').style.display === 'block') {
+                document.getElementById('toc-content').style.display = 'none';
+                document.getElementById('toc-toggle').textContent = '서버';
+            } else {
+                document.getElementById('toc-content').style.display = 'block';
+                document.getElementById('toc-toggle').textContent = '서버';
+            }
+        }
+
+    </script>
 
     <style>
         body {
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background-image: url("https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FV4B77%2FbtrNb3Qwckz%2F2fr6zfuczRI49ppRi9iO6k%2Fimg.jpg");
             background-size: cover;
             background-repeat: no-repeat;
@@ -150,7 +162,7 @@
         .profile-character > .profile-character-name_into {
             background-color: #15181d;
             color: white;
-
+            max-width: 100%;
             width: 100%;
             height: 15%;
 
@@ -158,10 +170,11 @@
             border-bottom-right-radius: 20px;
 
             display: flex;
-            flex-direction: column;
+            place-items: center;
+            align-content: center;
             justify-content: center;
             align-items: center;
-
+            justify-items: center;
         }
 
         .profile-character-set_info {
@@ -523,11 +536,271 @@
             top: 400px;
         }
 
+        .lv0 {
+            margin-left: 10px;
+            font-size: 0.8vw;
+            width: 13%;
+            border-radius: 50px;
+            border: 1px solid white;
+            padding: 10px;
+            display: inline-block;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 10%;
+            right: 86%;
+        }
+
+        .lv1 {
+            margin-left: 10px;
+            font-size: 0.8vw;
+            width: 13%;
+            border-radius: 50px;
+            border: 1px solid white;
+            padding: 10px;
+            display: inline-block;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 10%;
+            right: 71%;
+        }
+
+        .lv2 {
+            margin-left: 10px;
+            font-size: 0.8vw;
+            width: 10%;
+            border-radius: 50px;
+            border: 1px solid white;
+            padding: 10px;
+            display: inline-block;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 10%;
+            right: 59%;
+        }
+
+        .lv3 {
+            margin-left: 10px;
+            font-size: 0.8vw;
+            width: 15%;
+            border-radius: 50px;
+            border: 1px solid white;
+            padding: 10px;
+            display: inline-block;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 10%;
+            right: 42%;
+        }
+
+        .lv4 {
+            margin-left: 10px;
+            font-size: 0.8vw;
+            width: 15%;
+            border-radius: 50px;
+            border: 1px solid white;
+            padding: 10px;
+            display: inline-block;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 10%;
+            right: 25%;
+        }
+
+        .lv5 {
+            margin-left: 10px;
+            font-size: 0.8vw;
+            width: 22%;
+            border-radius: 50px;
+            border: 1px solid white;
+            padding: 10px;
+            display: inline-block;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            word-spacing: 15px;
+            position: absolute;
+            top: 10%;
+            right: 1%;
+            word-spacing: 5%;
+
+        }
+
+        .lv10 {
+            margin-top: 20px;
+            margin-left: 10px;
+            font-size: 0.8vw;
+            width: 20%;
+            display: inline-block;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            word-spacing: 10px;
+            color: mediumpurple;
+            position: absolute;
+            top: 50%;
+            right: 73%;
+        }
+
+        .lv11 {
+            margin-top: 20px;
+            margin-left: 10px;
+            font-size: 0.8vw;
+            width: 20%;
+            display: inline-block;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            word-spacing: 10px;
+            color: white;
+            position: absolute;
+            top: 50%;
+            right: 60%;
+        }
+
+        .lv12 {
+            margin-top: 20px;
+            margin-left: 10px;
+            font-size: 0.8vw;
+            width: 20%;
+            display: inline-block;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            word-spacing: 10px;
+            color: white;
+            position: absolute;
+            top: 50%;
+            right: 46%;
+        }
+
+        .lv13 {
+            margin-top: 20px;
+            margin-left: 10px;
+            font-size: 0.8vw;
+            width: 20%;
+            display: inline-block;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            word-spacing: 10px;
+            color: deeppink;
+            position: absolute;
+            top: 50%;
+            right: 32%;
+        }
+
+        .lv14 {
+            margin-top: 20px;
+            margin-left: 10px;
+            font-size: 0.8vw;
+            width: 20%;
+            display: inline-block;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            word-spacing: 10px;
+            color: goldenrod;
+            position: absolute;
+            top: 50%;
+            right: 15%;
+        }
+
+        .lv15 {
+            margin-top: 20px;
+            margin-left: 10px;
+            font-size: 0.8vw;
+            width: 20%;
+            display: inline-block;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            word-spacing: 10px;
+            color: goldenrod;
+            position: absolute;
+            top: 50%;
+            right: 2%;
+
+        }
+
+        .mtbox {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            float: left;
+        }
+
+        .job {
+            margin-top: 20px;
+            margin-left: 10px;
+            width: 20%;
+            position: absolute;
+            top: 40%;
+            right: 78%;
+        }
+        .crbtn {
+            margin-top: 20px;
+            margin-left: 10px;
+            width: 20%;
+            position: absolute;
+            top: 53%;
+            right: 67%;
+
+        }
+
+
+input[id="menuicon"] {
+    display: none;
+  }
+  input[id="menuicon"] + label {
+    display: block;
+    width: 40px;
+    height: 15px;
+    position: relative;
+    cursor: pointer;
+  }
+  input[id="menuicon"] + label span {
+    display: block;
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    border-radius: 30px;
+    background: white;
+    transition: all .35s;
+  }
+  input[id="menuicon"] + label span:nth-child(1) {
+    top:0;
+  }
+  input[id="menuicon"] + label span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  input[id="menuicon"] + label span:nth-child(3) {
+    bottom: 0;
+  }
+  input[id="menuicon"]:checked + label span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(720deg);
+  }
+  input[id="menuicon"]:checked + label span:nth-child(2) {
+    opacity: 0;
+  }
+  input[id="menuicon"]:checked + label span:nth-child(3) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-720deg);
+  }
 
     </style>
-    <script>
 
-    </script>
 </head>
 <body>
 <!--페이지 전체(background) 페이지-->
@@ -592,7 +865,42 @@
                     </nav>
                 </div>
                 <div class="profile-character-name_into">
-                    <h1>캐릭터명</h1>
+                    <div class="mtbox">
+                        <div>
+                            <h1 class="lv0">lv.60 수테비아</h1>
+                            <h1 class="lv10">루페온</h1>
+                            <h1 class="job"><img class="profile-character-info__img" src="https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/emblem_devil_hunter.png" alt="데빌헌터"></h1>
+                                <div class="crbtn">
+                                    <input type="checkbox" id="menuicon">
+                                        <label for="menuicon">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </label>
+                                </div>
+                        </div>
+                        <div>
+                            <h1 class="lv1">원정대 레벨</h1>
+                            <h1 class="lv11">lv.232</h1>
+                        </div>
+                        <div>
+                            <h1 class="lv2">전투 레벨</h1>
+                            <h1 class="lv12">lv.60</h1>
+                        </div>
+                        <div>
+                            <h1 class="lv3">장착 아이템 레벨</h1>
+                            <h1 class="lv13">lv.1500</h1>
+                        </div>
+                        <div>
+                            <h1 class="lv4">달성 아이템 레벨</h1>
+                            <h1 class="lv14">lv.1500</h1>
+                        </div>
+                        <div>
+                            <h1 class="lv5">칭호 길드 pvp 영지</h1>
+                            <h1 class="lv15">모코코 길드 20급 lv.70</h1>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="profile-character-set_info">
