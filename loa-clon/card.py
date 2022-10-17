@@ -4,12 +4,12 @@ from bs4 import BeautifulSoup
 
 from pymongo import MongoClient
 
-client = MongoClient('mongodb+srv://test:sparta@cluster0.s7gsuon.mongodb.net/Cluster0?retryWrites=true&w=majority')
-db = client.dbsparta
+client = MongoClient('mongodb+srv://LOAGG:spatrateam4LOAGGprojectpassword@Cluster1.vlj5yqv.mongodb.net/?retryWrites=true&w=majority')
+db = client.loagg
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
-data = requests.get('https://lostark.game.onstove.com/Profile/Character/%EC%88%98%ED%85%8C%EB%B9%84%EC%95%84',
+data = requests.get('https://lostark.game.onstove.com/Profile/Character/%EB%B0%94%EB%93%9C%ED%9D%AC',
                     headers=headers)
 
 soup = BeautifulSoup(data.text, 'html.parser')
@@ -30,4 +30,9 @@ for card in cardlist:
         'cardimg': cardimg,
         'cardawake': cardawake
     }
-    db.loagg.update_one({"name": name,'num': num}, {'$set': doc}, upsert=True)
+    db.cardlist.update_one({"name": name,'num': num}, {'$set': doc}, upsert=True)
+
+
+
+
+
