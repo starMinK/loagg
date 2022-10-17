@@ -172,9 +172,6 @@
             width: 35%;
             height: 100%;
 
-            width: 35%;
-            height: 98%;
-
             margin: auto 0 auto 30px;
 
             display: flex;
@@ -813,9 +810,11 @@
             margin: 6px;
         }
 
+        /*상륜영역*/
+
         .lv0 {
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 13%;
             border-radius: 50px;
             border: 1px solid white;
@@ -831,7 +830,7 @@
 
         .lv1 {
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 13%;
             border-radius: 50px;
             border: 1px solid white;
@@ -847,7 +846,7 @@
 
         .lv2 {
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 10%;
             border-radius: 50px;
             border: 1px solid white;
@@ -863,7 +862,7 @@
 
         .lv3 {
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 15%;
             border-radius: 50px;
             border: 1px solid white;
@@ -879,7 +878,7 @@
 
         .lv4 {
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 15%;
             border-radius: 50px;
             border: 1px solid white;
@@ -895,7 +894,7 @@
 
         .lv5 {
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 22%;
             border-radius: 50px;
             border: 1px solid white;
@@ -914,7 +913,7 @@
         .lv10 {
             margin-top: 20px;
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 20%;
             display: inline-block;
             flex-direction: row;
@@ -930,7 +929,7 @@
         .lv11 {
             margin-top: 20px;
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 20%;
             display: inline-block;
             flex-direction: row;
@@ -946,7 +945,7 @@
         .lv12 {
             margin-top: 20px;
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 20%;
             display: inline-block;
             flex-direction: row;
@@ -962,7 +961,7 @@
         .lv13 {
             margin-top: 20px;
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 20%;
             display: inline-block;
             flex-direction: row;
@@ -978,7 +977,7 @@
         .lv14 {
             margin-top: 20px;
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 20%;
             display: inline-block;
             flex-direction: row;
@@ -994,7 +993,7 @@
         .lv15 {
             margin-top: 20px;
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 20%;
             display: inline-block;
             flex-direction: row;
@@ -1044,37 +1043,16 @@
         input[id="menuicon"] + label span {
             display: block;
             position: absolute;
-            width: 100%;
-            height: 5px;
-            border-radius: 30px;
-            background: white;
-            transition: all .35s;
-        }
+            top: 62%;
+            right: 85.5%;
+            width: 2%;
+            height: 15%;
+            font-size: 0.5vw;
+            text-decoration: none;
+            text-align: center;
+            color: #fff;
+            border-radius: 10px;
 
-        input[id="menuicon"] + label span:nth-child(1) {
-            top: 0;
-        }
-
-        input[id="menuicon"] + label span:nth-child(2) {
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        input[id="menuicon"] + label span:nth-child(3) {
-            bottom: 0;
-        }
-
-        input[id="menuicon"]:checked + label span:nth-child(1) {
-            top: 50%;
-            transform: translateY(-50%) rotate(720deg);
-        }
-
-        input[id="menuicon"]:checked + label span:nth-child(2) {
-        }
-
-        input[id="menuicon"]:checked + label span:nth-child(3) {
-            bottom: 50%;
-            transform: translateY(50%) rotate(-720deg);
         }
 
         .popup {
@@ -1176,587 +1154,593 @@
         }
 
 
+
         /*duk code*/
         /*전체 박스*/
-        .character-title {
-            background-color: black;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-        }
-
         .equip {
-            /*border: white solid 1px;*/
-
+            border-radius: 25px;
             width: 100%;
             height: 100%;
+
+            position: relative;
         }
+        /*캐릭터정보 h1*/
+        .character-title {
 
-        .ability-power {
-            /*background-color: green;*/
-            width: 250px;
-            height: 50px;
-
-            text-combine: 10px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-            font-size: 20px;
-
-
-        }
-
-        .ability-power > div {
-            margin-right: 40px;
-        }
-
-        .ability-life {
-
-            /*background-color: red;*/
-            width: 250px;
-            height: 50px;
-
-            text-combine: 10px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-            font-size: 20px;
-        }
-
-        .ability-life > div {
-            margin-right: 15px;
-        }
-
-        /*어빌리티 끝*/
-        .stats-Critical {
-            /*background-color: red;*/
-            width: 250px;
-            height: 50px;
-
-            text-combine: 10px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-            font-size: 20px;
-        }
-
-        .stats-Critical > div {
-            margin-right: 40px;
-        }
-
-        .stats-Specialization {
-            /*background-color: green;*/
-            width: 250px;
-            height: 50px;
-
-            text-combine: 10px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-            font-size: 20px;
-        }
-
-        .stats-Specialization > div {
-            margin-right: 40px;
-        }
-
-        .stats-Domination {
-            /*background-color: red;*/
-            width: 250px;
-            height: 50px;
-
-            text-combine: 10px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-            font-size: 20px;
-        }
-
-        .stats-Domination > div {
-            margin-right: 40px;
-        }
-
-        .stats-Swiftness {
-            /*background-color: green;*/
-            width: 250px;
-            height: 50px;
-
-            text-combine: 10px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-            font-size: 20px;
-        }
-
-        .stats-Swiftness > div {
-            margin-right: 40px;
-        }
-
-        .stats-Endurance {
-            /*background-color: red;*/
-            width: 250px;
-            height: 50px;
-
-            text-combine: 10px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-            font-size: 20px;
-        }
-
-        .stats-Endurance > div {
-            margin-right: 40px;
-        }
-
-        .stats-Expertise {
-            /*background-color: green;*/
-            width: 250px;
-            height: 50px;
-
-            text-combine: 10px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-            font-size: 20px;
-        }
-
-        .stats-Expertise > div {
-            margin-right: 40px;
-        }
-
-        .main-engrave {
-            margin: 20px 0px 0px 50px;
+            width: 100%;
 
             background-color: black;
+            display: inline-block;
+            text-align:center;
 
-            width: 600px;
-            border: 1px solid white;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            border-radius: 20px;
+            position:absolute;
         }
 
-        .side-engrave {
-            width: 600px;
-            height: 100px;
+        /*기본특성 뼈대 시작*/
+        .ability{
+            background-color: #1d2027;
 
-            /*background-color: white;*/
-
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-        }
-
-
-        .engrave1-1 {
-            /*background-color: #9C1A1C;*/
-
-            width: 250px;
-            height: 50px;
-
-            text-combine: 10px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-            font-size: 20px;
-        }
-
-
-        .stats-basic-tendency {
-            width: 600px;
-
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-            margin-left: 50px;
-        }
-
-        .tendency-intellect {
-            width: 250px;
-            height: 75px;
-
-            text-combine: 10px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-            font-size: 20px;
-
-        }
-
-        .tendency-courage {
-            width: 250px;
-            height: 75px;
-
-            text-combine: 10px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-            font-size: 20px;
-        }
-
-        .tendency-Charm {
-            width: 250px;
-            height: 75px;
-
-            text-combine: 10px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-            font-size: 20px;
-        }
-
-        .tendency-kindness {
-
-            width: 250px;
-            height: 75px;
-
-            text-combine: 10px;
-
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-            font-size: 20px;
-        }
-
-        .tendency-intellect > div {
-            margin-right: 40px;
-        }
-
-        .tendency-courage > div {
-            margin-right: 40px;
-        }
-
-        .tendency-Charm > div {
-            margin-right: 40px;
-        }
-
-        .tendency-kindness > div {
-            margin-right: 40px;
-        }
-
-        .Main-Information {
-            background-size: cover;
-            background-image: url("https://dcimg5.dcinside.com/dccon.php?no=62b5df2be09d3ca567b1c5bc12d46b394aa3b1058c6e4d0ca41648b651ee246e2c82dc4e007f2e8ca8018dfbfcd90cadfc08e31b8ca4fa9f46c840c0137db4f7f2c24ce43547611c3958");
-            background-position: center;
-
-            width: 500px;
-            height: 600px;
-
-            font-size: 20px;
-
+            width:40%;
+            height: 20%;
+            font-size: 0.9vw;
             position: absolute;
-            left: 700px;
-            top: 400px;
+            left: 5%;
+            top: 12%;
         }
+        .ability-title{
+            background-color: #191b21;
 
-        .ability-basic {
+            text-align:center;
 
-
-            margin: 20px 0px 20px 50px;
-            background-color: black;
-
-            width: 600px;
-            border: 1px solid white;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            border-radius: 20px;
+            font-size: 1vw;
         }
+        .ability-power{
+            /*background-color: green;*/
+            color: gold;
 
-        .ability-basic-1 {
-            width: 600px;
-
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
+            width: 23%;
+            height: 20%;
+            position: absolute;
+            left: 15%;
+            top: 33%;
         }
-
-        .stats-basic {
-            text-align: center;
-
-            background-color: black;
-
-            width: 300px;
-            border: 1px solid white;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            border-top-right-radius: 20px;
-            border-bottom-right-radius: 20px;
+        .ability-power-number{
+            /*background-color: yellow;*/
+            position: absolute;
+            left: 50%;
+            top: 33%;
         }
-
-        .tendency {
-
-            position: static;
-
-            background-color: black;
-            width: 300px;
-
-            border: 1px solid white;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            border-top-left-radius: 20px;
-            border-bottom-left-radius: 20px;
-        }
-
-        .Main-Text {
-            font-size: 25px;
-            margin-top: 5px;
-
-        }
-
-        /*툴팁*/
         .ability-power .tooltip-ability {
             visibility: hidden;
-
-            width: 520px;
-
-            background-color: black;
-
-            margin-top: 10px;
-
+            background-color: #2a2c35;
             color: white;
+            border: 1px solid #181b26;
+            /*box-sizing: border-box;*/
 
+            width: 25vw;
+            padding: 1.5vh;
             text-align: left;
+            position: relative;
 
-            position: absolute;
-
-            left: 300px;
-
+            font-size: 0.6vw;
+            left:80%;
+            top:-1.3vw;
             z-index: 1;
+
         }
 
         .ability-power:hover .tooltip-ability {
             visibility: visible;
         }
+        .ability-life{
+            /*background-color: green;*/
+            color: gold;
 
-        .ability-life .tooltip-ability {
-            visibility: hidden;
-
-            width: 470px;
-
-            background-color: black;
-
-            margin-top: 10px;
-
-            color: white;
-
-            text-align: left;
+            width: 6vw;
+            height: 1.3vw;
 
             position: absolute;
+            left: 15%;
+            top: 63%;
+        }
+        .ability-life-number{
+           /* background-color: yellow;*/
+            position: absolute;
+            left: 50%;
+            top: 63%;
+        }
+        .ability-life .tooltip-ability {
+            visibility: hidden;
+            background-color: #2a2c35;
+            color: white;
+            border: 1px solid #181b26;
+            box-sizing: border-box;
 
-            left: 600px;
+            width: 25vw;
+            padding: 1.5vh;
+            text-align: left;
+            position: relative;
 
+            font-size: 0.6vw;
+            left:80%;
+            top:-1.3vw;
             z-index: 1;
+
         }
 
         .ability-life:hover .tooltip-ability {
             visibility: visible;
         }
+        /*기본특성 뼈대 끝*/
 
-        .stats-Critical .tooltip-stats {
-            visibility: hidden;
 
-            width: 500px;
+        /*어빌리티 툴팁*/
 
-            background-color: black;
 
-            margin-top: 10px;
+        /*전투특성*/
+        .stats{
+            background-color: #1d2028;
 
-            color: white;
-
-            text-align: left;
+            width:40%;
+            height: 58.25%;
 
             position: absolute;
+            left: 5%;
+            top: 35%;
 
-            left: 600px;
+            font-size: 0.9vw;
+        }
 
+        .stats-title {
+            background-color: #191b21;
+
+            text-align: center;
+
+            font-size: 1vw;
+        }
+
+        .stats-Critical{
+             /*background-color: green;*/
+            color: gold;
+
+            width: 2.5vw;
+            height: 1.5vw;
+            position: absolute;
+            left: 20%;
+            top: 13%;
+        }
+        .stats-Critical-number {
+            /*background-color: green;*/
+            position: absolute;
+            left: 60%;
+            top: 12.5%;
+        }
+        .stats-Critical .tooltip-stats {
+            visibility: hidden;
+            background-color: #2a2c35;
+            color: white;
+            border: 1px solid #181b26;
+            box-sizing: border-box;
+
+            width: 25vw;
+            padding: 1.5vh;
+            text-align: left;
+            position: relative;
+
+            font-size: 0.6vw;
+            left:90%;
+            top:-1.3vw;
             z-index: 1;
+
         }
 
         .stats-Critical:hover .tooltip-stats {
             visibility: visible;
         }
+        .stats-Specialization{
+             /*background-color: green;*/
+            color: gold;
 
-        .stats-Specialization .tooltip-stats {
-            visibility: hidden;
-
-            width: 500px;
-
-            background-color: black;
-
-            margin-top: 10px;
-
-            color: white;
-
-            text-align: left;
+            width: 2.5vw;
+            height: 1.5vw;
 
             position: absolute;
+            left: 20%;
+            top: 28%;
+        }
+        .stats-Specialization-number {
+            /*background-color: green;*/
+            position: absolute;
+            left: 60%;
+            top: 27.8%;
+        }
+        .stats-Specialization .tooltip-stats {
+            visibility: hidden;
+            background-color: #2a2c35;
+            color: white;
+            border: 1px solid #181b26;
+            box-sizing: border-box;
 
-            left: 600px;
+            width: 25vw;
+            padding: 1.5vh;
+            text-align: left;
+            position: relative;
 
+            font-size: 0.6vw;
+            left:90%;
+            top:-1.3vw;
             z-index: 1;
+
         }
 
         .stats-Specialization:hover .tooltip-stats {
             visibility: visible;
         }
+        .stats-Domination{
+             /*background-color: green;*/
+            color: gold;
 
-        .stats-Domination .tooltip-stats {
-            visibility: hidden;
-
-            width: 500px;
-
-            background-color: black;
-
-            margin-top: 10px;
-
-            color: white;
-
-            text-align: left;
+            width: 2.5vw;
+            height: 1.5vw;
 
             position: absolute;
+            left: 20%;
+            top: 43%;
+        }
+        .stats-Domination-number {
+            /*background-color: green;*/
+            position: absolute;
+            left: 60%;
+            top: 42.9%;
+        }
+        .stats-Domination .tooltip-stats {
+            visibility: hidden;
+            background-color: #2a2c35;
+            color: white;
+            border: 1px solid #181b26;
+            box-sizing: border-box;
 
-            left: 600px;
+            width: 25vw;
+            padding: 1.5vh;
+            text-align: left;
+            position: relative;
 
+            font-size: 0.6vw;
+            left:90%;
+            top:-1.3vw;
             z-index: 1;
-
 
         }
 
         .stats-Domination:hover .tooltip-stats {
             visibility: visible;
         }
+        .stats-Swiftness{
+             /*background-color: green;*/
+            color: gold;
 
-        .stats-Swiftness .tooltip-stats {
-            visibility: hidden;
-
-            width: 500px;
-
-            background-color: black;
-
-            margin-top: 10px;
-
-            color: white;
-
-            text-align: left;
+            width: 2.5vw;
+            height: 1.5vw;
 
             position: absolute;
+            left: 20%;
+            top: 58%;
+        }
+        .stats-Swiftness-number {
+            /*background-color: green;*/
+            position: absolute;
+            left: 60%;
+            top: 57.5%;
+        }
+        .stats-Swiftness .tooltip-stats {
+            visibility: hidden;
+            background-color: #2a2c35;
+            color: white;
+            border: 1px solid #181b26;
+            box-sizing: border-box;
 
-            left: 600px;
+            width: 25vw;
+            padding: 1.5vh;
+            text-align: left;
+            position: relative;
 
+            font-size: 0.6vw;
+            left:90%;
+            top:-1.3vw;
             z-index: 1;
-
 
         }
 
         .stats-Swiftness:hover .tooltip-stats {
             visibility: visible;
         }
+        .stats-Endurance{
+             /*background-color: green;*/
+            color: gold;
 
-        .stats-Endurance .tooltip-stats {
-            visibility: hidden;
-
-            width: 500px;
-
-            background-color: black;
-
-            margin-top: 10px;
-
-            color: white;
-
-            text-align: left;
+            width: 2.5vw;
+            height: 1.5vw;
 
             position: absolute;
+            left: 20%;
+            top: 73%;
+        }
+         .stats-Endurance-number {
+            /*background-color: green;*/
+            position: absolute;
+            left: 60%;
+            top: 72.5%;
+        }
+         .stats-Endurance .tooltip-stats {
+            visibility: hidden;
+            background-color: #2a2c35;
+            color: white;
+            border: 1px solid #181b26;
+            box-sizing: border-box;
 
-            left: 600px;
+            width: 25vw;
+            padding: 1.5vh;
+            text-align: left;
+            position: relative;
 
+            font-size: 0.6vw;
+            left:90%;
+            top:-1.3vw;
             z-index: 1;
-
 
         }
 
         .stats-Endurance:hover .tooltip-stats {
             visibility: visible;
         }
+        .stats-Expertise{
+             /*background-color: green;*/
+            color: gold;
 
-        .stats-Expertise .tooltip-stats {
-            visibility: hidden;
-
-            width: 500px;
-
-            background-color: black;
-
-            margin-top: 10px;
-
-            color: white;
-
-            text-align: left;
+            width: 2.5vw;
+            height: 1.5vw;
 
             position: absolute;
+            left: 20%;
+            top: 88%;
+        }
+        .stats-Expertise-number {
+            /*background-color: green;*/
+            position: absolute;
+            left: 60%;
+            top: 87.8%;
+        }
+        .stats-Expertise .tooltip-stats {
+            visibility: hidden;
+            background-color: #2a2c35;
+            color: white;
+            border: 1px solid #181b26;
+            box-sizing: border-box;
 
-            left: 600px;
+            width: 25vw;
+            padding: 1.5vh;
+            text-align: left;
+            position: relative;
 
+            font-size: 0.6vw;
+            left:90%;
+            top:-1.3vw;
             z-index: 1;
-
 
         }
 
         .stats-Expertise:hover .tooltip-stats {
             visibility: visible;
+        }
+        /*각인효과*/
+        .engrave{
+            background-color: #1d2028;
+
+            width:40%;
+            height: 25%;
+
+            position: absolute;
+            left: 55%;
+            top: 12%;
+            font-size: 0.9vw;
+
 
         }
+        .engrave-title{
+            background-color: #191b21;
+
+            text-align: center;
+
+            font-size: 1vw;
+        }
+        .engrave-list1{
+            color: gold;
+
+            position: absolute;
+            left: 25%;
+            top: 30%;
+        }
+        .engrave-list2{
+            color: gold;
+
+            position: absolute;
+            left: 25%;
+            top: 50%;
+        }
+        .engrave-list3{
+            color: gold;
+
+            position: absolute;
+            left: 25%;
+            top: 70%
+        }
+
+        /*성향*/
+        .tendency {
+            background-color: #1d2029;
+
+            width:40%;
+            height: 30%;
+
+            position: absolute;
+            left: 55%;
+            top: 40%;
+
+            font-size: 0.9vw;
+        }
+        .tendency-title{
+            background-color: #191b21;
+
+            text-align:center;
+
+            font-size: 1vw;
+        }
+        .tendency-intellect {
+            position: absolute;
+            left: 30%;
+            top: 20%;
+            color: gold;
+        }
+        .tendency-intellect-number{
+            position: absolute;
+            left: 60%;
+            top: 20%;
+        }
+        .tendency-courage {
+            position: absolute;
+            left: 30%;
+            top: 40%;
+            color: gold;
+        }
+        .tendency-courage-number{
+            position: absolute;
+            left: 60%;
+            top: 40%;
+        }
+        .tendency-Charm {
+            position: absolute;
+            left: 30%;
+            top: 60%;
+            color: gold;
+        }
+        .tendency-Charm-number{
+            position: absolute;
+            left: 60%;
+            top: 60%;
+        }
+        .tendency-kindness {
+            position: absolute;
+            left: 30%;
+            top: 80%;
+            color: gold;
+        }
+        .tendency-kindness-number{
+            position: absolute;
+            left: 60%;
+            top: 80%;
+        }
+        /*특수장비*/
+        .special {
+            background-color: #1d202a;
+
+            width:40%;
+            height: 20%;
+
+            position: absolute;
+            left: 55%;
+            top: 73%;
+        }
+        .special-title{
+            background-color: #191b21;
+
+            text-align:center;
+
+            font-size: 1vw;
+        }
+        .special-weapon-1{
+            background-image:url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_special_slot.png?34cb99193be738b4ae3c78bba02395b1');
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            left: 15%;
+            top: 40%;
+
+            width: 15%;
+            height: 40%;
+
+        }
+        .special-weapon-2{
+            background-image:url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_special_slot.png?34cb99193be738b4ae3c78bba02395b1');
+            background-size: cover;
+            background-position: center;
+            background-color: green;
+            position: absolute;
+
+            width: 15%;
+            height: 40%;
+            left: 45%;
+            top: 40%;
+        }
+        .special-weapon-3{
+            background-image:url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_special_slot.png?34cb99193be738b4ae3c78bba02395b1');
+            background-size: cover;
+            background-position: center;
+            background-color: green;
+            position: absolute;
+
+            width: 15%;
+            height: 40%;
+            left: 75%;
+            top: 40%;
+        }
+
+
+input[id="menuicon"] {
+    display: none;
+  }
+  input[id="menuicon"] + label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+  }
+  input[id="menuicon"] + label span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    border-radius: 30px;
+    background: black;
+    transition: all .35s;
+  }
+  input[id="menuicon"] + label span:nth-child(1) {
+    top:0;
+  }
+  input[id="menuicon"] + label span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  input[id="menuicon"] + label span:nth-child(3) {
+    bottom: 0;
+  }
+  input[id="menuicon"]:checked + label span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(720deg);
+  }
+  input[id="menuicon"]:checked + label span:nth-child(2) {
+
+  input[id="menuicon"]:checked + label span:nth-child(3) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-720deg);
+  }
     </style>
 
     <script>
+
         // nav 버튼 기능
         function jewelDisplayOn() {
             $('.cards').hide();
@@ -2125,6 +2109,7 @@
 
                     </div>
                 </div>
+
                 <div class="profile-character-name_into">
                     <div class="mtbox">
                         <div>
@@ -2133,15 +2118,12 @@
                             <h1 class="job"><img class="profile-character-info__img"
                                                  src="https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/emblem_devil_hunter.png"
                                                  alt="데빌헌터"></h1>
-                            <!--                            <a href="#pop1" class="btn11"></a>-->
-
-                            <input class="btn11" type="checkbox" id="menuicon" href="#pop1">
-                            <label for="menuicon">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </label>
-
+                            <a href="#pop1" class="btn11"><input type="hidden" class="btn" id="menuicon">
+                                <label for="menuicon">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </label></a>
                             <div class="popup" id="pop1">
                                 <a>
                                     <a href="#a">close</a>
@@ -2213,181 +2195,165 @@
                         </div>
                     </div>
 
+
+
+
+
+
+
+
+
+
                     <!--?dukdukdukdukdukdukdukdukdukdukduk-->
                     <div class="equip">
-                        <div class="character-title">
-                            <h1>캐릭터정보</h1>
-                        </div>
-                        <div class="character-stats">
-                            <!--기본특성html-->
-                            <div class="ability-basic">
-                                <div class="Main-Text">기본특성</div>
-                                <div class="ability-basic-1">
-                                    <div class="ability-power">
-                                        <div style="color:gold">공격력</div>
-                                        <div>57583</div>
-                                        <div></div>
-                                        <div class="tooltip-ability">
+                        <div class="character-title"><h1>캐릭터 정보</h1>  </div>
+                        <div class="ability">
+                            <p class="ability-title">기본특성</p>
+                            <div class="ability-text">
+                            <span class="ability-power">공격력
+                            <div class="tooltip-ability">
                                             <li> 적에게 주는 피해를 계산할 때 기준이 되는 값입니다.</li>
                                             <li> 힘, 민첩, 지능과 무기 공격력을 기반으로 증가한 기본 공격력은 <font
                                                     color="#99ff99">49773</font>입니다.
                                             </li>
                                             <li> 공격력 증감 효과로 공격력이 <font color="#99ff99">7964</font> 증가되었습니다.</li>
                                         </div>
-                                    </div>
-                                    <div class="ability-life">
-                                        <div style="color:gold">최대생명력</div>
-                                        <div>175804</div>
-                                        <div class="tooltip-ability">
+                            </span>
+                            <span class="ability-life">최대생명력
+                                <div class="tooltip-ability">
                                             <li> 캐릭터의 최대 생명력을 나타냅니다.</li>
                                             <li> 체력으로 최대 생명력이 <font color="#99ff99">119056</font> 증가되었습니다.</li>
                                             <li> 생명 활성력으로 최대 생명력이 <font color="#99ff99">40.82%</font> 증가되었습니다.</li>
                                         </div>
-                                    </div>
-                                </div>
+                            </span>
                             </div>
-                            <!-- 전투특성+성향-->
-                            <div class="stats-basic-tendency">
-                                <!--성향html-->
-                                <div class="tendency">
-
-                                    <div class="Main-Text">성향</div>
-                                    <div class="tendency-intellect">
-                                        <div style="color: gold">지성</div>
-                                        <div>15</div>
-                                    </div>
-                                    <div class="tendency-courage">
-                                        <div style="color: gold">담력</div>
-                                        <div>15</div>
-                                    </div>
-                                    <div class="tendency-Charm">
-                                        <div style="color: gold">매력</div>
-                                        <div>15</div>
-                                    </div>
-                                    <div class="tendency-kindness">
-                                        <div style="color: gold">친절</div>
-                                        <div>15</div>
-                                    </div>
-
-                                    <!--전투특성-->
-                                </div>
-                                <div class="stats-basic">
-
-                                    <div class="Main-Text">전투특성</div>
-
-                                    <div>
-                                        <div class="stats-Critical">
-                                            <div style="color: gold">치명</div>
-                                            <div>351</div>
-                                            <div class="tooltip-stats">
-                                                <li> 치명타 적중률이 <font color="#99ff99">12.56%</font> 증가합니다.</li>
-                                                <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">28</font> 만큼 영구적으로
-                                                    증가되었습니다.
-                                                </li>
-                                                <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
-                                                <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
-                                            </div>
-                                        </div>
-
-                                        <div class="stats-Specialization">
-                                            <div style="color: gold">특화</div>
-                                            <div>1428</div>
-                                            <div class="tooltip-stats">
-                                                <li> 핸드건 스킬의 치명타 피해량이<font color="#99ff99">153.21%</font> 증가합니다.
-                                                </li>
-                                                <li> 샷건 스킬의 피해량이<font color="#99ff99">51.07%</font> 증가합니다.</li>
-                                                <li> 라이플 스킬의 물리 / 마법 관통력이<font color="#99ff99">51.07%</font> 증가합니다.
-                                                </li>
-                                                <li> 각성 스킬의 피해량이 <font color="#99ff99">78.03%</font> 증가합니다.</li>
-                                                <li> 물약 및 원정대 레벨 보상 효과로 <font color="#99ff99">24</font>만큼 영구적으로
-                                                    증가되었습니다.
-                                                </li>
-
-                                            </div>
-
-                                        </div>
-
-                                        <div class="stats-Domination">
-                                            <div style="color: gold">제압</div>
-                                            <div>62</div>
-                                            <div class="tooltip-stats">
-                                                <li> 피격이상 및 상태이상 대상에게 주는 피해량이 <font color="#99ff99">3.80%</font>
-                                                    증가합니다.
-                                                </li>
-                                                <li> 무력화 대상에게 주는 피해량이 <font color="#99ff99"></font> 증가합니다.</li>
-                                                <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">28</font>만큼 영구적으로
-                                                    증가되었습니다.
-                                                </li>
-                                                <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
-                                            </div>
-                                        </div>
-
-                                        <div class="stats-Swiftness">
-                                            <div style="color: gold">신속</div>
-                                            <div>550</div>
-                                            <div class="tooltip-stats">
-                                                <li> 공격 속도가 <font color="#99ff99">9.44%</font> 증가합니다.</li>
-                                                <li> 이동 속도가 <font color="#99ff99">9.44%</font> 증가합니다.</li>
-                                                <li> 스킬 재사용 대기시간이<font color="#99ff99">11.81%</font> 감소합니다.</li>
-                                                <li> 물약 및 원정대 레벨 보상 효과로 <font color="#99ff99">24</font>만큼 영구적으로
-                                                    증가되었습니다.
-                                                </li>
-                                                <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
-                                            </div>
-                                        </div>
-
-                                        <div class="stats-Endurance">
-                                            <div style="color: gold">인내</div>
-                                            <div>62</div>
-                                            <div class="tooltip-stats">
-                                                <li> 물리 방어력이 <font color="#99ff99">5.07%</font> 증가합니다.</li>
-                                                <li> 마법 방어력이 <font color="#99ff99">5.07%</font> 증가합니다.</li>
-                                                <li> 보호막 효과가 <font color="#99ff99">1.58%</font> 증가합니다.</li>
-                                                <li> 생명력 회복 효과가 <font color="#99ff99">2.21%</font> 증가합니다.</li>
-                                                <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">28</font>만큼 영구적으로
-                                                    증가되었습니다.
-                                                </li>
-                                                <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="stats-Expertise">
-                                            <div style="color: gold">숙련</div>
-                                            <div>62</div>
-                                            <div class="tooltip-stats">
-                                                <li> 상태이상 공격 지속시간이<font color="#99ff99">2.66%</font> 증가합니다.</li>
-                                                <li> 상태이상 피해 지속시간이<font color="#99ff99">2.21%</font> 감소합니다.</li>
-                                                <li> 무력화 피해량이 <font color="#99ff99">1.77%</font> 증가합니다.</li>
-                                                <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">28</font>만큼 영구적으로
-                                                    증가되었습니다.
-                                                </li>
-                                                <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
+                            <div class="ability-number">
+                                <span class="ability-power-number">57857</span>
+                                <span class="ability-life-number">175804</span>
                             </div>
 
-                            <div class="main-engrave">
-
-                                <div class="Main-Text">각인 효과</div>
-                                <div class="side-engrave">
-                                    <div class="engrave1-1" style="color: gold">원한 lv. 3</div>
-                                    <div class="engrave1-1" style="color: gold">강화 무기 lv. 3</div>
-                                    <div class="engrave1-1" style="color: gold">예리한 둔기 lv. 3</div>
-                                </div>
-                                <div class="side-engrave">
-                                    <div class="engrave1-1" style="color: gold">저주받은 인형 lv. 3</div>
-                                    <div class="engrave1-1" style="color: gold">기습의 대가 lv. 3</div>
-                                    <div class="engrave1-1" style="color: gold">아드레날린 lv. 1</div>
-                                </div>
+                        </div>
+                        <div class="stats">
+                            <p class="stats-title">전투특성</p>
+                            <div class="stats-text">
+                                <span class="stats-Critical">치명
+                                    <div class="tooltip-stats">
+                                        <li> 치명타 적중률이 <font color="#99ff99">12.56%</font> 증가합니다.</li>
+                                        <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">28</font> 만큼 영구적으로
+                                            증가되었습니다.
+                                        </li>
+                                        <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                        <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                    </div>
+                                </span>
+                                <span class="stats-Specialization">특화
+                                    <div class="tooltip-stats">
+                                        <li> 핸드건 스킬의 치명타 피해량이<font color="#99ff99">153.21%</font> 증가합니다.</li>
+                                        <li> 샷건 스킬의 피해량이<font color="#99ff99">51.07%</font> 증가합니다.</li>
+                                        <li> 라이플 스킬의 물리 / 마법 관통력이<font color="#99ff99">51.07%</font> 증가합니다.</li>
+                                        <li> 각성 스킬의 피해량이 <font color="#99ff99">78.03%</font> 증가합니다.</li>
+                                        <li> 물약 및 원정대 레벨 보상 효과로 <font color="#99ff99">24</font>만큼 영구적으로
+                                        증가되었습니다.</li>
+                                    </div>
+                                </span>
+                                <span class="stats-Domination">제압
+                                    <div class="tooltip-stats">
+                                        <li> 피격이상 및 상태이상 대상에게 주는 피해량이 <font color="#99ff99">3.80%</font>
+                                            증가합니다.</li>
+                                        <li> 무력화 대상에게 주는 피해량이 <font color="#99ff99"></font> 증가합니다.</li>
+                                        <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">28</font>만큼 영구적으로
+                                            증가되었습니다.</li>
+                                        <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                    </div>
+                                </span>
+                                <span class="stats-Swiftness">신속
+                                    <div class="tooltip-stats">
+                                        <li> 공격 속도가 <font color="#99ff99">9.44%</font> 증가합니다.</li>
+                                        <li> 이동 속도가 <font color="#99ff99">9.44%</font> 증가합니다.</li>
+                                        <li> 스킬 재사용 대기시간이<font color="#99ff99">11.81%</font> 감소합니다.</li>
+                                        <li> 물약 및 원정대 레벨 보상 효과로 <font color="#99ff99">24</font>만큼 영구적으로
+                                            증가되었습니다.</li>
+                                        <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                    </div>
+                                </span>
+                                <span class="stats-Endurance">인내
+                                    <div class="tooltip-stats">
+                                        <li> 물리 방어력이 <font color="#99ff99">5.07%</font> 증가합니다.</li>
+                                        <li> 마법 방어력이 <font color="#99ff99">5.07%</font> 증가합니다.</li>
+                                        <li> 보호막 효과가 <font color="#99ff99">1.58%</font> 증가합니다.</li>
+                                        <li> 생명력 회복 효과가 <font color="#99ff99">2.21%</font> 증가합니다.</li>
+                                        <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">28</font>만큼 영구적으로
+                                            증가되었습니다.</li>
+                                        <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                    </div>
+                                </span>
+                                <span class="stats-Expertise">숙련
+                                    <div class="tooltip-stats">
+                                        <li> 상태이상 공격 지속시간이<font color="#99ff99">2.66%</font> 증가합니다.</li>
+                                        <li> 상태이상 피해 지속시간이<font color="#99ff99">2.21%</font> 감소합니다.</li>
+                                        <li> 무력화 피해량이 <font color="#99ff99">1.77%</font> 증가합니다.</li>
+                                        <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">28</font>만큼 영구적으로
+                                            증가되었습니다.
+                                        </li>
+                                        <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                    </div>
+                                </span>
                             </div>
-                            <div class="Main-Information">
+                            <div class="stats-number">
+                                <span class="stats-Critical-number">15</span>
+                                <span class="stats-Specialization-number">458</span>
+                                <span class="stats-Domination-number">90</span>
+                                <span class="stats-Swiftness-number">135</span>
+                                <span class="stats-Endurance-number">99</span>
+                                <span class="stats-Expertise-number">14</span>
                             </div>
                         </div>
+                        <div class="engrave">
+                            <p class="engrave-title">각인효과</p>
+                            <div class="side-engrave">
+                                    <div class="engrave-list1">원한 lv. 3</div>
+                                    <div class="engrave-list2">강화 무기 lv. 3</div>
+                                    <div class="engrave-list3">예리한 둔기 lv. 3</div>
+                                </div>
+                        </div>
+
+
+                        <div class="tendency">
+                            <p class="tendency-title">성향</p>
+                            <span class="tendency-intellect">지성</span>
+                            <span class="tendency-courage">담력</span>
+                            <span class="tendency-Charm">매력</span>
+                            <span class="tendency-kindness">친절</span>
+                            <span class="tendency-intellect-number">154</span>
+                            <span class="tendency-courage-number">154</span>
+                            <span class="tendency-Charm-number">154</span>
+                            <span class="tendency-kindness-number">154</span>
+                        </div>
+
+
+
+                        <div class="special">
+                            <p class="special-title">특수장비</p>
+                            <div class="special-weapon-1"></div>
+                            <div class="special-weapon-2"></div>
+                            <div class="special-weapon-3"></div>
+                        </div>
                     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     <div class="cards">
                         <div class="card-1">
                             <div class="cardimg-1">
