@@ -1022,36 +1022,16 @@
             right: 78%;
         }
 
-        /*.btn11 {*/
-        /*    display: inline-block;*/
-        /*    position: absolute;*/
-        /*    top: 62%;*/
-        /*    right: 85.5%;*/
-        /*    width: 2%;*/
-        /*    height: 15%;*/
-        /*}*/
-
-        input[id="menuicon"] + label {
-            display: block;
-            width: 60px;
-            height: 40px;
-            position: relative;
-            cursor: pointer;
-        }
-
-        input[id="menuicon"] + label span {
-            display: block;
-            position: absolute;
+        .btn11 {
+            display: inline-block;
+           position: absolute;
             top: 62%;
             right: 85.5%;
             width: 2%;
             height: 15%;
-            font-size: 0.5vw;
-            text-decoration: none;
-            text-align: center;
-            color: #fff;
-            border-radius: 10px;
-
+        }
+        .btn {display: block; width: 40px; height: 40px; background: #4fbe79;
+        text-align: center; line-height: 50px; color: white;
         }
 
         .popup {
@@ -1153,7 +1133,6 @@
         }
 
 
-
         /*duk code*/
         /*전체 박스*/
         .equip {
@@ -1163,6 +1142,7 @@
 
             position: relative;
         }
+
         /*캐릭터정보 h1*/
         .character-title {
 
@@ -1170,33 +1150,35 @@
 
             background-color: black;
             display: inline-block;
-            text-align:center;
+            text-align: center;
 
             border-top-left-radius: 25px;
             border-top-right-radius: 25px;
 
-            position:absolute;
+            position: absolute;
         }
 
         /*기본특성 뼈대 시작*/
-        .ability{
+        .ability {
             background-color: #1d2027;
 
-            width:40%;
+            width: 40%;
             height: 20%;
             font-size: 0.9vw;
             position: absolute;
             left: 5%;
             top: 12%;
         }
-        .ability-title{
+
+        .ability-title {
             background-color: #191b21;
 
-            text-align:center;
+            text-align: center;
 
             font-size: 1vw;
         }
-        .ability-power{
+
+        .ability-power {
             /*background-color: green;*/
             color: gold;
 
@@ -1206,12 +1188,14 @@
             left: 15%;
             top: 33%;
         }
-        .ability-power-number{
+
+        .ability-power-number {
             /*background-color: yellow;*/
             position: absolute;
             left: 50%;
             top: 33%;
         }
+
         .ability-power .tooltip-ability {
             visibility: hidden;
             background-color: #2a2c35;
@@ -1225,8 +1209,8 @@
             position: relative;
 
             font-size: 0.6vw;
-            left:80%;
-            top:-1.3vw;
+            left: 80%;
+            top: -1.3vw;
             z-index: 1;
 
         }
@@ -1234,7 +1218,8 @@
         .ability-power:hover .tooltip-ability {
             visibility: visible;
         }
-        .ability-life{
+
+        .ability-life {
             /*background-color: green;*/
             color: gold;
 
@@ -1245,12 +1230,14 @@
             left: 15%;
             top: 63%;
         }
-        .ability-life-number{
-           /* background-color: yellow;*/
+
+        .ability-life-number {
+            /* background-color: yellow;*/
             position: absolute;
             left: 50%;
             top: 63%;
         }
+
         .ability-life .tooltip-ability {
             visibility: hidden;
             background-color: #2a2c35;
@@ -1264,8 +1251,8 @@
             position: relative;
 
             font-size: 0.6vw;
-            left:80%;
-            top:-1.3vw;
+            left: 80%;
+            top: -1.3vw;
             z-index: 1;
 
         }
@@ -1273,6 +1260,7 @@
         .ability-life:hover .tooltip-ability {
             visibility: visible;
         }
+
         /*기본특성 뼈대 끝*/
 
 
@@ -1280,10 +1268,10 @@
 
 
         /*전투특성*/
-        .stats{
+        .stats {
             background-color: #1d2028;
 
-            width:40%;
+            width: 40%;
             height: 58.25%;
 
             position: absolute;
@@ -1301,8 +1289,8 @@
             font-size: 1vw;
         }
 
-        .stats-Critical{
-             /*background-color: green;*/
+        .stats-Critical {
+            /*background-color: green;*/
             color: gold;
 
             width: 2.5vw;
@@ -1311,12 +1299,14 @@
             left: 20%;
             top: 13%;
         }
+
         .stats-Critical-number {
             /*background-color: green;*/
             position: absolute;
             left: 60%;
             top: 12.5%;
         }
+
         .stats-Critical .tooltip-stats {
             visibility: hidden;
             background-color: #2a2c35;
@@ -1330,8 +1320,8 @@
             position: relative;
 
             font-size: 0.6vw;
-            left:90%;
-            top:-1.3vw;
+            left: 90%;
+            top: -1.3vw;
             z-index: 1;
 
         }
@@ -1339,8 +1329,9 @@
         .stats-Critical:hover .tooltip-stats {
             visibility: visible;
         }
-        .stats-Specialization{
-             /*background-color: green;*/
+
+        .stats-Specialization {
+            /*background-color: green;*/
             color: gold;
 
             width: 2.5vw;
@@ -1350,12 +1341,14 @@
             left: 20%;
             top: 28%;
         }
+
         .stats-Specialization-number {
             /*background-color: green;*/
             position: absolute;
             left: 60%;
             top: 27.8%;
         }
+
         .stats-Specialization .tooltip-stats {
             visibility: hidden;
             background-color: #2a2c35;
@@ -1369,8 +1362,8 @@
             position: relative;
 
             font-size: 0.6vw;
-            left:90%;
-            top:-1.3vw;
+            left: 90%;
+            top: -1.3vw;
             z-index: 1;
 
         }
@@ -1378,8 +1371,9 @@
         .stats-Specialization:hover .tooltip-stats {
             visibility: visible;
         }
-        .stats-Domination{
-             /*background-color: green;*/
+
+        .stats-Domination {
+            /*background-color: green;*/
             color: gold;
 
             width: 2.5vw;
@@ -1389,12 +1383,14 @@
             left: 20%;
             top: 43%;
         }
+
         .stats-Domination-number {
             /*background-color: green;*/
             position: absolute;
             left: 60%;
             top: 42.9%;
         }
+
         .stats-Domination .tooltip-stats {
             visibility: hidden;
             background-color: #2a2c35;
@@ -1408,8 +1404,8 @@
             position: relative;
 
             font-size: 0.6vw;
-            left:90%;
-            top:-1.3vw;
+            left: 90%;
+            top: -1.3vw;
             z-index: 1;
 
         }
@@ -1417,8 +1413,9 @@
         .stats-Domination:hover .tooltip-stats {
             visibility: visible;
         }
-        .stats-Swiftness{
-             /*background-color: green;*/
+
+        .stats-Swiftness {
+            /*background-color: green;*/
             color: gold;
 
             width: 2.5vw;
@@ -1428,12 +1425,14 @@
             left: 20%;
             top: 58%;
         }
+
         .stats-Swiftness-number {
             /*background-color: green;*/
             position: absolute;
             left: 60%;
             top: 57.5%;
         }
+
         .stats-Swiftness .tooltip-stats {
             visibility: hidden;
             background-color: #2a2c35;
@@ -1447,8 +1446,8 @@
             position: relative;
 
             font-size: 0.6vw;
-            left:90%;
-            top:-1.3vw;
+            left: 90%;
+            top: -1.3vw;
             z-index: 1;
 
         }
@@ -1456,8 +1455,9 @@
         .stats-Swiftness:hover .tooltip-stats {
             visibility: visible;
         }
-        .stats-Endurance{
-             /*background-color: green;*/
+
+        .stats-Endurance {
+            /*background-color: green;*/
             color: gold;
 
             width: 2.5vw;
@@ -1467,13 +1467,15 @@
             left: 20%;
             top: 73%;
         }
-         .stats-Endurance-number {
+
+        .stats-Endurance-number {
             /*background-color: green;*/
             position: absolute;
             left: 60%;
             top: 72.5%;
         }
-         .stats-Endurance .tooltip-stats {
+
+        .stats-Endurance .tooltip-stats {
             visibility: hidden;
             background-color: #2a2c35;
             color: white;
@@ -1486,8 +1488,8 @@
             position: relative;
 
             font-size: 0.6vw;
-            left:90%;
-            top:-1.3vw;
+            left: 90%;
+            top: -1.3vw;
             z-index: 1;
 
         }
@@ -1495,8 +1497,9 @@
         .stats-Endurance:hover .tooltip-stats {
             visibility: visible;
         }
-        .stats-Expertise{
-             /*background-color: green;*/
+
+        .stats-Expertise {
+            /*background-color: green;*/
             color: gold;
 
             width: 2.5vw;
@@ -1506,12 +1509,14 @@
             left: 20%;
             top: 88%;
         }
+
         .stats-Expertise-number {
             /*background-color: green;*/
             position: absolute;
             left: 60%;
             top: 87.8%;
         }
+
         .stats-Expertise .tooltip-stats {
             visibility: hidden;
             background-color: #2a2c35;
@@ -1525,8 +1530,8 @@
             position: relative;
 
             font-size: 0.6vw;
-            left:90%;
-            top:-1.3vw;
+            left: 90%;
+            top: -1.3vw;
             z-index: 1;
 
         }
@@ -1534,11 +1539,12 @@
         .stats-Expertise:hover .tooltip-stats {
             visibility: visible;
         }
+
         /*각인효과*/
-        .engrave{
+        .engrave {
             background-color: #1d2028;
 
-            width:40%;
+            width: 40%;
             height: 25%;
 
             position: absolute;
@@ -1548,28 +1554,32 @@
 
 
         }
-        .engrave-title{
+
+        .engrave-title {
             background-color: #191b21;
 
             text-align: center;
 
             font-size: 1vw;
         }
-        .engrave-list1{
+
+        .engrave-list1 {
             color: gold;
 
             position: absolute;
             left: 25%;
             top: 30%;
         }
-        .engrave-list2{
+
+        .engrave-list2 {
             color: gold;
 
             position: absolute;
             left: 25%;
             top: 50%;
         }
-        .engrave-list3{
+
+        .engrave-list3 {
             color: gold;
 
             position: absolute;
@@ -1581,7 +1591,7 @@
         .tendency {
             background-color: #1d2029;
 
-            width:40%;
+            width: 40%;
             height: 30%;
 
             position: absolute;
@@ -1590,77 +1600,89 @@
 
             font-size: 0.9vw;
         }
-        .tendency-title{
+
+        .tendency-title {
             background-color: #191b21;
 
-            text-align:center;
+            text-align: center;
 
             font-size: 1vw;
         }
+
         .tendency-intellect {
             position: absolute;
             left: 30%;
             top: 20%;
             color: gold;
         }
-        .tendency-intellect-number{
+
+        .tendency-intellect-number {
             position: absolute;
             left: 60%;
             top: 20%;
         }
+
         .tendency-courage {
             position: absolute;
             left: 30%;
             top: 40%;
             color: gold;
         }
-        .tendency-courage-number{
+
+        .tendency-courage-number {
             position: absolute;
             left: 60%;
             top: 40%;
         }
+
         .tendency-Charm {
             position: absolute;
             left: 30%;
             top: 60%;
             color: gold;
         }
-        .tendency-Charm-number{
+
+        .tendency-Charm-number {
             position: absolute;
             left: 60%;
             top: 60%;
         }
+
         .tendency-kindness {
             position: absolute;
             left: 30%;
             top: 80%;
             color: gold;
         }
-        .tendency-kindness-number{
+
+        .tendency-kindness-number {
             position: absolute;
             left: 60%;
             top: 80%;
         }
+
         /*특수장비*/
         .special {
             background-color: #1d202a;
 
-            width:40%;
+            width: 40%;
             height: 20%;
 
             position: absolute;
             left: 55%;
             top: 73%;
         }
-        .special-title{
+
+        .special-title {
             background-color: #191b21;
 
-            text-align:center;
+            text-align: center;
 
             font-size: 1vw;
         }
-        .special-weapon-1{
-            background-image:url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_special_slot.png?34cb99193be738b4ae3c78bba02395b1');
+
+        .special-weapon-1 {
+            background-image: url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_special_slot.png?34cb99193be738b4ae3c78bba02395b1');
             background-size: cover;
             background-position: center;
             position: absolute;
@@ -1671,8 +1693,9 @@
             height: 40%;
 
         }
-        .special-weapon-2{
-            background-image:url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_special_slot.png?34cb99193be738b4ae3c78bba02395b1');
+
+        .special-weapon-2 {
+            background-image: url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_special_slot.png?34cb99193be738b4ae3c78bba02395b1');
             background-size: cover;
             background-position: center;
             background-color: green;
@@ -1683,8 +1706,9 @@
             left: 45%;
             top: 40%;
         }
-        .special-weapon-3{
-            background-image:url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_special_slot.png?34cb99193be738b4ae3c78bba02395b1');
+
+        .special-weapon-3 {
+            background-image: url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_special_slot.png?34cb99193be738b4ae3c78bba02395b1');
             background-size: cover;
             background-position: center;
             background-color: green;
@@ -1697,45 +1721,53 @@
         }
 
 
-input[id="menuicon"] {
-    display: none;
-  }
-  input[id="menuicon"] + label {
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    cursor: pointer;
-  }
-  input[id="menuicon"] + label span {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 5px;
-    border-radius: 30px;
-    background: black;
-    transition: all .35s;
-  }
-  input[id="menuicon"] + label span:nth-child(1) {
-    top:0;
-  }
-  input[id="menuicon"] + label span:nth-child(2) {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  input[id="menuicon"] + label span:nth-child(3) {
-    bottom: 0;
-  }
-  input[id="menuicon"]:checked + label span:nth-child(1) {
-    top: 50%;
-    transform: translateY(-50%) rotate(720deg);
-  }
-  input[id="menuicon"]:checked + label span:nth-child(2) {
+        input[id="menuicon"] {
+            display: none;
+        }
 
-  input[id="menuicon"]:checked + label span:nth-child(3) {
-    bottom: 50%;
-    transform: translateY(50%) rotate(-720deg);
-  }
+        input[id="menuicon"] + label {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            cursor: pointer;
+        }
+
+        input[id="menuicon"] + label span {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            border-radius: 30px;
+            background: black;
+            transition: all .35s;
+        }
+
+        input[id="menuicon"] + label span:nth-child(1) {
+            top: 0;
+        }
+
+        input[id="menuicon"] + label span:nth-child(2) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        input[id="menuicon"] + label span:nth-child(3) {
+            bottom: 0;
+        }
+
+        input[id="menuicon"]:checked + label span:nth-child(1) {
+            top: 50%;
+            transform: translateY(-50%) rotate(720deg);
+        }
+
+        input[id="menuicon"]:checked + label span:nth-child(2) {
+
+        input[id="menuicon"]:checked + label span:nth-child(3) {
+            bottom: 50%;
+            transform: translateY(50%) rotate(-720deg);
+        }
+
     </style>
 
     <script>
@@ -2195,17 +2227,9 @@ input[id="menuicon"] {
                     </div>
 
 
-
-
-
-
-
-
-
-
                     <!--?dukdukdukdukdukdukdukdukdukdukduk-->
                     <div class="equip">
-                        <div class="character-title"><h1>캐릭터 정보</h1>  </div>
+                        <div class="character-title"><h1>캐릭터 정보</h1></div>
                         <div class="ability">
                             <p class="ability-title">기본특성</p>
                             <div class="ability-text">
@@ -2218,7 +2242,7 @@ input[id="menuicon"] {
                                             <li> 공격력 증감 효과로 공격력이 <font color="#99ff99">7964</font> 증가되었습니다.</li>
                                         </div>
                             </span>
-                            <span class="ability-life">최대생명력
+                                <span class="ability-life">최대생명력
                                 <div class="tooltip-ability">
                                             <li> 캐릭터의 최대 생명력을 나타냅니다.</li>
                                             <li> 체력으로 최대 생명력이 <font color="#99ff99">119056</font> 증가되었습니다.</li>
@@ -2310,10 +2334,10 @@ input[id="menuicon"] {
                         <div class="engrave">
                             <p class="engrave-title">각인효과</p>
                             <div class="side-engrave">
-                                    <div class="engrave-list1">원한 lv. 3</div>
-                                    <div class="engrave-list2">강화 무기 lv. 3</div>
-                                    <div class="engrave-list3">예리한 둔기 lv. 3</div>
-                                </div>
+                                <div class="engrave-list1">원한 lv. 3</div>
+                                <div class="engrave-list2">강화 무기 lv. 3</div>
+                                <div class="engrave-list3">예리한 둔기 lv. 3</div>
+                            </div>
                         </div>
 
 
@@ -2330,7 +2354,6 @@ input[id="menuicon"] {
                         </div>
 
 
-
                         <div class="special">
                             <p class="special-title">특수장비</p>
                             <div class="special-weapon-1"></div>
@@ -2338,19 +2361,6 @@ input[id="menuicon"] {
                             <div class="special-weapon-3"></div>
                         </div>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                     <div class="cards">
