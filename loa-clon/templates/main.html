@@ -810,9 +810,11 @@
             margin: 6px;
         }
 
+        /*상륜영역*/
+
         .lv0 {
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 13%;
             border-radius: 50px;
             border: 1px solid white;
@@ -828,7 +830,7 @@
 
         .lv1 {
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 13%;
             border-radius: 50px;
             border: 1px solid white;
@@ -844,7 +846,7 @@
 
         .lv2 {
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 10%;
             border-radius: 50px;
             border: 1px solid white;
@@ -860,7 +862,7 @@
 
         .lv3 {
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 15%;
             border-radius: 50px;
             border: 1px solid white;
@@ -876,7 +878,7 @@
 
         .lv4 {
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 15%;
             border-radius: 50px;
             border: 1px solid white;
@@ -892,7 +894,7 @@
 
         .lv5 {
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 22%;
             border-radius: 50px;
             border: 1px solid white;
@@ -911,7 +913,7 @@
         .lv10 {
             margin-top: 20px;
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 20%;
             display: inline-block;
             flex-direction: row;
@@ -927,7 +929,7 @@
         .lv11 {
             margin-top: 20px;
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 20%;
             display: inline-block;
             flex-direction: row;
@@ -943,7 +945,7 @@
         .lv12 {
             margin-top: 20px;
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 20%;
             display: inline-block;
             flex-direction: row;
@@ -959,7 +961,7 @@
         .lv13 {
             margin-top: 20px;
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 20%;
             display: inline-block;
             flex-direction: row;
@@ -975,7 +977,7 @@
         .lv14 {
             margin-top: 20px;
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 20%;
             display: inline-block;
             flex-direction: row;
@@ -991,7 +993,7 @@
         .lv15 {
             margin-top: 20px;
             margin-left: 10px;
-            font-size: 0.8vw;
+            font-size: 0.7vw;
             width: 20%;
             display: inline-block;
             flex-direction: row;
@@ -1041,37 +1043,16 @@
         input[id="menuicon"] + label span {
             display: block;
             position: absolute;
-            width: 100%;
-            height: 5px;
-            border-radius: 30px;
-            background: white;
-            transition: all .35s;
-        }
+            top: 62%;
+            right: 85.5%;
+            width: 2%;
+            height: 15%;
+            font-size: 0.5vw;
+            text-decoration: none;
+            text-align: center;
+            color: #fff;
+            border-radius: 10px;
 
-        input[id="menuicon"] + label span:nth-child(1) {
-            top: 0;
-        }
-
-        input[id="menuicon"] + label span:nth-child(2) {
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        input[id="menuicon"] + label span:nth-child(3) {
-            bottom: 0;
-        }
-
-        input[id="menuicon"]:checked + label span:nth-child(1) {
-            top: 50%;
-            transform: translateY(-50%) rotate(720deg);
-        }
-
-        input[id="menuicon"]:checked + label span:nth-child(2) {
-        }
-
-        input[id="menuicon"]:checked + label span:nth-child(3) {
-            bottom: 50%;
-            transform: translateY(50%) rotate(-720deg);
         }
 
         .popup {
@@ -1171,6 +1152,7 @@
             border: 0;
             outline: 0;
         }
+
 
 
         /*duk code*/
@@ -1716,6 +1698,45 @@
         }
 
 
+input[id="menuicon"] {
+    display: none;
+  }
+  input[id="menuicon"] + label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+  }
+  input[id="menuicon"] + label span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    border-radius: 30px;
+    background: black;
+    transition: all .35s;
+  }
+  input[id="menuicon"] + label span:nth-child(1) {
+    top:0;
+  }
+  input[id="menuicon"] + label span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  input[id="menuicon"] + label span:nth-child(3) {
+    bottom: 0;
+  }
+  input[id="menuicon"]:checked + label span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(720deg);
+  }
+  input[id="menuicon"]:checked + label span:nth-child(2) {
+
+  input[id="menuicon"]:checked + label span:nth-child(3) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-720deg);
+  }
     </style>
 
     <script>
@@ -2088,6 +2109,7 @@
 
                     </div>
                 </div>
+
                 <div class="profile-character-name_into">
                     <div class="mtbox">
                         <div>
@@ -2096,15 +2118,12 @@
                             <h1 class="job"><img class="profile-character-info__img"
                                                  src="https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/emblem_devil_hunter.png"
                                                  alt="데빌헌터"></h1>
-                            <!--                            <a href="#pop1" class="btn11"></a>-->
-
-                            <input class="btn11" type="checkbox" id="menuicon" href="#pop1">
-                            <label for="menuicon">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </label>
-
+                            <a href="#pop1" class="btn11"><input type="hidden" class="btn" id="menuicon">
+                                <label for="menuicon">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </label></a>
                             <div class="popup" id="pop1">
                                 <a>
                                     <a href="#a">close</a>
