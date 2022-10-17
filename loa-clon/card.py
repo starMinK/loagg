@@ -3,36 +3,50 @@ import requests
 from bs4 import BeautifulSoup
 
 from pymongo import MongoClient
-
-client = MongoClient('mongodb+srv://LOAGG:spatrateam4LOAGGprojectpassword@Cluster1.vlj5yqv.mongodb.net/?retryWrites=true&w=majority')
+#규민db
+#mongodb+srv://LOAGG:spatrateam4LOAGGprojectpassword@Cluster1.vlj5yqv.mongodb.net/?retryWrites=true&w=majority
+#내db
+#mongodb+srv://test:sparta@cluster0.s7gsuon.mongodb.net/Cluster0?retryWrites=true&w=majority
+client = MongoClient(
+    'mongodb+srv://test:sparta@cluster0.s7gsuon.mongodb.net/Cluster0?retryWrites=true&w=majority')
 db = client.loagg
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
-data = requests.get('https://lostark.game.onstove.com/Profile/Character/%EB%B0%94%EB%93%9C%ED%9D%AC',
+data = requests.get('https://lostark.game.onstove.com/Profile/Character/%EC%88%98%ED%85%8C%EB%B9%84%EC%95%84',
                     headers=headers)
 
 soup = BeautifulSoup(data.text, 'html.parser')
-cardlist = soup.select('#cardList > li')
 name = '수테비아'
-num = 0;
+cardlist = [soup.select_one('#cardList > li:nth-child(1)'),
+            soup.select_one('#cardList > li:nth-child(2)'),
+            soup.select_one('#cardList > li:nth-child(3)'),
+            soup.select_one('#cardList > li:nth-child(4)'),
+            soup.select_one('#cardList > li:nth-child(5)'),
+            soup.select_one('#cardList > li:nth-child(6)'),
+            ]
+cardimglist = []
+cardnamelist = []
+cardawakelist = []
+
 for card in cardlist:
     cardname = card.select_one('div > strong > font').text
+    cardnamelist.append(cardname)
     cardimg = card.select_one('div > img')['src']
+    cardimglist.append(cardimg)
     cardawake = card.select_one('div')['data-awake']
-    print(cardname, cardimg, cardawake)
-    num += 1;
+    cardawakelist.append(cardawake)
 
     doc = {
-        'num': num,
         'name': name,
-        'cardname': cardname,
-        'cardimg': cardimg,
-        'cardawake': cardawake
+        'cardname': cardnamelist,
+        'cardimg': cardimglist,
+        'cardawake': cardawakelist
     }
-    db.cardlist.update_one({"name": name,'num': num}, {'$set': doc}, upsert=True)
+    db.cardlist.update_one({"name": name}, {'$set': doc}, upsert=True)
 
-
-
+print(cardnamelist)
+print(cardimglist)
+print(cardawakelist)
 
 

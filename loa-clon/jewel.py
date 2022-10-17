@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from pymongo import MongoClient
 import json
 
-client = MongoClient('mongodb+srv://LOAGG:spatrateam4LOAGGprojectpassword@Cluster1.vlj5yqv.mongodb.net/?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://test:sparta@cluster0.s7gsuon.mongodb.net/Cluster0?retryWrites=true&w=majority')
 db = client.loagg
 
 app = Flask(__name__)
@@ -140,9 +140,13 @@ def skills_get():
 
 @app.route("/card", methods=['GET'])
 def card():
-    card_list = list(db.cardlist.find({}, {'_id': False}))
 
-    return jsonify({'cardlist': card_list})
+    cardlist = db.cardlist.find_one({'name':f'{name}'}, {'_id': False})
+    card_img = cardlist['cardimg']
+    card_name = cardlist['cardname']
+    card_awake = cardlist['cardawake']
+
+    return jsonify({'card_img': card_img, 'card_name': card_name, 'card_awake': card_awake})
 
 
 

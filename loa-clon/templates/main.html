@@ -1770,6 +1770,8 @@
 
         input[id="menuicon"]:checked + label span:nth-child(2) {
 
+        }
+
         input[id="menuicon"]:checked + label span:nth-child(3) {
             bottom: 50%;
             transform: translateY(50%) rotate(-720deg);
@@ -2083,221 +2085,233 @@
             show_order();
         });
 
+
         function show_order() {
             $.ajax({
                     type: 'GET',
                     url: '/card',
                     data: {},
                     success: function (response) {
-                        let rows = response['cardlist']
-                        console.log(response)
+                        let cardimgrow = response['card_img']
+                        let cardnamerow = response['card_name']
+                        let cardawakerow = response['card_awake']
+                        console.log(cardimgrow)
+                        console.log(cardnamerow)
+                        console.log(cardawakerow)
+                        let card_img = [];
+                        let card_name = [];
+                        let card_awake = [];
+
+                        for (let i = 0; i < 6; i++) {
+                            card_img[i] = cardimgrow[i]
+                            card_name[i] = cardnamerow[i]
+                            card_awake[i] = cardawakerow[i]
+                        }
+                        let awake = [0, 1, 2, 3, 4, 5]
 
 
-                        let cardawake1 = rows[0]['cardawake']
-                        let cardawake2 = rows[1]['cardawake']
-                        let cardawake3 = rows[2]['cardawake']
-                        let cardawake4 = rows[3]['cardawake']
-                        let cardawake5 = rows[4]['cardawake']
-                        let cardawake6 = rows[5]['cardawake']
-
-                        let cardname1 = rows[0]['cardname']
-                        let cardimg1 = rows[0]['cardimg']
-                        let cardname2 = rows[1]['cardname']
-                        let cardimg2 = rows[1]['cardimg']
-                        let cardname3 = rows[2]['cardname']
-                        let cardimg3 = rows[2]['cardimg']
-                        let cardname4 = rows[3]['cardname']
-                        let cardimg4 = rows[3]['cardimg']
-                        let cardname5 = rows[4]['cardname']
-                        let cardimg5 = rows[4]['cardimg']
-                        let cardname6 = rows[5]['cardname']
-                        let cardimg6 = rows[5]['cardimg']
+                        for (let i = 0; i < card_awake.length; i++) {
 
 
+                            if (card_awake[i] == 0) {
+                                awake[i] = `<div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_1.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_1.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_1.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_1.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_1.png">
+                                            </div>`
+                            } else if (card_awake[i] == 1) {
+                                awake[i] = `<div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_1.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_1.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_1.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_1.png">
+                                            </div>`
+                            } else if (card_awake[i] == 2) {
+                                awake[i] = `<div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_1.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_1.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_1.png">
+                                            </div>`
+                            } else if (card_awake[i] == 3) {
+                                awake[i] = `<div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_1.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_1.png">
+                                            </div>`
+                            } else if (card_awake[i] == 4) {
+                                awake[i] = `<div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_0png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_1.png">
+                                            </div>`
+                            } else {
+                                awake[i] = `<div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                            </div>
+                                            <div class="awake">
+                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                            </div>`
+                            }
+                        }
 
-                        let temp_card = `                        <div class="card-1">
-                                                                    <div class=cardimg-1>
-                                                                        <img width="110px"
-                                                                             src=${cardimg1}>
-                                                                        <div class="card-awake">
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
+                        let temp_card = `
+                            <div class="card-1">
+                                <div class=cardimg-1>
+                                    <img width="110px"
+                                         src=${card_img[0]}>
+                                        <div class="card-awake">
+                                            ${awake[0]}
+                                        </div>
+                                </div>
+                                <div>${card_name[0]}</div>
+                            </div>
+                            <div class="card-2">
+                                <div class="cardimg-2">
+                                    <img width="110px"
+                                         src=${card_img[1]}>
+                                        <div class="card-awake">
+                                            ${awake[1]}
+                                        </div>
+                                </div>
+                                <div>${card_name[1]}</div>
+                            </div>
+                            <div class="card-3">
+                                <div class="cardimg-3">
+                                    <img width="110px"
+                                         src=${card_img[2]}>
+                                        <div class="card-awake">
+                                            ${awake[2]}
+                                        </div>
+                                </div>
+                                <div>${card_name[2]}</div>
+                            </div>
+                            <div class="card-4">
+                                <div class="cardimg-4">
+                                    <img width="110px"
+                                         src=${card_img[3]}>
+                                        <div class="card-awake">
+                                            ${awake[3]}
+                                        </div>
+                                </div>
+                                <div>${card_name[3]}</div>
+                            </div>
+                            <div class="card-5">
+                                <div class="cardimg-5">
+                                    <img width="110px"
+                                         src=${card_img[4]}>
+                                        <div class="card-awake">
+                                            ${awake[4]}
+                                        </div>
+                                </div>
+                                <div>${card_name[4]}</div>
+                            </div>
+                            <div class="card-6">
+                                <div class="cardimg-6">
+                                    <img width="110px"
+                                         src=${card_img[5]}>
+                                        <div class="card-awake">
+                                            ${awake[5]}
+                                        </div>
+                                </div>
+                                <div>${card_name[5]}</div>
+                            </div>
+                            <div class="card-active">
+                                장착중인 카드 효과
+                            </div>
+                            <div class="cardinfo">
+                                <div class="cardinfo-font">
+                                    <span style="color:#35c37b">카제로스의 군단장 2세트</span>
+                                    <li>성속성 피해감소 10%</li>
+                                </div>
 
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
+                                <div class="cardinfo-font">
+                                    <span style="color:#35c37b">카제로스의 군단장 6세트</span>
+                                    <li>성속성 피해감소 10%</li>
+                                </div>
 
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div>${cardname1}</div>
-                                                                </div>
-                                                                <div class="card-2">
-                                                                    <div class="cardimg-2">
-                                                                        <img width="110px"
-                                                                             src=${cardimg2}>
-                                                                        <div class="card-awake">
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div>${cardname2}</div>
-                                                                </div>
-                                                                <div class="card-3">
-                                                                    <div class="cardimg-3">
-                                                                        <img width="110px"
-                                                                             src=${cardimg3}>
-                                                                        <div class="card-awake">
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div>${cardname3}</div>
-                                                                </div>
-                                                                <div class="card-4">
-                                                                    <div class="cardimg-4">
-                                                                        <img width="110px"
-                                                                             src=${cardimg4}>
-                                                                        <div class="card-awake">
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div>${cardname4}</div>
-                                                                </div>
-                                                                <div class="card-5">
-                                                                    <div class="cardimg-5">
-                                                                        <img width="110px"
-                                                                             src=${cardimg5}>
-                                                                        <div class="card-awake">
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div>${cardname5}</div>
-                                                                </div>
-                                                                <div class="card-6">
-                                                                    <div class="cardimg-6">
-                                                                        <img width="110px"
-                                                                             src=${cardimg6}>
-                                                                        <div class="card-awake">
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                            <div class="awake">
-                                                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div>${cardname6}</div>
-                                                                </div>
-                                                                <div class="card-active">
-                                                                    장착중인 카드 효과
-                                                                </div>
-                                                                <div class="cardinfo">
-                                                                    <div class="cardinfo-font">
-                                                                        <span style="color:#35c37b">카제로스의 군단장 2세트</span>
-                                                                        <li>성속성 피해감소 10%</li>
-                                                                    </div>
+                                <div class="cardinfo-font">
+                                    <span style="color:#35c37b">카제로스의 군단장 6세트(18각성 합계)</span>
+                                    <li>암속성 피해 7%</li>
+                                </div>
 
-                                                                    <div class="cardinfo-font">
-                                                                        <span style="color:#35c37b">카제로스의 군단장 6세트</span>
-                                                                        <li>성속성 피해감소 10%</li>
-                                                                    </div>
+                            </div>
+                            <div class="cardinfo-2">
+                                <div class="cardinfo-font">
+                                    <span style="color:#35c37b">카제로스의 군단장 4세트</span>
+                                    <li>성속성 피해감소 10%</li>
+                                </div>
 
-                                                                    <div class="cardinfo-font">
-                                                                        <span style="color:#35c37b">카제로스의 군단장 6세트(18각성 합계)</span>
-                                                                        <li>암속성 피해 7%</li>
-                                                                    </div>
+                                <div class="cardinfo-font">
+                                    <span style="color:#35c37b">카제로스의 군단장 6세트(12각성 합계)</span>
+                                    <li>공격 속성을 암속성으로 변환</li>
+                                </div>
 
-                                                                </div>
-                                                                <div class="cardinfo-2">
-                                                                    <div class="cardinfo-font">
-                                                                        <span style="color:#35c37b">카제로스의 군단장 4세트</span>
-                                                                        <li>성속성 피해감소 10%</li>
-                                                                    </div>
+                                <div class="cardinfo-font">
+                                    <span style="color:#35c37b">카제로스의 군단장 6세트(30각성 합계)</span>
+                                    <li>암속성 피해 8%</li>
+                                </div>
 
-                                                                    <div class="cardinfo-font">
-                                                                        <span style="color:#35c37b">카제로스의 군단장 6세트(12각성 합계)</span>
-                                                                        <li>공격 속성을 암속성으로 변환</li>
-                                                                    </div>
+                            </div>
+                        `
 
-                                                                    <div class="cardinfo-font">
-                                                                        <span style="color:#35c37b">카제로스의 군단장 6세트(30각성 합계)</span>
-                                                                        <li>암속성 피해 8%</li>
-                                                                    </div>
-
-                                                                </div>`
                         $('.cards').append(temp_card);
 
 
@@ -2307,6 +2321,8 @@
             )
             ;
         }
+
+
     </script>
 </head>
 <body>
