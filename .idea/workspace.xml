@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c1c53bf-2f6a-4363-893d-897b8657c1ed" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/loagg.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/loagg.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loa-clon/templates/info.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loa-clon/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/loa-clon/templates/main.html" afterDir="false" />
     </list>
@@ -27,16 +26,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/wogk9/Desktop/loa/loagg",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/wogk9/Desktop/loa/loagg&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="jewel" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="loagg" />
@@ -76,6 +75,10 @@
       <updated>1664874757206</updated>
       <workItem from="1664874760634" duration="2000" />
       <workItem from="1665480884314" duration="41000" />
+      <workItem from="1665752036467" duration="343000" />
+      <workItem from="1665752870873" duration="8112000" />
+      <workItem from="1665773187737" duration="621000" />
+      <workItem from="1665842694169" duration="218000" />
     </task>
     <servers />
   </component>
