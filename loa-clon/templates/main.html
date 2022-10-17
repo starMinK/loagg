@@ -2095,25 +2095,10 @@
                         let cardimgrow = response['card_img']
                         let cardnamerow = response['card_name']
                         let cardawakerow = response['card_awake']
-                        console.log(cardimgrow)
-                        console.log(cardnamerow)
-                        console.log(cardawakerow)
-                        let card_img = [];
-                        let card_name = [];
-                        let card_awake = [];
-
-                        for (let i = 0; i < 6; i++) {
-                            card_img[i] = cardimgrow[i]
-                            card_name[i] = cardnamerow[i]
-                            card_awake[i] = cardawakerow[i]
-                        }
                         let awake = [0, 1, 2, 3, 4, 5]
 
-
-                        for (let i = 0; i < card_awake.length; i++) {
-
-
-                            if (card_awake[i] == 0) {
+                        for (let i = 0; i < cardawakerow.length; i++) {
+                            if (cardawakerow[i] == 0) {
                                 awake[i] = `<div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_1.png">
                                             </div>
@@ -2129,7 +2114,7 @@
                                             <div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_1.png">
                                             </div>`
-                            } else if (card_awake[i] == 1) {
+                            } else if (cardawakerow[i] == 1) {
                                 awake[i] = `<div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_0.png">
                                             </div>
@@ -2145,7 +2130,7 @@
                                             <div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_1.png">
                                             </div>`
-                            } else if (card_awake[i] == 2) {
+                            } else if (cardawakerow[i] == 2) {
                                 awake[i] = `<div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_0.png">
                                             </div>
@@ -2161,7 +2146,7 @@
                                             <div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_1.png">
                                             </div>`
-                            } else if (card_awake[i] == 3) {
+                            } else if (cardawakerow[i] == 3) {
                                 awake[i] = `<div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_0.png">
                                             </div>
@@ -2177,7 +2162,7 @@
                                             <div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_1.png">
                                             </div>`
-                            } else if (card_awake[i] == 4) {
+                            } else if (cardawakerow[i] == 4) {
                                 awake[i] = `<div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_0.png">
                                             </div>
@@ -2185,7 +2170,7 @@
                                                 <img src="https://static.loawa.com/icons/gem_active_0.png">
                                             </div>
                                             <div class="awake">
-                                                <img src="https://static.loawa.com/icons/gem_active_0png">
+                                                <img src="https://static.loawa.com/icons/gem_active_0.png">
                                             </div>
                                             <div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_0.png">
@@ -2216,62 +2201,62 @@
                             <div class="card-1">
                                 <div class=cardimg-1>
                                     <img width="110px"
-                                         src=${card_img[0]}>
+                                         src=${cardimgrow[0]}>
                                         <div class="card-awake">
                                             ${awake[0]}
                                         </div>
                                 </div>
-                                <div>${card_name[0]}</div>
+                                <div>${cardnamerow[0]}</div>
                             </div>
                             <div class="card-2">
                                 <div class="cardimg-2">
                                     <img width="110px"
-                                         src=${card_img[1]}>
+                                         src=${cardimgrow[1]}>
                                         <div class="card-awake">
                                             ${awake[1]}
                                         </div>
                                 </div>
-                                <div>${card_name[1]}</div>
+                                <div>${cardnamerow[1]}</div>
                             </div>
                             <div class="card-3">
                                 <div class="cardimg-3">
                                     <img width="110px"
-                                         src=${card_img[2]}>
+                                         src=${cardimgrow[2]}>
                                         <div class="card-awake">
                                             ${awake[2]}
                                         </div>
                                 </div>
-                                <div>${card_name[2]}</div>
+                                <div>${cardnamerow[2]}</div>
                             </div>
                             <div class="card-4">
                                 <div class="cardimg-4">
                                     <img width="110px"
-                                         src=${card_img[3]}>
+                                         src=${cardimgrow[3]}>
                                         <div class="card-awake">
                                             ${awake[3]}
                                         </div>
                                 </div>
-                                <div>${card_name[3]}</div>
+                                <div>${cardnamerow[3]}</div>
                             </div>
                             <div class="card-5">
                                 <div class="cardimg-5">
                                     <img width="110px"
-                                         src=${card_img[4]}>
+                                         src=${cardimgrow[4]}>
                                         <div class="card-awake">
                                             ${awake[4]}
                                         </div>
                                 </div>
-                                <div>${card_name[4]}</div>
+                                <div>${cardnamerow[4]}</div>
                             </div>
                             <div class="card-6">
                                 <div class="cardimg-6">
                                     <img width="110px"
-                                         src=${card_img[5]}>
+                                         src=${cardimgrow[5]}>
                                         <div class="card-awake">
                                             ${awake[5]}
                                         </div>
                                 </div>
-                                <div>${card_name[5]}</div>
+                                <div>${cardnamerow[5]}</div>
                             </div>
                             <div class="card-active">
                                 장착중인 카드 효과
