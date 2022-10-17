@@ -931,7 +931,7 @@
             left: 50%;
             top: 240%;
             transform: translate(-50%, -50%);
-            z-index: 5;
+            z-index: -1;
             width: 80%;
             height: 300%;
             border-radius: 10px;
@@ -1067,7 +1067,7 @@
 
         .ability-life {
 
-            /*background-color: red;*/
+            background-color: red;
             width: 250px;
             height: 50px;
 
@@ -1140,7 +1140,7 @@
         }
 
         .stats-Swiftness {
-            /*background-color: green;*/
+            background-color: green;
             width: 250px;
             height: 50px;
 
@@ -2011,7 +2011,6 @@
                                     <div class="ability-power">
                                         <div style="color:gold">공격력</div>
                                         <div>57583</div>
-                                        <div></div>
                                         <div class="tooltip-ability">
                                             <li> 적에게 주는 피해를 계산할 때 기준이 되는 값입니다.</li>
                                             <li> 힘, 민첩, 지능과 무기 공격력을 기반으로 증가한 기본 공격력은 <font
@@ -2138,7 +2137,7 @@
                                         </div>
 
                                         <div class="stats-Expertise">
-                                            <div style="color: gold">숙련</div>
+                                    1        <div style="color: gold">숙련</div>
                                             <div>62</div>
                                             <div class="tooltip-stats">
                                                 <li> 상태이상 공격 지속시간이<font color="#99ff99">2.66%</font> 증가합니다.</li>
@@ -2154,7 +2153,6 @@
 
                                 </div>
                             </div>
-
                             <div class="main-engrave">
 
                                 <div class="Main-Text">각인 효과</div>
@@ -2200,6 +2198,27 @@
                             </div>
                             <div>쿠크세이튼</div>
                         </div>
+                        font-family: Noto Sans KR,Malgun Gothic,Apple SD Gothic NEO,gulim,dotum,sans-serif;
+                        line-height: 1.5;
+                        -webkit-font-smoothing: antialiased;
+                        word-break: keep-all;
+                        word-wrap: break-word;
+                        color: #555;
+                        list-style: none;
+                        font-size: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 46px;
+                        height: 46px;
+                        background:
+                        url(https://cdn-lostark.gme.onstove.com/2018/obt/assets/images/common/game/bg_special_slot.png?34cb99193be738b4ae3c78bba02395b1)
+                        no-repeat 0 0;
+<div class="slot_img"></div>
+
                         <div class="card-2">
                             <div class="cardimg-2">
                                 <img width="110px"
