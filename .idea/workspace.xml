@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c1c53bf-2f6a-4363-893d-897b8657c1ed" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/loa-clon/templates/JewelTooltipExample.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loa-clon/jewel.py" beforeDir="false" afterPath="$PROJECT_DIR$/loa-clon/jewel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loa-clon/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/loa-clon/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loa-clon/templates/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loa-clon/test.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,10 +107,13 @@
       <updated>1664874757206</updated>
       <workItem from="1664874760634" duration="2000" />
       <workItem from="1665480884314" duration="41000" />
-      <workItem from="1665752036467" duration="343000" />
-      <workItem from="1665752870873" duration="8112000" />
-      <workItem from="1665773187737" duration="621000" />
-      <workItem from="1665842694169" duration="218000" />
+      <workItem from="1665769041015" duration="55000" />
+      <workItem from="1665769111995" duration="11404000" />
+      <workItem from="1665806434922" duration="14666000" />
+      <workItem from="1665904226687" duration="3000" />
+      <workItem from="1665905432064" duration="2588000" />
+      <workItem from="1665914173294" duration="3547000" />
+      <workItem from="1665987053996" duration="1751000" />
     </task>
     <servers />
   </component>
