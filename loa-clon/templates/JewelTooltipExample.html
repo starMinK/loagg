@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .slot00 {
+            position: relative;
+
+            background-color: #35c37b;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            width: 100px;
+            height: 100px;
+        }
+
+        .slot00 .gem_slot_tooltip-box {
+            visibility: visible;
+
+            width: 300px;
+            height: 280px;
+
+            background-color: #2a2c35;
+            color: #fff;
+
+            text-align: center;
+            border-radius: 6px;
+
+            padding: 5px 0;
+            position: absolute;
+            top: -5px;
+            left: 105%;
+            z-index: 1;
+        }
+
+        /*.slot00:hover .gem_slot_tooltip-box{*/
+        /*    visibility: visible;*/
+        /*}*/
+
+        /*tooltip box 상단 구역*/
+        .jewelNameTagBox {
+            border-bottom: 2px solid #1d2026;
+
+            max-height: 30px;
+            height: 90%;
+        }
+
+        /*tooltip box 중단 구역*/
+        .jewelTitleTagBox {
+            border-bottom: 2px solid #1d2026;
+
+            max-height: 80px;
+            height: 90%;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: start;
+
+            font-size: small;
+        }
+
+        .jewelTolltipImg{
+            background: linear-gradient(135deg, #111d29, #103550);
+
+            border: black solid 2px;
+
+            max-width: 80px;
+            width: 20%;
+
+            margin: auto 10px;
+        }
+
+        .jewelTolltipRank{
+            margin: 10px auto 0 0;
+        }
+
+        .jewelTolltipTear{
+            margin: 10px 10px 0 auto;
+        }
+
+        /*tooltip box 하단 구역*/
+        .jewelInfoTagBox{
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+
+            font-size: small;
+        }
+
+        .jewelTolltipIsTradeAble{
+            margin: 10px 10px 0 auto;
+        }
+
+        .jewelTolltipLv, .jewelTolltipLv + div{
+            margin: 10px 0 0 10px;
+        }
+
+        .jewelTolltipEffect{
+            margin-left: 10px;
+        }
+
+        .isDeleteAble, .howGet{
+            font-size: smaller;
+
+            margin: 10px 0 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="slot00">
+    hover over me
+    <div class="gem_slot_tooltip-box">
+        <div class="jewelNameTagBox">
+            <font color="#1e90ff">3레벨 청명의 보석</font>
+        </div>
+        <div class="jewelTitleTagBox">
+            <img class="jewelTolltipImg" src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_9_28.png"/>
+            <div class="jewelTolltipRank"><font color="#1e90ff">희귀 보석</font></div>
+            <div class="jewelTolltipTear">아이템 티어 2</div>
+        </div>
+
+        <div class="jewelInfoTagBox">
+            <div class="jewelTolltipIsTradeAble">거래가능</div>
+            <div class="jewelTolltipLv">보석 레벨 3</div>
+            <div><font color="#6495ed">효과</font></div>
+            <div class="jewelTolltipEffect">[데모닉] <font color="orange">님블컷</font> 피해 9.00% 증가</div>
+
+            <div class="isDeleteAble"><font color="red">분해불가</font></div>
+            <div class="howGet"><font color="#6495ed">[카오스 던전]</font></div>
+        </div>
+
+        </div>
+    </div>
+</body>
+</html>

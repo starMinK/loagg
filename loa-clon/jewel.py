@@ -61,8 +61,6 @@ def save_jewels():
 
             num = num + 1
 
-        # gem00 > span.jewel_level
-        # gem04 > span.jewel_level
         doc = {}
         doc['gemImgList'] = []
         doc['gemLvList'] = []
@@ -79,33 +77,21 @@ def save_jewels():
 
         db.gemInfoList.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True)
 
-        ###
-
-        isSkillExistList = [soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(1)'),
-                            soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(2)'),
-                            soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(3)'),
-                            soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(4)'),
-                            soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(5)'),
-                            soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(6)'),
-                            soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(7)'),
-                            soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(8)'),
-                            soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(9)'),
-                            soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(10)'),
-                            soup.select_one('#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(11)')]
-
         skillImgList = []
         skillNameList = []
         skillEffectList = []
 
         num = 1
-        for a in isSkillExistList:
+        for a in isGemExistList:
             if a is not None:
                 skillImg = soup.select_one(
                     f'#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child({str(num)}) > span > img')
                 skillImgList.append(skillImg['src'])
+
                 skillName = soup.select_one(
                     f'#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child({str(num)}) > strong')
                 skillNameList.append(skillName.text)
+
                 skillEffect = soup.select_one(
                     (f'#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child({str(num)}) > p'))
                 skillEffectList.append(skillEffect.text)
@@ -120,22 +106,13 @@ def save_jewels():
         for a in skillImgList:
             numStr = str(num)
 
-            doc['skillImg'].append({
-                f'skill{numStr.zfill(2)}_img': a  # gemImgList[num]
-            })
-
-            doc['skillName'].append({
-                f'skill{numStr.zfill(2)}_name': skillNameList[num]
-            })
-
-            doc['skillEffect'].append({
-                f'skill{numStr.zfill(2)}_effect': skillEffectList[num]
-            })
+            doc['skillImg'].append(a) # gemImgList[num]
+            doc['skillName'].append(skillNameList[num])
+            doc['skillEffect'].append(skillEffectList[num])
 
             num += 1
 
-        db.gemSkillsList.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True)
-    # db.gem_skills.update_one({"name": f'{name}'}, {'$set': skill_doc}, upsert=True)
+        db.gemSkillList.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True)
     return jsonify({'msg': 'suc'})
 
 @app.route("/api/jewels", methods=["GET"])
@@ -151,9 +128,15 @@ def jewels_get():
 
 @app.route("/api/gem-skills", methods=["GET"])
 def skills_get():
-    skill_get = db.gem_skills.find_one({'name':f'{name}'}, {'_id': False})
+    skill_get = db.gemSkillList.find_one({'name':f'{name}'}, {'_id': False})
 
-    return jsonify({'gem_skills': skill_get})
+    skills_img = skill_get['skillImg']
+    skills_name = skill_get['skillName']
+    skills_effect = skill_get['skillEffect']
+
+
+
+    return jsonify({'skills_img': skills_img, 'skills_name': skills_name, 'skills_effect': skills_effect})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
