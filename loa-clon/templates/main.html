@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en">
+<html lang="kr">
 <head>
     <meta charset="UTF-8">
     <title>로아.gg 콘티</title>
@@ -17,8 +17,8 @@
     <style>
         /*Main - team*/
         body {
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background-image: url("https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FV4B77%2FbtrNb3Qwckz%2F2fr6zfuczRI49ppRi9iO6k%2Fimg.jpg");
             background-size: cover;
             background-repeat: no-repeat;
@@ -31,12 +31,8 @@
         .middle {
             background-color: rgb(37, 41, 49);
 
-            /*background-image: url("https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FV4B77%2FbtrNb3Qwckz%2F2fr6zfuczRI49ppRi9iO6k%2Fimg.jpg");*/
-            /*background-size: contain;*/
-            /*background-repeat: no-repeat;*/
-
             width: 70%;
-            height: 100vh;
+            height: 100%;
 
             margin: auto;
 
@@ -1024,14 +1020,21 @@
 
         .btn11 {
             display: inline-block;
-           position: absolute;
+            position: absolute;
             top: 62%;
             right: 85.5%;
             width: 2%;
             height: 15%;
         }
-        .btn {display: block; width: 40px; height: 40px; background: #4fbe79;
-        text-align: center; line-height: 50px; color: white;
+
+        .btn {
+            display: block;
+            width: 40px;
+            height: 40px;
+            background: #4fbe79;
+            text-align: center;
+            line-height: 50px;
+            color: white;
         }
 
         .popup {
@@ -1763,6 +1766,8 @@
 
         input[id="menuicon"]:checked + label span:nth-child(2) {
 
+        }
+
         input[id="menuicon"]:checked + label span:nth-child(3) {
             bottom: 50%;
             transform: translateY(50%) rotate(-720deg);
@@ -1771,6 +1776,16 @@
     </style>
 
     <script>
+
+       function displayMax(){
+        let w = document.body.clientWidth;
+        let h = document.body.clientHeight;
+
+        alert(`width: ${w}\nheight: ${h}`)
+
+        $('.middle').css('max-width', w)
+        $('.middle').css('max-height', h)
+       }
 
         // nav 버튼 기능
         function jewelDisplayOn() {
@@ -1805,6 +1820,7 @@
 
         //새로고침시 실행
         $(document).ready(function () {
+            // displayMax();
             load_jewel();
             load_skills();
             equipDisplayOn();
@@ -1825,7 +1841,7 @@
                     let lvRows = response['jewels_lv']
 
 
-                    for (let i = 0; i < Object.keys(imgRows).length; i++) {
+                    for (let i = 0; i < imgRows.length; i++) {
                         gem_img[i] = imgRows[i]
                         gem_lv[i] = lvRows[i]
                     }
@@ -2029,7 +2045,7 @@
 
                     let temp_html = ``
 
-                    for (let i = 0; i < Object.keys(gemSkillImgRows).length; i++) {
+                    for (let i = 0; i < gemSkillImgRows.length; i++) {
                         skillsImgList[i] = gemSkillImgRows[i]
                         skillsNameList[i] = gemSkillNameRows[i]
                         skillsEffectList[i] = gemSkillEffectRows[i]
