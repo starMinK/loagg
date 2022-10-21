@@ -15,14 +15,10 @@ db = client.loagg
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
 data = requests.get(
-    'https://lostark.game.onstove.com/Profile/Character/%EC%84%B1%EC%88%98%EB%8F%99%EA%BF%80%EA%BD%88%EB%B0%B0%EA%B8%B0',
+    'https://lostark.game.onstove.com/Profile/Character/%EC%88%98%ED%85%8C%EB%B9%84%EC%95%84',
     headers=headers)
-# cardSetList > li:nth-child(1)
-# cardSetList > li:nth-child(1) > div.card-effect__title
-# cardSetList > li:nth-child(1) > div.card-effect__dsc
 
-# cardSetList > li:nth-child(6)
-# cardSetList > li:nth-child(5)
+
 
 soup = BeautifulSoup(data.text, 'html.parser')
 name = '수테비아'
@@ -81,3 +77,5 @@ print(cardawakelist)
 
 print(cardsettitlelist)
 print(cardsetdsclist)
+
+

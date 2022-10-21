@@ -9,15 +9,18 @@ db = client.loagg
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def search():
     return render_template('search.html')
+
 
 @app.route('/main')
 def main():
     return render_template('main.html')
 
-#search에서 name 받아오기
+
+# search에서 name 받아오기
 @app.route("/api/save-info", methods=["POST"])
 def save_jewels():
     global name
@@ -69,7 +72,7 @@ def save_jewels():
         for a in gemImgList:
             numStr = str(num)
 
-            doc['gemImgList'].append(a) #gemImgList[num]
+            doc['gemImgList'].append(a)  # gemImgList[num]
 
             doc['gemLvList'].append(gemLvList[num])
 
@@ -106,42 +109,96 @@ def save_jewels():
         for a in skillImgList:
             numStr = str(num)
 
-            doc['skillImg'].append(a) # gemImgList[num]
+            doc['skillImg'].append(a)  # gemImgList[num]
             doc['skillName'].append(skillNameList[num])
             doc['skillEffect'].append(skillEffectList[num])
 
             num += 1
 
         db.gemSkillList.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True)
-    return jsonify({'msg': 'suc'})
+
+
+        # 카드-재하----------------------------------------------------------------------
+        cardlist = [soup.select_one('#cardList > li:nth-child(1)'),
+                    soup.select_one('#cardList > li:nth-child(2)'),
+                    soup.select_one('#cardList > li:nth-child(3)'),
+                    soup.select_one('#cardList > li:nth-child(4)'),
+                    soup.select_one('#cardList > li:nth-child(5)'),
+                    soup.select_one('#cardList > li:nth-child(6)'), ]
+
+        cardimglist = []
+        cardnamelist = []
+        cardawakelist = []
+
+        cardsetlist = [soup.select_one('#cardSetList > li:nth-child(1)'),
+                       soup.select_one('#cardSetList > li:nth-child(2)'),
+                       soup.select_one('#cardSetList > li:nth-child(3)'),
+                       soup.select_one('#cardSetList > li:nth-child(4)'),
+                       soup.select_one('#cardSetList > li:nth-child(5)'),
+                       soup.select_one('#cardSetList > li:nth-child(6)'), ]
+        cardsettitlelist = []
+        cardsetdsclist = []
+
+        for card in cardlist:
+            cardname = card.select_one('div > strong > font').text
+            cardnamelist.append(cardname)
+            cardimg = card.select_one('div > img')['src']
+            cardimglist.append(cardimg)
+            cardawake = card.select_one('div')['data-awake']
+            cardawakelist.append(cardawake)
+            doc = {
+                'name': name,
+                'cardname': cardnamelist,
+                'cardimg': cardimglist,
+                'cardawake': cardawakelist
+            };
+            db.cardlist.update_one({"name": name}, {'$set': doc}, upsert=True)
+
+        for cardset in cardsetlist:
+            if cardset is not None:
+                cardsettitle = cardset.select_one('div.card-effect__title').text
+                cardsettitlelist.append(cardsettitle)
+                cardsetdsc = cardset.select_one('div.card-effect__dsc').text
+                cardsetdsclist.append(cardsetdsc)
+                doc = {
+                    'name': name,
+                    'cardsettitle': cardsettitlelist,
+                    'cardsetdsc': cardsetdsclist
+                }
+                db.cardsetlist.update_one({"name": name}, {'$set': doc}, upsert=True)
+
+
+
+
+
+        return jsonify({'msg': 'suc'})
+
 
 @app.route("/api/jewels", methods=["GET"])
 def jewels_get():
-    jewels_get = db.gemInfoList.find_one({'name':f'{name}'}, {'_id': False})
+    jewels_get = db.gemInfoList.find_one({'name': f'{name}'}, {'_id': False})
 
     jewels_img = jewels_get['gemImgList']
     jewels_lv = jewels_get['gemLvList']
-
 
     return jsonify({'jewels_img': jewels_img, 'jewels_lv': jewels_lv})
 
 
 @app.route("/api/gem-skills", methods=["GET"])
 def skills_get():
-    skill_get = db.gemSkillList.find_one({'name':f'{name}'}, {'_id': False})
+    skill_get = db.gemSkillList.find_one({'name': f'{name}'}, {'_id': False})
 
     skills_img = skill_get['skillImg']
     skills_name = skill_get['skillName']
     skills_effect = skill_get['skillEffect']
 
-
-
     return jsonify({'skills_img': skills_img, 'skills_name': skills_name, 'skills_effect': skills_effect})
 
+
+# 재하 카드 ------------------------------------------------------------------------------------------------------------------------------------
 @app.route("/card", methods=['GET'])
 def card():
-
-    cardlist = db.cardlist.find_one({'name':f'{name}'}, {'_id': False})
+    cardlist = db.cardlist.find_one({'name': f'{name}'}, {'_id': False})
     card_img = cardlist['cardimg']
     card_name = cardlist['cardname']
     card_awake = cardlist['cardawake']
@@ -149,7 +206,13 @@ def card():
     return jsonify({'card_img': card_img, 'card_name': card_name, 'card_awake': card_awake})
 
 
+@app.route("/cardset", methods=['GET'])
+def cardset():
+    cardsetlist = db.cardsetlist.find_one({'name': f'{name}'}, {'_id': False})
+    cardset_title = cardsetlist['cardsettitle']
+    cardset_dsc = cardsetlist['cardsetdsc']
 
+    return jsonify({'cardset_title': cardset_title, 'cardset_dsc': cardset_dsc})
 
 
 if __name__ == '__main__':

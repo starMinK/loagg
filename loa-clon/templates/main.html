@@ -794,6 +794,7 @@
             position: absolute;
             top: 66%;
             left: 15%;
+
         }
 
         .cardinfo-2 {
@@ -803,11 +804,13 @@
             position: absolute;
             top: 66%;
             left: 54%;
+
         }
 
 
         .cardinfo-font {
             margin: 6px;
+            list-style: none;
         }
 
         /*상륜영역*/
@@ -1832,9 +1835,10 @@
                 success: function (response) {
                     let imgRows = response['jewels_img']
                     let lvRows = response['jewels_lv']
+                    console.log(imgRows)
 
 
-                    for (let i = 0; i < Object.keys(imgRows).length; i++) {
+                    for (let i = 0; i < imgRows.length; i++) {
                         gem_img[i] = imgRows[i]
                         gem_lv[i] = lvRows[i]
                     }
@@ -2082,11 +2086,38 @@
     </script>
     <script>
         $(document).ready(function () {
-            show_order();
+            card_list();
         });
+        let cardset_title_list = []
+        let cardset_dsc_list = []
+
+        function card_list() {
+            $.ajax({
+                type: 'GET',
+                url: '/cardset',
+                data: {},
+                success: function (response) {
+                    let cardset_titlerow = response['cardset_title']
+                    let cardset_dscrow = response['cardset_dsc']
 
 
-        function show_order() {
+                    for (let i = 0; i < cardset_titlerow.length; i++) {
+                        cardset_title_list[i] = cardset_titlerow[i]
+                        cardset_dsc_list[i] = cardset_dscrow[i]
+                    }
+
+                    for (let i = 0; i < 6; i++) {
+                        if (!cardset_title_list[i]) {
+                            cardset_title_list[i] = ""
+                            cardset_dsc_list[i] = ""
+                        }
+                    }
+                    console.log(cardset_title_list)
+
+                }
+            })
+
+
             $.ajax({
                     type: 'GET',
                     url: '/card',
@@ -2263,42 +2294,41 @@
                             </div>
                             <div class="cardinfo">
                                 <div class="cardinfo-font">
-                                    <span style="color:#35c37b">카제로스의 군단장 2세트</span>
-                                    <li>성속성 피해감소 10%</li>
+                                    <span style="color:#35c37b">${cardset_title_list[0]}</span>
+                                    <li>${cardset_dsc_list[0]}</li>
                                 </div>
 
                                 <div class="cardinfo-font">
-                                    <span style="color:#35c37b">카제로스의 군단장 6세트</span>
-                                    <li>성속성 피해감소 10%</li>
+                                    <span style="color:#35c37b">${cardset_title_list[2]}</span>
+                                    <li>${cardset_dsc_list[2]}</li>
                                 </div>
 
                                 <div class="cardinfo-font">
-                                    <span style="color:#35c37b">카제로스의 군단장 6세트(18각성 합계)</span>
-                                    <li>암속성 피해 7%</li>
+                                    <span style="color:#35c37b">${cardset_title_list[4]}</span>
+                                    <li>${cardset_dsc_list[4]}</li>
                                 </div>
 
                             </div>
                             <div class="cardinfo-2">
                                 <div class="cardinfo-font">
-                                    <span style="color:#35c37b">카제로스의 군단장 4세트</span>
-                                    <li>성속성 피해감소 10%</li>
+                                    <span style="color:#35c37b">${cardset_title_list[1]}</span>
+                                    <li>${cardset_dsc_list[1]}</li>
                                 </div>
 
                                 <div class="cardinfo-font">
-                                    <span style="color:#35c37b">카제로스의 군단장 6세트(12각성 합계)</span>
-                                    <li>공격 속성을 암속성으로 변환</li>
+                                    <span style="color:#35c37b">${cardset_title_list[3]}</span>
+                                    <li>${cardset_dsc_list[3]}</li>
                                 </div>
 
                                 <div class="cardinfo-font">
-                                    <span style="color:#35c37b">카제로스의 군단장 6세트(30각성 합계)</span>
-                                    <li>암속성 피해 8%</li>
+                                    <span style="color:#35c37b">${cardset_dsc_list[5]}</span>
+                                    <li>${cardset_dsc_list[5]}</li>
                                 </div>
 
                             </div>
                         `
 
                         $('.cards').append(temp_card);
-
 
                     }
 
