@@ -429,28 +429,6 @@
             margin-right: 30px;
         }
 
-        /*.slot00-01, .slot02-03, .slot07-08, .slot09-10 {*/
-        /*    display: flex;*/
-        /*    flex-direction: row;*/
-        /*    justify-content: center;*/
-        /*    align-items: center;*/
-
-        /*    list-style: none;*/
-
-        /*    margin-right: 30px;*/
-        /*}*/
-
-        /*.slot04-06 {*/
-        /*    display: flex;*/
-        /*    flex-direction: row;*/
-        /*    justify-content: center;*/
-        /*    align-items: center;*/
-
-        /*    list-style: none;*/
-
-        /*    margin-right: 20px;*/
-        /*}*/
-
         .slot00, .slot03, .slot05, .slot07, .slot10 {
             position: relative;
 
@@ -482,8 +460,6 @@
             align-items: center;
         }
 
-        /*.slot04-06 > div .*/
-
         .slot00 .gem_slot_tooltip-box, .slot01 .gem_slot_tooltip-box, .slot02 .gem_slot_tooltip-box,
         .slot03 .gem_slot_tooltip-box, .slot04 .gem_slot_tooltip-box, .slot05 .gem_slot_tooltip-box,
         .slot06 .gem_slot_tooltip-box, .slot07 .gem_slot_tooltip-box, .slot08 .gem_slot_tooltip-box,
@@ -492,7 +468,7 @@
 
             width: 300px;
             height: 280px;
-            background-color: black;
+            background-color: #252931;
             color: #fff;
             text-align: center;
             padding: 5px 0;
@@ -535,8 +511,7 @@
             font-size: small;
         }
 
-        .jewelTolltipImg {
-            background: linear-gradient(135deg, #111d29, #103550);
+        .jewelTooltipImg {
 
             border: black solid 2px;
 
@@ -546,11 +521,11 @@
             margin: auto 10px;
         }
 
-        .jewelTolltipRank {
+        .jewelTooltipRank {
             margin: 10px auto 0 0;
         }
 
-        .jewelTolltipTear {
+        .jewelTooltipTear {
             margin: 10px 10px 0 auto;
         }
 
@@ -564,22 +539,23 @@
             font-size: small;
         }
 
-        .jewelTolltipIsTradeAble {
+        .jewelTooltipIsTradeAble {
             margin: 10px 10px 0 auto;
         }
 
-        .jewelTolltipLv, .jewelTolltipLv + div {
+        .jewelTooltipLv, .jewelTooltipLv + div {
             margin: 10px 0 0 10px;
         }
 
-        .jewelTolltipEffect {
+        .jewelTooltipEffect {
             margin-left: 10px;
+            text-align: left;
         }
 
-        .isDeleteAble, .howGet {
+        .isDeleteAble {
             font-size: smaller;
 
-            margin: 10px 0 0 10px;
+            margin: 20px 0 0 10px;
         }
 
         .slot00 > li, .slot01 > li, .slot02 > li, .slot03 > li, .slot04 > li, .slot05 > li, .slot06 > li,
@@ -1771,23 +1747,21 @@
         input[id="menuicon"]:checked + label span:nth-child(3) {
             bottom: 50%;
             transform: translateY(50%) rotate(-720deg);
+            color: #bc3001;
         }
 
     </style>
 
     <script>
+        /************************************새로고침(로딩) 후 실행*********************************************/
+        $(document).ready(function () {
+            load_jewel();
+            load_skills();
+            equipDisplayOn();
+            loadGemTooltip();
+        });
 
-       function displayMax(){
-        let w = document.body.clientWidth;
-        let h = document.body.clientHeight;
-
-        alert(`width: ${w}\nheight: ${h}`)
-
-        $('.middle').css('max-width', w)
-        $('.middle').css('max-height', h)
-       }
-
-        // nav 버튼 기능
+        /********************************네비게이션 버튼 기능******************************************/
         function jewelDisplayOn() {
             $('.cards').hide();
             $('.equip').hide();
@@ -1818,15 +1792,9 @@
             $('.nav-card').css('font-weight', 'bold');
         }
 
-        //새로고침시 실행
-        $(document).ready(function () {
-            // displayMax();
-            load_jewel();
-            load_skills();
-            equipDisplayOn();
-        });
+        /*************************************Jewels(Gem) Get 함수*******************************************/
 
-        //gemHtml에 append될 변수 List
+            //gemHtml에 append될 전역 List
         let gem_img = [];
         let gem_lv = [];
 
@@ -1835,7 +1803,6 @@
             $.ajax({
                 type: "GET",
                 url: "/api/jewels",
-                data: {},
                 success: function (response) {
                     let imgRows = response['jewels_img']
                     let lvRows = response['jewels_lv']
@@ -1858,133 +1825,60 @@
                     let temp_html07to10 = ``;
 
                     temp_html00to03 = `
-<!--                                           <ul class="slot00-01">-->
                                                <div class="slot00">
                                                    <li id="jem00"> <img src=${gem_img[0]}></li>
                                                    <span>${gem_lv[0]}</span>
-
-                                                   <div class="gem_slot_tooltip-box">
-                                                        <div class="jewelNameTagBox">
-                                                                <font color="#1e90ff">3레벨 청명의 보석</font>
-                                                            </div>
-                                                            <div class="jewelTitleTagBox">
-                                                                <img class="jewelTolltipImg" src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Use/Use_9_28.png"/>
-                                                                <div class="jewelTolltipRank"><font color="#1e90ff">희귀 보석</font></div>
-                                                                <div class="jewelTolltipTear">아이템 티어 2</div>
-                                                            </div>
-
-                                                            <div class="jewelInfoTagBox">
-                                                                <div class="jewelTolltipIsTradeAble">거래가능</div>
-                                                                <div class="jewelTolltipLv">보석 레벨 3</div>
-                                                                <div><font color="#6495ed">효과</font></div>
-                                                                <div class="jewelTolltipEffect">[데모닉] <font color="orange">님블컷</font> 피해 9.00% 증가</div>
-
-                                                                <div class="isDeleteAble"><font color="red">분해불가</font></div>
-                                                                <div class="howGet"><font color="#6495ed">[카오스 던전]</font></div>
-                                                            </div>
-                                                    </div>
                                                </div>
                                                <div class="slot01">
                                                    <li> <img src=${gem_img[1]}> </li>
                                                    <span>${gem_lv[1]}</span>
-
-                                                   <div class="gem_slot_tooltip-box">
-
-                                                    </div>
                                                </div>
-<!--                                           </ul>-->
-<!--                                           <ul class="slot02-03">-->
                                                 <div class="slot02">
                                                     <li> <img src=${gem_img[2]}> </li>
                                                     <span>${gem_lv[2]}</span>
-
-                                                    <div class="gem_slot_tooltip-box">
-
-                                                    </div>
                                                 </div>
                                                <div class="slot03">
                                                    <li> <img src=${gem_img[3]}> </li>
                                                    <span>${gem_lv[3]}</span>
-
-                                                   <div class="gem_slot_tooltip-box">
-
-                                                    </div>
                                                </div>
-<!--                                           </ul>-->
                                            `
 
                     temp_html04to06 = `
-<!--                                           <ul class="slot04-06">-->
                                                 <div class="slot04">
                                                      <li> <img src=${gem_img[4]}> </li>
                                                      <span>${gem_lv[4]}</span>
-
-                                                     <div class="gem_slot_tooltip-box">
-
-                                                    </div>
                                                 </div>
 
                                                 <div class="slot05">
                                                      <li> <img src=${gem_img[5]}> </li>
                                                      <span>${gem_lv[5]}</span>
-
-                                                     <div class="gem_slot_tooltip-box">
-
-                                                    </div>
-
                                                 </div>
 
                                                 <div class="slot06">
                                                        <li> <img src=${gem_img[6]}> </li>
                                                        <span>${gem_lv[6]}</span>
-
-                                                       <div class="gem_slot_tooltip-box">
-
-                                                    </div>
                                                 </div>
-<!--                                           </ul>-->
                                           `
 
                     temp_html07to10 = `
-<!--                                           <ul class="slot07-08">-->
                                                 <div class="slot07">
                                                     <li> <img src=${gem_img[7]}> </li>
                                                     <span>${gem_lv[7]}</span>
-
-                                                    <div class="gem_slot_tooltip-box">
-
-                                                    </div>
                                                 </div>
 
                                                 <div class="slot08">
                                                     <li> <img src=${gem_img[8]}> </li>
                                                     <span>${gem_lv[8]}</span>
-
-                                                    <div class="gem_slot_tooltip-box">
-
-                                                    </div>
                                                 </div>
-<!--                                           </ul>-->
-
-<!--                                           <ul class="slot09-10">-->
                                                <div class="slot09">
                                                    <li> <img src=${gem_img[9]}> </li>
                                                    <span>${gem_lv[9]}</span>
-
-                                                   <div class="gem_slot_tooltip-box">
-
-                                                    </div>
                                                </div>
 
                                                <div class="slot10">
                                                    <li> <img src=${gem_img[10]}> </li>
                                                    <span>${gem_lv[10]}</span>
-
-                                                   <div class="gem_slot_tooltip-box">
-
-                                                    </div>
                                                </div>
-<!--                                           </ul>-->
                                           `
 
                     $('.jewel-list00to03').append(temp_html00to03);
@@ -2026,16 +1920,15 @@
             });
         }
 
-        //skills info db에서 받아오기
+        //gem skills info db에서 받아오기
         function load_skills() {
             $.ajax({
                 type: "GET",
                 url: "api/gem-skills",
-                data: {},
                 success: function (response) {
-                    let gemSkillImgRows = response['skills_img'];
-                    let gemSkillNameRows = response['skills_name'];
-                    let gemSkillEffectRows = response['skills_effect'];
+                    let gemSkillImgRows = response['skillsImg'];
+                    let gemSkillNameRows = response['skillsName'];
+                    let gemSkillEffectRows = response['skillsEffect'];
 
                     //skillHtml에 append될 변수 List
                     let skillsImgList = [];
@@ -2065,6 +1958,100 @@
                 }
             })
         }
+
+        function loadGemTooltip() {
+            $.ajax({
+                type: 'GET',
+                url: '/api/gem-tooltips',
+                success: function (response) {
+                    let gemTooltipName = response['gemTooltipName'];
+                    let gemTooltipEffect = response['gemTooltipEffect'];
+                    let gemTooltipTear = response['gemTooltipTear'];
+
+                    let tooltipHtml = ``
+
+                    //보석 레벨별 배경색 값
+                    let gemTooltipImgBackgroungColor = '';
+                    let gemTooltipRate = '';
+                    let gemTooltipRateColor = '';
+
+                    for (let i = 0; i < gemTooltipName.length; i++) {
+
+                        switch (gem_lv[i]) {
+                            case 'Lv.10':
+                                gemTooltipImgBackgroungColor = 'linear-gradient(135deg,#3b1303,#a23405)';
+                                gemTooltipRate = '유물 보석';
+                                gemTooltipRateColor = '#FA5D00';
+                                break;
+                            case 'Lv.9':
+                            case 'Lv.8':
+                            case 'Lv.7':
+                                gemTooltipImgBackgroungColor = 'linear-gradient(135deg,#3c2201,#a86200)';
+                                gemTooltipRate = '전설 보석';
+                                gemTooltipRateColor = '#F99200';
+                                break;
+                            case 'Lv.6':
+                            case 'Lv.5':
+                                gemTooltipImgBackgroungColor = 'linear-gradient(135deg,#27013d,#6e00aa)';
+                                gemTooltipRate = '영웅 보석';
+                                gemTooltipRateColor = '#ce43fc';
+                                break;
+                            case 'Lv.4':
+                            case 'Lv.3':
+                                gemTooltipImgBackgroungColor = 'linear-gradient(135deg,#111d29,#103550)';
+                                gemTooltipRate = '희귀 보석';
+                                gemTooltipRateColor = '#00B0FA';
+                                break;
+                            case 'Lv.2':
+                            case 'Lv.1':
+                                gemTooltipImgBackgroungColor = 'linear-gradient(135deg,#1a230e,#374e18)';
+                                gemTooltipRate = '고급 보석';
+                                gemTooltipRateColor = '#8DF901';
+                                break;
+
+                        }
+
+                        let gemTooltipTrade = ''
+                        let gemTooltipTradeColor = ''
+
+                        if(gemTooltipName[i].indexOf('(귀속)') >= 0) {
+                            gemTooltipTrade = '거래 불가';
+                            gemTooltipTradeColor = '#b91919';
+                        }else {
+                            gemTooltipTrade = '거래가능'
+                            gemTooltipTradeColor = '#fff';
+                        }
+
+                        tooltipHtml = `
+                        <div class="gem_slot_tooltip-box">
+                            <div class="jewelNameTagBox">
+                                    <font color="${gemTooltipRateColor}">${gemTooltipName[i]}</font>
+                                </div>
+                                <div class="jewelTitleTagBox">
+                                    <img class="jewelTooltipImg" src=${gem_img[i]} style="background: ${gemTooltipImgBackgroungColor}">
+                                    <div class="jewelTooltipRank"><font color="${gemTooltipRateColor}">${gemTooltipRate}</font></div>
+                                    <div class="jewelTooltipTear">${gemTooltipTear[i]}</div>
+                                </div>
+
+                                <div class="jewelInfoTagBox">
+                                    <div class="jewelTooltipIsTradeAble" style="color: ${gemTooltipTradeColor}">${gemTooltipTrade}</div>
+                                    <div class="jewelTooltipLv">보석 ${gem_lv[i]}</div>
+                                    <div><font color="#6495ed">효과</font></div>
+                                    <div class="jewelTooltipEffect">${gemTooltipEffect[i]}</div>
+
+                                    <div class="isDeleteAble"><font color="red">분해불가</font></div>
+                                </div>
+                        </div>
+                        `
+
+                        $(`.slot${String(i).padStart(2, '0')}`).append(tooltipHtml)
+                    }
+                }
+
+            })
+        }
+
+        /*******************************************검색 기능*******************************************************/
 
         function search() {
             $('.search-input').val("")
