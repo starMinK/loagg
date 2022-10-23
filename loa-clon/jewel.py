@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 from pymongo import MongoClient
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import json
 
 client = MongoClient('mongodb+srv://LOAGG:spatrateam4LOAGGprojectpassword@Cluster1.vlj5yqv.mongodb.net/?retryWrites=true&w=majority')
 db = client.loagg
@@ -100,6 +99,8 @@ def save_jewels():
             if a is not None:
                 skillImg = soup.select_one(
                     f'#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child({str(num)}) > span > img')
+                # profile-jewel > div > div.jewel-effect__list > div > ul > li.active > span > img
+                # profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(2) > span > img
                 skillImgList.append(skillImg['src'])
 
                 skillName = soup.select_one(
@@ -109,7 +110,8 @@ def save_jewels():
                 skillEffect = soup.select_one(
                     (f'#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child({str(num)}) > p'))
                 skillEffectList.append(skillEffect.text)
-            num += 1
+                num += 1
+
 
         doc = {}
         doc['skillImg'] = []
@@ -159,8 +161,10 @@ def save_jewels():
                 doc['gemTooltipEffect'].append(gemTooltipEffect.replace("효과\n", ""))
                 # //*[@id="lostark-wrapper"]/div[2]/div[6]
 
-                num += 1
+            num += 1
     db.gemTooltipList.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True)
+
+
 
     return jsonify({'msg': 'suc'})
 
