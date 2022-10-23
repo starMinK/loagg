@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c1c53bf-2f6a-4363-893d-897b8657c1ed" name="변경" comment="">
+    <list default="true" id="2c1c53bf-2f6a-4363-893d-897b8657c1ed" name="변경" comment="변경">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loa-clon/ScriptCrowlingTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/loa-clon/ScriptCrowlingTest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loa-clon/jewel.py" beforeDir="false" afterPath="$PROJECT_DIR$/loa-clon/jewel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loa-clon/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/loa-clon/templates/main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -52,24 +55,27 @@
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.ability">
-    <configuration name="ability" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.ScriptCrowlingTest">
+    <configuration name="main.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/workspace.xml/loa-clon/templates/main.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="ScriptCrowlingTest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="loagg" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Python310\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/loa-clon" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/loa-clon/ability.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/loa-clon/ScriptCrowlingTest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -85,9 +91,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Python310\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/loa-clon" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -124,9 +130,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.ability" />
-        <item itemvalue="Python.test" />
+        <item itemvalue="Python.ScriptCrowlingTest" />
         <item itemvalue="Python.jewel" />
+        <item itemvalue="JavaScript 디버그.main.html" />
       </list>
     </recent_temporary>
   </component>
@@ -141,13 +147,21 @@
       <workItem from="1664874760634" duration="2000" />
       <workItem from="1665480884314" duration="41000" />
       <workItem from="1665987122319" duration="4500000" />
-      <workItem from="1665993703540" duration="4571000" />
-      <workItem from="1666190337812" duration="2205000" />
-      <workItem from="1666246953604" duration="819000" />
-      <workItem from="1666350679316" duration="4592000" />
-      <workItem from="1666359043882" duration="1000" />
-      <workItem from="1666359052262" duration="7000" />
-      <workItem from="1666359099068" duration="36000" />
+      <workItem from="1665993184453" duration="1264000" />
+      <workItem from="1665997033892" duration="29000" />
+      <workItem from="1666077995593" duration="2348000" />
+      <workItem from="1666084215747" duration="734000" />
+      <workItem from="1666088821789" duration="2955000" />
+      <workItem from="1666144618946" duration="676000" />
+      <workItem from="1666191792833" duration="1388000" />
+      <workItem from="1666336586002" duration="4382000" />
+      <workItem from="1666341851947" duration="14327000" />
+      <workItem from="1666360511478" duration="4000" />
+      <workItem from="1666412911076" duration="13000" />
+      <workItem from="1666422381419" duration="19355000" />
+      <workItem from="1666509129777" duration="6604000" />
+      <workItem from="1666531575452" duration="155000" />
+      <workItem from="1666536223075" duration="727000" />
     </task>
     <servers />
   </component>
@@ -166,11 +180,10 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/workspace_xml$card.coverage" NAME="card 커버리지 결과" MODIFIED="1666005948997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
+    <SUITE FILE_PATH="coverage/workspace_xml$test.coverage" NAME="test 커버리지 결과" MODIFIED="1665991233802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
+    <SUITE FILE_PATH="coverage/workspace_xml$jewel.coverage" NAME="jewel 커버리지 결과" MODIFIED="1666528533936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
     <SUITE FILE_PATH="coverage/loagg$python.coverage" NAME="python 커버리지 결과" MODIFIED="1665061007651" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
     <SUITE FILE_PATH="coverage/loagg$jewel.coverage" NAME="jewel 커버리지 결과" MODIFIED="1665751921674" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
-    <SUITE FILE_PATH="coverage/workspace_xml$jewel.coverage" NAME="jewel 커버리지 결과" MODIFIED="1666005957037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
-    <SUITE FILE_PATH="coverage/workspace_xml$test.coverage" NAME="test 커버리지 결과" MODIFIED="1665991233802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
-    <SUITE FILE_PATH="coverage/workspace_xml$jewel.coverage" NAME="jewel 커버리지 결과" MODIFIED="1665987173116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
+    <SUITE FILE_PATH="coverage/workspace_xml$ScriptCrowlingTest.coverage" NAME="ScriptCrowlingTest 커버리지 결과" MODIFIED="1666536519470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
   </component>
 </project>

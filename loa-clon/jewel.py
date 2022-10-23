@@ -2,7 +2,8 @@ from flask import Flask, render_template, request, jsonify
 import requests
 from bs4 import BeautifulSoup
 from pymongo import MongoClient
-import json
+from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 client = MongoClient('mongodb+srv://LOAGG:spatrateam4LOAGGprojectpassword@Cluster1.vlj5yqv.mongodb.net/?retryWrites=true&w=majority')
 db = client.loagg
@@ -26,17 +27,25 @@ def save_jewels():
     global name
     name = request.form['name_give']
 
+    #crowling
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
     data = requests.get(f'https://lostark.game.onstove.com/Profile/Character/{name}', headers=headers)
 
     soup = BeautifulSoup(data.text, 'html.parser')
 
+    #selenium
+    url = f'https://lostark.game.onstove.com/Profile/Character/{name}'
+    browser = webdriver.Chrome()
+    browser.get(url)
+
+
     is_exist_name = soup.select_one('#lostark-wrapper > div > main > div > div.profile-character-info > img')
 
     if is_exist_name is None:
         return jsonify({'msg': f'{name} 캐릭터 정보가 없습니다.\n캐릭터명을 확인해주세요.'})
     else:
+        #gem 존재 여부 확인 list
         isGemExistList = [soup.select_one('#gem00'),
                           soup.select_one('#gem01'),
                           soup.select_one('#gem02'),
@@ -49,6 +58,8 @@ def save_jewels():
                           soup.select_one('#gem09'),
                           soup.select_one('#gem10')]
 
+
+        #존재하는 만큼 들어가는 list
         gemImgList = []
         gemLvList = []
 
@@ -80,6 +91,8 @@ def save_jewels():
 
         db.gemInfoList.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True)
 
+######
+
         skillImgList = []
         skillNameList = []
         skillEffectList = []
@@ -89,6 +102,8 @@ def save_jewels():
             if a is not None:
                 skillImg = soup.select_one(
                     f'#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child({str(num)}) > span > img')
+                # profile-jewel > div > div.jewel-effect__list > div > ul > li.active > span > img
+                # profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(2) > span > img
                 skillImgList.append(skillImg['src'])
 
                 skillName = soup.select_one(
@@ -98,7 +113,8 @@ def save_jewels():
                 skillEffect = soup.select_one(
                     (f'#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child({str(num)}) > p'))
                 skillEffectList.append(skillEffect.text)
-            num += 1
+                num += 1
+
 
         doc = {}
         doc['skillImg'] = []
@@ -117,62 +133,43 @@ def save_jewels():
 
         db.gemSkillList.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True)
 
+######
 
-        # 카드-재하----------------------------------------------------------------------
-        cardlist = [soup.select_one('#cardList > li:nth-child(1)'),
-                    soup.select_one('#cardList > li:nth-child(2)'),
-                    soup.select_one('#cardList > li:nth-child(3)'),
-                    soup.select_one('#cardList > li:nth-child(4)'),
-                    soup.select_one('#cardList > li:nth-child(5)'),
-                    soup.select_one('#cardList > li:nth-child(6)'), ]
+        doc = {}
+        doc['gemTooltipName'] = []
+        doc['gemTooltipTear'] = []
+        doc['gemTooltipEffect'] = []
 
-        cardimglist = []
-        cardnamelist = []
-        cardawakelist = []
+        num = 0
+        for a in isGemExistList:
+            numStr = str(num)
+            if a is not None:
+                # 보석창 진입
+                browser.find_element(By.XPATH, '//*[@id="profile-ability"]/div[1]/div[1]/a[3]').click()
+                #보석 Tooltip창 hover
+                browser.find_element(By.XPATH, f'//*[@id="gem{numStr.zfill(2)}"]').click()
 
-        cardsetlist = [soup.select_one('#cardSetList > li:nth-child(1)'),
-                       soup.select_one('#cardSetList > li:nth-child(2)'),
-                       soup.select_one('#cardSetList > li:nth-child(3)'),
-                       soup.select_one('#cardSetList > li:nth-child(4)'),
-                       soup.select_one('#cardSetList > li:nth-child(5)'),
-                       soup.select_one('#cardSetList > li:nth-child(6)'), ]
-        cardsettitlelist = []
-        cardsetdsclist = []
+                # 보석 이름
+                gemTooltipName = browser.find_element(By.XPATH, '//*[@id="lostark-wrapper"]/div[2]/div[1]/p/font').text
+                doc['gemTooltipName'].append(gemTooltipName)
+                # 보석 티어
+                gemTooltipTear = browser.find_element(By.XPATH, '//*[@id="lostark-wrapper"]/div[2]/div[2]/span[4]/font').text
+                doc['gemTooltipTear'].append(gemTooltipTear)
+                # 보석 효과
+                if gemTooltipName.find('(귀속)') >= 0:
+                    gemTooltipEffect = browser.find_element(By.XPATH, '//*[@id="lostark-wrapper"]/div[2]/div[6]').text
+                else:
+                    gemTooltipEffect = browser.find_element(By.XPATH, '//*[@id="lostark-wrapper"]/div[2]/div[5]').text
 
-        for card in cardlist:
-            cardname = card.select_one('div > strong > font').text
-            cardnamelist.append(cardname)
-            cardimg = card.select_one('div > img')['src']
-            cardimglist.append(cardimg)
-            cardawake = card.select_one('div')['data-awake']
-            cardawakelist.append(cardawake)
-            doc = {
-                'name': name,
-                'cardname': cardnamelist,
-                'cardimg': cardimglist,
-                'cardawake': cardawakelist
-            };
-            db.cardlist.update_one({"name": name}, {'$set': doc}, upsert=True)
+                doc['gemTooltipEffect'].append(gemTooltipEffect.replace("효과\n", ""))
+                # //*[@id="lostark-wrapper"]/div[2]/div[6]
 
-        for cardset in cardsetlist:
-            if cardset is not None:
-                cardsettitle = cardset.select_one('div.card-effect__title').text
-                cardsettitlelist.append(cardsettitle)
-                cardsetdsc = cardset.select_one('div.card-effect__dsc').text
-                cardsetdsclist.append(cardsetdsc)
-                doc = {
-                    'name': name,
-                    'cardsettitle': cardsettitlelist,
-                    'cardsetdsc': cardsetdsclist
-                }
-                db.cardsetlist.update_one({"name": name}, {'$set': doc}, upsert=True)
+            num += 1
+    db.gemTooltipList.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True)
 
 
 
-
-
-        return jsonify({'msg': 'suc'})
-
+    return jsonify({'msg': 'suc'})
 
 @app.route("/api/jewels", methods=["GET"])
 def jewels_get():
@@ -185,14 +182,26 @@ def jewels_get():
 
 
 @app.route("/api/gem-skills", methods=["GET"])
-def skills_get():
-    skill_get = db.gemSkillList.find_one({'name': f'{name}'}, {'_id': False})
+def gemSkillsGet():
+    gemSkillGet = db.gemSkillList.find_one({'name':f'{name}'}, {'_id': False})
 
-    skills_img = skill_get['skillImg']
-    skills_name = skill_get['skillName']
-    skills_effect = skill_get['skillEffect']
+    skillsImg = gemSkillGet['skillImg']
+    skillsName = gemSkillGet['skillName']
+    skillsEffect = gemSkillGet['skillEffect']
 
-    return jsonify({'skills_img': skills_img, 'skills_name': skills_name, 'skills_effect': skills_effect})
+
+
+    return jsonify({'skillsImg': skillsImg, 'skillsName': skillsName, 'skillsEffect': skillsEffect})
+
+@app.route("/api/gem-tooltips", methods=["GET"])
+def gem_tooltips_get():
+    gemTooltipGet = db.gemTooltipList.find_one({'name': f'{name}'}, {'_id': False})
+
+    gemTooltipName = gemTooltipGet['gemTooltipName']
+    gemTooltipTear = gemTooltipGet['gemTooltipTear']
+    gemTooltipEffect = gemTooltipGet['gemTooltipEffect']
+
+    return jsonify({'gemTooltipName': gemTooltipName, 'gemTooltipTear': gemTooltipTear, 'gemTooltipEffect': gemTooltipEffect})
 
 
 # 재하 카드 ------------------------------------------------------------------------------------------------------------------------------------
