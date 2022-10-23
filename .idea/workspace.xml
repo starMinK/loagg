@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2c1c53bf-2f6a-4363-893d-897b8657c1ed" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loa-clon/card.py" beforeDir="false" afterPath="$PROJECT_DIR$/loa-clon/card.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loa-clon/jewel.py" beforeDir="false" afterPath="$PROJECT_DIR$/loa-clon/jewel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loa-clon/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/loa-clon/templates/main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +148,7 @@
       <workItem from="1665987122319" duration="4500000" />
       <workItem from="1666087377966" duration="8995000" />
       <workItem from="1666101296596" duration="801000" />
-      <workItem from="1666339988050" duration="1626000" />
+      <workItem from="1666339988050" duration="3569000" />
     </task>
     <servers />
   </component>
