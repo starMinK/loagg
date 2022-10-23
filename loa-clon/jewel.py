@@ -165,11 +165,58 @@ def save_jewels():
                 # //*[@id="lostark-wrapper"]/div[2]/div[6]
 
             num += 1
-    db.gemTooltipList.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True)
+        db.gemTooltipList.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True)
 
+        # 카드-재하----------------------------------------------------------------------
+        cardlist = [soup.select_one('#cardList > li:nth-child(1)'),
+                    soup.select_one('#cardList > li:nth-child(2)'),
+                    soup.select_one('#cardList > li:nth-child(3)'),
+                    soup.select_one('#cardList > li:nth-child(4)'),
+                    soup.select_one('#cardList > li:nth-child(5)'),
+                    soup.select_one('#cardList > li:nth-child(6)'), ]
 
+        cardimglist = []
+        cardnamelist = []
+        cardawakelist = []
 
-    return jsonify({'msg': 'suc'})
+        cardsetlist = [soup.select_one('#cardSetList > li:nth-child(1)'),
+                       soup.select_one('#cardSetList > li:nth-child(2)'),
+                       soup.select_one('#cardSetList > li:nth-child(3)'),
+                       soup.select_one('#cardSetList > li:nth-child(4)'),
+                       soup.select_one('#cardSetList > li:nth-child(5)'),
+                       soup.select_one('#cardSetList > li:nth-child(6)'), ]
+        cardsettitlelist = []
+        cardsetdsclist = []
+
+        for card in cardlist:
+            cardname = card.select_one('div > strong > font').text
+            cardnamelist.append(cardname)
+            cardimg = card.select_one('div > img')['src']
+            cardimglist.append(cardimg)
+            cardawake = card.select_one('div')['data-awake']
+            cardawakelist.append(cardawake)
+            doc = {
+                'name': name,
+                'cardname': cardnamelist,
+                'cardimg': cardimglist,
+                'cardawake': cardawakelist
+            };
+            db.cardlist.update_one({"name": name}, {'$set': doc}, upsert=True)
+
+        for cardset in cardsetlist:
+            if cardset is not None:
+                cardsettitle = cardset.select_one('div.card-effect__title').text
+                cardsettitlelist.append(cardsettitle)
+                cardsetdsc = cardset.select_one('div.card-effect__dsc').text
+                cardsetdsclist.append(cardsetdsc)
+                doc = {
+                    'name': name,
+                    'cardsettitle': cardsettitlelist,
+                    'cardsetdsc': cardsetdsclist
+                }
+                db.cardsetlist.update_one({"name": name}, {'$set': doc}, upsert=True)
+
+        return jsonify({'msg': 'suc'})
 
 @app.route("/api/jewels", methods=["GET"])
 def jewels_get():
