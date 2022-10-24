@@ -165,33 +165,24 @@
         }
 
         .profile-equipment_character {
-            background-image: url("https://img.lostark.co.kr/profile/2/10C4B4E078C5002A4BE8679DDD859D86BF535CB746D340F96E47F65481F069FD.PNG");
+            background-image: url("https://img.lostark.co.kr/profile/2/908CD4B929440BF1FD2D7E6A517F8D225395700072ECFD9590B8C81620683B65.PNG");
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
+
             width: 35%;
             height: 100%;
 
-            margin: auto 0 auto 30px;
-
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-
-            padding-right: 45px;
+            margin-left: 30px;
 
             border-radius: 20px;
         }
 
         .profile-equipment__slot {
-
-            position: absolute;
-            width: 35%;
-            height: 100%;
-            margin-left: 30px;
+            
             z-index: 2;
-            display: inline-block;
+            display: flex;
+            margin-left: 30px;
+            flex-direction: column;
         }
 
         .profile-equipment_character_under {
@@ -200,106 +191,19 @@
             left: 30px;
             width: 35%;
             text-align: center;
-            font-size: 12px;
+            font-size: 0.5vw;
             color: white;
         }
 
-        .slot1 {
-            background-color: blue;
-
-            display: flex;
-            -ms-flex-align: center;
-            align-items: center;
-            -ms-flex-pack: center;
+        .profile-equipment__slot > div{
+            background: linear-gradient(135deg,#3d3325,#dcc999);
             justify-content: center;
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            box-sizing: border-box;
-            left: 37px;
-            top: 15%;
-        }
-
-        .slot2 {
-            background-color: blue;
-
-            display: flex;
-            -ms-flex-align: center;
             align-items: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            box-sizing: border-box;
-            left: 37px;
-            top: 22%;
+            margin-top: 5%;
+
+
+
         }
-
-        .slot3 {
-            background-color: blue;
-
-            display: flex;
-            -ms-flex-align: center;
-            align-items: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            box-sizing: border-box;
-            left: 37px;
-            top: 29%;
-        }
-
-        .slot4 {
-            background-color: blue;
-
-            display: flex;
-            -ms-flex-align: center;
-            align-items: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            box-sizing: border-box;
-            left: 37px;
-            top: 36%;
-        }
-
-        .slot5 {
-            background-color: blue;
-
-            display: flex;
-            -ms-flex-align: center;
-            align-items: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            box-sizing: border-box;
-            left: 37px;
-            top: 43%;
-        }
-
-        .slot6 {
-            background-color: blue;
-
-            display: flex;
-            -ms-flex-align: center;
-            align-items: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            box-sizing: border-box;
-            left: 37px;
-            top: 50%;
-        }
-
         .slot9 {
             background-color: blue;
 
@@ -1762,6 +1666,7 @@
         }
 
         input[id="menuicon"]:checked + label span:nth-child(2) {
+        }
 
         input[id="menuicon"]:checked + label span:nth-child(3) {
             bottom: 50%;
@@ -2081,33 +1986,25 @@
         <!--캐릭터 장비 정보 박스 : 종열-->
         <div class="profile-ingame">
             <div class="profile-equipment_character">
-                <img src="">
                 <span class="profile-equipment_character_under">캐릭터 착용 장비와 이미지는 게임 내 이미지와 상이할 수 있습니다.</span>
                 <div class="profile-equipment__slot">
-
-                    <div class="slot1">
-
+                    <div class="profile-equipment_slot1">
+                        <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_227.png" alt>
                     </div>
-                    <div class="slot2">
-
+                    <div class="profile-equipment_slot2">
+                        <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_239.png" alt>
                     </div>
-                    <div class="slot3">
-
+                    <div class="profile-equipment_slot3">
+                        <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_230.png" alt>
                     </div>
-                    <div class="slot4">
-
+                    <div class="profile-equipment_slot4">
+                        <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_242.png" alt>
                     </div>
-                    <div class="slot5">
-
+                    <div class="profile-equipment_slot5">
+                        <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_229.png" alt>
                     </div>
-                    <div class="slot6">
-
-                    </div>
-                    <div class="slot7">
-
-                    </div>
-                    <div class="slot8">
-
+                    <div class="profile-equipment_slot6">
+                        <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_244.png" alt>
                     </div>
                     <div class="slot9">
 
