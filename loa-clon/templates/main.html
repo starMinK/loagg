@@ -162,91 +162,26 @@
         /*********************종열*****************************/
 
         .profile-equipment_character {
-            background: #15181d;
+            background-image: url("https://img.lostark.co.kr/profile/2/908CD4B929440BF1FD2D7E6A517F8D225395700072ECFD9590B8C81620683B65.PNG");
+            background-size: cover;
+            background-position: center;
 
             width: 35%;
             height: 100%;
 
-            position: relative;
-
-            margin: auto 0 auto 30px;
-
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-
-            padding-right: 45px;
+            margin-left: 30px;
 
             border-radius: 20px;
 
             /*overflow: hidden;*/
         }
 
-        .profile-equipment__slot_left {
-            /*background-color: #0b53d0;*/
+        .profile-equipment__slot {
 
-            position: absolute;
-            left: 5%;
-
-            height: 80%;
-
+            z-index: 2;
             display: flex;
+            margin-left: 30px;
             flex-direction: column;
-
-            z-index: 1;
-        }
-
-        .profile-equipment__slot_right {
-            /*background-color: #0b53d0;*/
-
-            position: absolute;
-            right: 5%;
-
-            height: 80%;
-
-            display: flex;
-            flex-direction: column;
-
-            z-index: 1;
-        }
-
-        .equipmentSlot {
-            background-color: white;
-            border: 3px solid #15181d;
-
-            max-width: 70px;
-            max-height: 70px;
-            width: auto;
-            height: auto;
-
-            margin: auto;
-        }
-
-        .profile-equipment__character_image {
-            width: 100%;
-            height: 90%;
-
-            position: absolute;
-            left: 50%;
-            transform: translate(-50%, 0%);
-            z-index: 0;
-
-            margin: auto;
-
-            overflow: hidden;
-        }
-
-        .profile-equipment__character_image > img {
-            position: absolute;
-
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-
-            top: 50%;
-            transform: translate(0%, -50%);
         }
 
         .profile-equipment_character_under {
@@ -259,8 +194,33 @@
             width: 35%;
 
             text-align: center;
-            font-size: 12px;
+            font-size: 0.5vw;
             color: white;
+        }
+
+        .profile-equipment__slot > div{
+            background: linear-gradient(135deg,#3d3325,#dcc999);
+            justify-content: center;
+            align-items: center;
+            margin-top: 5%;
+
+
+
+        }
+        .slot9 {
+            background-color: blue;
+
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            box-sizing: border-box;
+            right: 67px;
+            top: 127px;
         }
 
         /*----------------------------------------------*/
@@ -1688,6 +1648,7 @@
         }
 
         input[id="menuicon"]:checked + label span:nth-child(2) {
+        }
 
         }
 
@@ -2287,6 +2248,29 @@
         <!--캐릭터 장비 정보 박스 : 종열-->
         <div class="profile-ingame">
             <div class="profile-equipment_character">
+                <span class="profile-equipment_character_under">캐릭터 착용 장비와 이미지는 게임 내 이미지와 상이할 수 있습니다.</span>
+                <div class="profile-equipment__slot">
+                    <div class="profile-equipment_slot1">
+                        <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_227.png" alt>
+                    </div>
+                    <div class="profile-equipment_slot2">
+                        <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_239.png" alt>
+                    </div>
+                    <div class="profile-equipment_slot3">
+                        <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_230.png" alt>
+                    </div>
+                    <div class="profile-equipment_slot4">
+                        <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_242.png" alt>
+                    </div>
+                    <div class="profile-equipment_slot5">
+                        <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_229.png" alt>
+                    </div>
+                    <div class="profile-equipment_slot6">
+                        <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_244.png" alt>
+                    </div>
+                    <div class="slot9">
+
+                    </div>
 
                 <div class="profile-equipment__slot_left">
                     <div class="equipmentSlot"> <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/IF_Item/IF_Item_01_156.png"> </div>
