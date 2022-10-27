@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 
-<html lang="kr">
+<html lang="kr" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>로아.gg 콘티</title>
@@ -2294,8 +2294,11 @@
         $(document).ready(function () {
             ability();
             specialEquip();
+            tendency();
         });
 
+        let engraveTitle = []
+        let engraveInfo = []
         function ability() {
              $.ajax({
                     type: 'GET',
@@ -2305,9 +2308,6 @@
                         let abilityStats = response['abilityStats']
                         let abilityStatTooltips = response['abilityStatTooltips']
                         let engrave = response['engraveList']
-
-                        let engraveTitle = []
-                        let engraveInfo = []
 
                         for(let i = 0; i < engrave.length; i++) {
                             if(i==0) {
@@ -2321,6 +2321,7 @@
 
                         let basicAbilityTempHtml = ``
                         let battleAbilityTempHtml = ``
+                        let engraveBasicTempHtml = ``
 
                         basicAbilityTempHtml = `<p class="ability-title">기본특성</p>
                                         <div class="ability-text">
@@ -2421,12 +2422,67 @@
                                                         <span class="stats-Expertise-number">${abilityStats['Expertise']}</span>
                                                     </div>`
 
+                        engraveBasicTempHtml =  `<div class="engrave-list1">${engraveTitle[0]}</div>
+                                                 <div class="engrave-list2">${engraveTitle[1]}</div>
+                                                 <div class="engrave-list3">${engraveTitle[2]}</div>`
+
                         $('.ability').append(basicAbilityTempHtml)
                         $('.stats').append(battleAbilityTempHtml)
-
-
+                        $('.side-engrave').append(engraveBasicTempHtml)
                     }
             })
+        }
+        let engravePage = 0
+
+        function engravePageBack() {
+            if(engravePage >= 1){
+                engravePage -= 1
+            }
+            engrave();
+            console.log(engravePage)
+        }
+
+        function engravePageFront() {
+            let pageNum = 0
+
+            if(engraveTitle[3] != undefined)
+                pageNum = 1
+            else if(engraveTitle[6] != undefined)
+                pageNum = 2
+            else
+                pageNum = 0
+
+            if(engravePage < pageNum) {
+                engravePage += 1
+            }
+            engrave();
+            console.log(engravePage)
+        }
+
+        function engrave() {
+            let engraveTempHtml = ``
+
+            for (let i = 0; i < 8; i++){
+                if (engraveTitle[i] == undefined){
+                    engraveTitle[i] = "";
+                }
+            }
+
+            if (engravePage == 0) {
+                engraveTempHtml = `<div class="engrave-list1">${engraveTitle[0]}</div>
+                                 <div class="engrave-list2">${engraveTitle[1]}</div>
+                                 <div class="engrave-list3">${engraveTitle[2]}</div>`
+            }else if(engravePage == 1) {
+                engraveTempHtml = `<div class="engrave-list1">${engraveTitle[3]}</div>
+                                 <div class="engrave-list2">${engraveTitle[4]}</div>
+                                 <div class="engrave-list3">${engraveTitle[5]}</div>`
+            }else{
+                engraveTempHtml = `<div class="engrave-list1">${engraveTitle[6]}</div>
+                                 <div class="engrave-list2">${engraveTitle[7]}</div>
+                                 <div class="engrave-list3">${engraveTitle[8]}</div>`
+            }
+            $('.side-engrave').empty()
+            $('.side-engrave').append(engraveTempHtml)
         }
 
         function specialEquip() {
@@ -2663,11 +2719,14 @@
                         </div>
 
                         <div class="engrave">
-                            <p class="engrave-title">각인효과</p>
+                            <p class="engrave-title">
+                                <button onclick="engravePageBack()"><</button>
+                                각인효과
+                                <button onclick="engravePageFront()">></button>
+                            </p>
+
                             <div class="side-engrave">
-                                <div class="engrave-list1">원한 lv. 3</div>
-                                <div class="engrave-list2">강화 무기 lv. 3</div>
-                                <div class="engrave-list3">예리한 둔기 lv. 3</div>
+
                             </div>
                         </div>
 
