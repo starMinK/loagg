@@ -352,6 +352,35 @@ def save_jewels():
         }
         db.Engrave.update_one({"name": name}, {'$set': doc}, upsert=True)
 
+        specialEquipRoute = [
+            '#lostark-wrapper > div > main > div > div.profile-ingame > div.profile-info > div.special-info > div > ul > li:nth-child(1) > div > div > img',
+            '#lostark-wrapper > div > main > div > div.profile-ingame > div.profile-info > div.special-info > div > ul > li:nth-child(2) > div > div > img',
+            '#lostark-wrapper > div > main > div > div.profile-ingame > div.profile-info > div.special-info > div > ul > li:nth-child(3) > div > div > img'
+        ]
+
+        specialEquip = []
+        for i in specialEquipRoute:
+
+            if soup.select_one(i) is not None:
+                specialEquip.append(soup.select_one(i)['src'])
+            else:
+                specialEquip.append("none")
+
+        doc = {'0': specialEquip[0], '1': specialEquip[1], '2': specialEquip[2]}
+
+        db.specialEquip.update_one({"name": name}, {'$set': doc}, upsert=True)
+###
+        browser.find_element(By.XPATH, '//*[@id="profile-ability"]/div[1]/div[1]/a[1]').click()
+
+        tendency0 = browser.find_element(By.XPATH, '//*[@id="chart-states-wrap"]/div[2]/span[1]/span/em').text
+        tendency1 = browser.find_element(By.XPATH, '//*[@id="chart-states-wrap"]/div[2]/span[2]/span/em').text
+        tendency2 = browser.find_element(By.XPATH, '//*[@id="chart-states-wrap"]/div[2]/span[3]/span/em').text
+        tendency3 = browser.find_element(By.XPATH, '//*[@id="chart-states-wrap"]/div[2]/span[4]/span/em').text
+
+        doc = {'0': tendency0, '1': tendency1, '2': tendency2, '3': tendency3}
+
+        db.tendency.update_one({"name": name}, {'$set': doc}, upsert=True)
+
         return jsonify({'msg': 'suc'})
 
 # GET ----------------------------------------------------------------------------------------------------------------------------------------
@@ -410,14 +439,18 @@ def cardset():
 
 
 # 덕현 스텟 -------------------------------------------------------------------------------------------------------------------------------------
-@app.route("/ability", methods=['GET'])
-def ability():
-    abilityStats = db.AbilityStats.find_one({'name': f'{name}'}, {'_id': False})
-    abilityStatTooltips = db.AbilityStatsTooltip.find_one({'name': f'{name}'}, {'_id': False})
-    engrave = db.Engrave.find_one({'name': f'{name}'}, {'_id': False})
-    engraveList = engrave['Engrave']
 
-    return jsonify({'abilityStats': abilityStats, 'abilityStatTooltips': abilityStatTooltips, 'engraveList': engraveList})
+@app.route("/specialEquip", methods=['GET'])
+def specialEquip():
+    specialEquipImg = db.specialEquip.find_one({'name': f'{name}'}, {'_id': False})
+
+    return jsonify({'specialEquipImg': specialEquipImg})
+
+@app.route("/tendency", methods=['GET'])
+def tendency():
+    tendency = db.tendency.find_one({'name': f'{name}'}, {'_id': False})
+
+    return jsonify({'tendency': tendency})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)

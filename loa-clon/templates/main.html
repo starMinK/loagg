@@ -1615,8 +1615,8 @@
             font-size: 1vw;
         }
 
-        .special-weapon-1 {
-            background-image: url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_special_slot.png?34cb99193be738b4ae3c78bba02395b1');
+        .special-weapon-0 {
+            /*background-image: url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_special_slot.png?34cb99193be738b4ae3c78bba02395b1');*/
             background-size: cover;
             background-position: center;
             position: absolute;
@@ -1628,11 +1628,11 @@
 
         }
 
-        .special-weapon-2 {
-            background-image: url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_special_slot.png?34cb99193be738b4ae3c78bba02395b1');
+        .special-weapon-1 {
+            /*background-image: url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_special_slot.png?34cb99193be738b4ae3c78bba02395b1');*/
             background-size: cover;
             background-position: center;
-            background-color: green;
+            /*background-color: green;*/
             position: absolute;
 
             width: 15%;
@@ -1641,11 +1641,11 @@
             top: 40%;
         }
 
-        .special-weapon-3 {
-            background-image: url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_special_slot.png?34cb99193be738b4ae3c78bba02395b1');
+        .special-weapon-2 {
+            /*background-image: url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_special_slot.png?34cb99193be738b4ae3c78bba02395b1');*/
             background-size: cover;
             background-position: center;
-            background-color: green;
+            /*background-color: green;*/
             position: absolute;
 
             width: 15%;
@@ -2034,6 +2034,7 @@
         }
     </script>
 
+    <!--재하-->
     <script>
         $(document).ready(function () {
             card_list();
@@ -2288,9 +2289,11 @@
 
     </script>
 
+    <!--덕현-->
     <script>
         $(document).ready(function () {
             ability();
+            specialEquip();
         });
 
         function ability() {
@@ -2314,9 +2317,162 @@
                             } else if (i % 2 == 0) {
                                 engraveTitle.push(engrave[i])
                             }
-                            console.log(engraveTitle[i])
-                            console.log(engraveInfo[i])
                         }
+
+                        let basicAbilityTempHtml = ``
+                        let battleAbilityTempHtml = ``
+
+                        basicAbilityTempHtml = `<p class="ability-title">기본특성</p>
+                                        <div class="ability-text">
+                                        <span class="ability-power">공격력
+                                        <div class="tooltip-ability">
+                                                        <li> 적에게 주는 피해를 계산할 때 기준이 되는 값입니다.</li>
+                                                        <li> 힘, 민첩, 지능과 무기 공격력을 기반으로 증가한 기본 공격력은 <font
+                                                                color="#99ff99">${abilityStatTooltips['PowerNumer1']}</font>입니다.
+                                                        </li>
+                                                        <li> 공격력 증감 효과로 공격력이 <font color="#99ff99">${abilityStatTooltips['PowerNumer2']}</font> 증가되었습니다.</li>
+                                                    </div>
+                                        </span>
+                                            <span class="ability-life">최대생명력
+                                            <div class="tooltip-ability">
+                                                        <li> 캐릭터의 최대 생명력을 나타냅니다.</li>
+                                                        <li> 체력으로 최대 생명력이 <font color="#99ff99">${abilityStatTooltips['LifeNumer1']}</font> 증가되었습니다.</li>
+                                                        <li> 생명 활성력으로 최대 생명력이 <font color="#99ff99">${abilityStatTooltips['LifeNumer2']}</font> 증가되었습니다.</li>
+                                                    </div>
+                                        </span>
+                                        </div>
+                                        <div class="ability-number">
+                                            <span class="ability-power-number">${abilityStats['Power']}</span>
+                                            <span class="ability-life-number">${abilityStats['Life']}</span>
+                                        </div>`
+
+                        battleAbilityTempHtml = `<p class="stats-title">전투특성</p>
+                                                    <div class="stats-text">
+                                                        <span class="stats-Critical">치명
+                                                            <div class="tooltip-stats">
+                                                                <li> 치명타 적중률이 <font color="#99ff99">${abilityStatTooltips['CriticalNumer1']}</font> 증가합니다.</li>
+                                                                <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">${abilityStatTooltips['CriticalNumer2']}</font> 만큼 영구적으로
+                                                                    증가되었습니다.
+                                                                </li>
+                                                                <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                                                <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                                            </div>
+                                                        </span>
+                                                        <span class="stats-Specialization">특화
+                                                            <div class="tooltip-stats">
+                                                                <li> 핸드건 스킬의 치명타 피해량이<font color="#99ff99">${abilityStatTooltips['SpecializationNumer1']}</font> 증가합니다.</li>
+                                                                <li> 샷건 스킬의 피해량이<font color="#99ff99">${abilityStatTooltips['SpecializationNumer2']}</font> 증가합니다.</li>
+                                                                <li> 라이플 스킬의 물리 / 마법 관통력이<font color="#99ff99">${abilityStatTooltips['SpecializationNumer3']}</font> 증가합니다.</li>
+                                                                <li> 각성 스킬의 피해량이 <font color="#99ff99">${abilityStatTooltips['SpecializationNumer4']}</font> 증가합니다.</li>
+                                                                <li> 물약 및 원정대 레벨 보상 효과로 <font color="#99ff99">${abilityStatTooltips['SpecializationNumer5']}</font>만큼 영구적으로
+                                                                증가되었습니다.</li>
+                                                            </div>
+                                                        </span>
+                                                        <span class="stats-Domination">제압
+                                                            <div class="tooltip-stats">
+                                                                <li> 피격이상 및 상태이상 대상에게 주는 피해량이 <font color="#99ff99">${abilityStatTooltips['DominationNumer1']}</font>
+                                                                    증가합니다.</li>
+                                                                <li> 무력화 대상에게 주는 피해량이 <font color="#99ff99">${abilityStatTooltips['DominationNumer2']}</font> 증가합니다.</li>
+                                                                <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">${abilityStatTooltips['DominationNumer3']}</font>만큼 영구적으로
+                                                                    증가되었습니다.</li>
+                                                                <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                                            </div>
+                                                        </span>
+                                                        <span class="stats-Swiftness">신속
+                                                            <div class="tooltip-stats">
+                                                                <li> 공격 속도가 <font color="#99ff99">${abilityStatTooltips['SwiftnessNumer1']}</font> 증가합니다.</li>
+                                                                <li> 이동 속도가 <font color="#99ff99">${abilityStatTooltips['SwiftnessNumer2']}</font> 증가합니다.</li>
+                                                                <li> 스킬 재사용 대기시간이<font color="#99ff99">${abilityStatTooltips['SwiftnessNumer3']}</font> 감소합니다.</li>
+                                                                <li> 물약 및 원정대 레벨 보상 효과로 <font color="#99ff99">${abilityStatTooltips['SwiftnessNumer4']}</font>만큼 영구적으로
+                                                                    증가되었습니다.</li>
+                                                                <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                                            </div>
+                                                        </span>
+                                                        <span class="stats-Endurance">인내
+                                                            <div class="tooltip-stats">
+                                                                <li> 물리 방어력이 <font color="#99ff99">${abilityStatTooltips['EnduranceNumer1']}</font> 증가합니다.</li>
+                                                                <li> 마법 방어력이 <font color="#99ff99">${abilityStatTooltips['EnduranceNumer2']}</font> 증가합니다.</li>
+                                                                <li> 보호막 효과가 <font color="#99ff99">${abilityStatTooltips['EnduranceNumer3']}</font> 증가합니다.</li>
+                                                                <li> 생명력 회복 효과가 <font color="#99ff99">${abilityStatTooltips['EnduranceNumer4']}</font> 증가합니다.</li>
+                                                                <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">${abilityStatTooltips['EnduranceNumer5']}</font>만큼 영구적으로
+                                                                    증가되었습니다.</li>
+                                                                <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                                            </div>
+                                                        </span>
+                                                        <span class="stats-Expertise">숙련
+                                                            <div class="tooltip-stats">
+                                                                <li> 상태이상 공격 지속시간이<font color="#99ff99">${abilityStatTooltips['ExpertiseNumer1']}</font> 증가합니다.</li>
+                                                                <li> 상태이상 피해 지속시간이<font color="#99ff99">${abilityStatTooltips['ExpertiseNumer2']}</font> 감소합니다.</li>
+                                                                <li> 무력화 피해량이 <font color="#99ff99">${abilityStatTooltips['ExpertiseNumer3']}</font> 증가합니다.</li>
+                                                                <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">${abilityStatTooltips['ExpertiseNumer4']}</font>만큼 영구적으로
+                                                                    증가되었습니다.
+                                                                </li>
+                                                                <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
+                                                            </div>
+                                                        </span>
+                                                    </div>
+                                                    <div class="stats-number">
+                                                        <!--순서대로 치명, 특화, 제압, 신속, 인내, 숙련-->
+                                                        <span class="stats-Critical-number">${abilityStats['Critical']}</span>
+                                                        <span class="stats-Specialization-number">${abilityStats['Specialization']}</span>
+                                                        <span class="stats-Domination-number">${abilityStats['Domination']}</span>
+                                                        <span class="stats-Swiftness-number">${abilityStats['Swiftness']}</span>
+                                                        <span class="stats-Endurance-number">${abilityStats['Endurance']}</span>
+                                                        <span class="stats-Expertise-number">${abilityStats['Expertise']}</span>
+                                                    </div>`
+
+                        $('.ability').append(basicAbilityTempHtml)
+                        $('.stats').append(battleAbilityTempHtml)
+
+
+                    }
+            })
+        }
+
+        function specialEquip() {
+             $.ajax({
+                    type: 'GET',
+                    url: '/specialEquip',
+                    data: {},
+                    success: function (response) {
+                        let specialEquipImg = [response['specialEquipImg'][0], response['specialEquipImg'][1], response['specialEquipImg'][2]]
+
+                        for(let i = 0; i < specialEquipImg.length; i++) {
+                            if(specialEquipImg[i] != "none"){
+                                $(`.special-weapon-${i}`).css({
+                                    "background-image": `url(${specialEquipImg[i]})`
+                                })
+                            }else{
+                                $(`.special-weapon-${i}`).css({
+                                    "background-image": `url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_special_slot.png?34cb99193be738b4ae3c78bba02395b1')`
+                                })
+                            }
+                        }
+                        console.log(specialEquipImg[0], specialEquipImg[1], specialEquipImg[2])
+                    }
+            })
+        }
+
+        function tendency() {
+            $.ajax({
+                    type: 'GET',
+                    url: '/tendency',
+                    data: {},
+                    success: function (response) {
+
+                        let tendencyTempHtml = ``
+                        tendencyTempHtml = `<p class="tendency-title">성향</p>
+                                            <span class="tendency-intellect">지성</span>
+                                            <span class="tendency-courage">담력</span>
+                                            <span class="tendency-Charm">매력</span>
+                                            <span class="tendency-kindness">친절</span>
+                                            <span class="tendency-intellect-number">${response['tendency'][0]}</span>
+                                            <span class="tendency-courage-number">${response['tendency'][1]}</span>
+                                            <span class="tendency-Charm-number">${response['tendency'][2]}</span>
+                                            <span class="tendency-kindness-number">${response['tendency'][3]}</span>
+                                          `
+
+                        $('.tendency').append(tendencyTempHtml)
                     }
             })
         }
@@ -2495,106 +2651,17 @@
                     <!--?dukdukdukdukdukdukdukdukdukdukduk-->
                     <div class="equip">
                         <div class="character-title"><h1>캐릭터 정보</h1></div>
+
+                        <!--기본특성-->
                         <div class="ability">
-                            <p class="ability-title">기본특성</p>
-                            <div class="ability-text">
-                            <span class="ability-power">공격력
-                            <div class="tooltip-ability">
-                                            <li> 적에게 주는 피해를 계산할 때 기준이 되는 값입니다.</li>
-                                            <li> 힘, 민첩, 지능과 무기 공격력을 기반으로 증가한 기본 공격력은 <font
-                                                    color="#99ff99">49773</font>입니다.
-                                            </li>
-                                            <li> 공격력 증감 효과로 공격력이 <font color="#99ff99">7964</font> 증가되었습니다.</li>
-                                        </div>
-                            </span>
-                                <span class="ability-life">최대생명력
-                                <div class="tooltip-ability">
-                                            <li> 캐릭터의 최대 생명력을 나타냅니다.</li>
-                                            <li> 체력으로 최대 생명력이 <font color="#99ff99">119056</font> 증가되었습니다.</li>
-                                            <li> 생명 활성력으로 최대 생명력이 <font color="#99ff99">40.82%</font> 증가되었습니다.</li>
-                                        </div>
-                            </span>
-                            </div>
-                            <div class="ability-number">
-                                <span class="ability-power-number">57857</span>
-                                <span class="ability-life-number">175804</span>
-                            </div>
+
                         </div>
+
+                        <!--전투특성-->
                         <div class="stats">
-                            <p class="stats-title">전투특성</p>
-                            <div class="stats-text">
-                                <span class="stats-Critical">치명
-                                    <div class="tooltip-stats">
-                                        <li> 치명타 적중률이 <font color="#99ff99">12.56%</font> 증가합니다.</li>
-                                        <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">28</font> 만큼 영구적으로
-                                            증가되었습니다.
-                                        </li>
-                                        <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
-                                        <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
-                                    </div>
-                                </span>
-                                <span class="stats-Specialization">특화
-                                    <div class="tooltip-stats">
-                                        <li> 핸드건 스킬의 치명타 피해량이<font color="#99ff99">153.21%</font> 증가합니다.</li>
-                                        <li> 샷건 스킬의 피해량이<font color="#99ff99">51.07%</font> 증가합니다.</li>
-                                        <li> 라이플 스킬의 물리 / 마법 관통력이<font color="#99ff99">51.07%</font> 증가합니다.</li>
-                                        <li> 각성 스킬의 피해량이 <font color="#99ff99">78.03%</font> 증가합니다.</li>
-                                        <li> 물약 및 원정대 레벨 보상 효과로 <font color="#99ff99">24</font>만큼 영구적으로
-                                        증가되었습니다.</li>
-                                    </div>
-                                </span>
-                                <span class="stats-Domination">제압
-                                    <div class="tooltip-stats">
-                                        <li> 피격이상 및 상태이상 대상에게 주는 피해량이 <font color="#99ff99">3.80%</font>
-                                            증가합니다.</li>
-                                        <li> 무력화 대상에게 주는 피해량이 <font color="#99ff99"></font> 증가합니다.</li>
-                                        <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">28</font>만큼 영구적으로
-                                            증가되었습니다.</li>
-                                        <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
-                                    </div>
-                                </span>
-                                <span class="stats-Swiftness">신속
-                                    <div class="tooltip-stats">
-                                        <li> 공격 속도가 <font color="#99ff99">9.44%</font> 증가합니다.</li>
-                                        <li> 이동 속도가 <font color="#99ff99">9.44%</font> 증가합니다.</li>
-                                        <li> 스킬 재사용 대기시간이<font color="#99ff99">11.81%</font> 감소합니다.</li>
-                                        <li> 물약 및 원정대 레벨 보상 효과로 <font color="#99ff99">24</font>만큼 영구적으로
-                                            증가되었습니다.</li>
-                                        <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
-                                    </div>
-                                </span>
-                                <span class="stats-Endurance">인내
-                                    <div class="tooltip-stats">
-                                        <li> 물리 방어력이 <font color="#99ff99">5.07%</font> 증가합니다.</li>
-                                        <li> 마법 방어력이 <font color="#99ff99">5.07%</font> 증가합니다.</li>
-                                        <li> 보호막 효과가 <font color="#99ff99">1.58%</font> 증가합니다.</li>
-                                        <li> 생명력 회복 효과가 <font color="#99ff99">2.21%</font> 증가합니다.</li>
-                                        <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">28</font>만큼 영구적으로
-                                            증가되었습니다.</li>
-                                        <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
-                                    </div>
-                                </span>
-                                <span class="stats-Expertise">숙련
-                                    <div class="tooltip-stats">
-                                        <li> 상태이상 공격 지속시간이<font color="#99ff99">2.66%</font> 증가합니다.</li>
-                                        <li> 상태이상 피해 지속시간이<font color="#99ff99">2.21%</font> 감소합니다.</li>
-                                        <li> 무력화 피해량이 <font color="#99ff99">1.77%</font> 증가합니다.</li>
-                                        <li> 물약 및 원정대 레벨 보상 효과로<font color="#99ff99">28</font>만큼 영구적으로
-                                            증가되었습니다.
-                                        </li>
-                                        <li> 카드 도감 누적 효과가 반영된 값으로 전투정보실에서는 별도 수치를 표기하지 않습니다.</li>
-                                    </div>
-                                </span>
-                            </div>
-                            <div class="stats-number">
-                                <span class="stats-Critical-number">15</span>
-                                <span class="stats-Specialization-number">458</span>
-                                <span class="stats-Domination-number">90</span>
-                                <span class="stats-Swiftness-number">135</span>
-                                <span class="stats-Endurance-number">99</span>
-                                <span class="stats-Expertise-number">14</span>
-                            </div>
+
                         </div>
+
                         <div class="engrave">
                             <p class="engrave-title">각인효과</p>
                             <div class="side-engrave">
@@ -2606,23 +2673,15 @@
 
 
                         <div class="tendency">
-                            <p class="tendency-title">성향</p>
-                            <span class="tendency-intellect">지성</span>
-                            <span class="tendency-courage">담력</span>
-                            <span class="tendency-Charm">매력</span>
-                            <span class="tendency-kindness">친절</span>
-                            <span class="tendency-intellect-number">154</span>
-                            <span class="tendency-courage-number">154</span>
-                            <span class="tendency-Charm-number">154</span>
-                            <span class="tendency-kindness-number">154</span>
+
                         </div>
 
 
                         <div class="special">
                             <p class="special-title">특수장비</p>
+                            <div class="special-weapon-0"></div>
                             <div class="special-weapon-1"></div>
                             <div class="special-weapon-2"></div>
-                            <div class="special-weapon-3"></div>
                         </div>
                     </div>
 
