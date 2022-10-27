@@ -216,7 +216,145 @@ def save_jewels():
                 }
                 db.cardsetlist.update_one({"name": name}, {'$set': doc}, upsert=True)
 
+        # 스텟-덕현-----------------------------------------------------------------------------
+
+        # 공격력
+        Power = soup.select_one(
+            '#profile-ability > div.profile-ability-basic > ul > li:nth-child(1) > span:nth-child(2)').text
+        PowerNumer1 = soup.select_one(
+            '#profile-ability > div.profile-ability-basic > ul > li:nth-child(1) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
+        PowerNumer2 = soup.select_one(
+            '#profile-ability > div.profile-ability-basic > ul > li:nth-child(1) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
+        # 최대 생명력
+        Life = soup.select_one(
+            '#profile-ability > div.profile-ability-basic > ul > li:nth-child(2) > span:nth-child(2)').text
+        LifeNumer1 = soup.select_one(
+            '#profile-ability > div.profile-ability-basic > ul > li:nth-child(2) > div > ul > li:nth-child(2) > textformat > textformat > font:nth-child(2)').text
+        LifeNumer2 = soup.select_one(
+            '#profile-ability > div.profile-ability-basic > ul > li:nth-child(2) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
+        # 치명
+        Critical = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(1) > span:nth-child(2)').text
+        CriticalNumer1 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(1) > div > ul > li:nth-child(1) > textformat > font:nth-child(2)').text
+        CriticalNumer2 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(1) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
+        # 특화
+        Specialization = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > span:nth-child(2)').text
+        SpecializationNumer1 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > div > ul > li:nth-child(1) > textformat > font:nth-child(2)').text
+        SpecializationNumer2 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
+        SpecializationNumer3 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
+        SpecializationNumer4 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > div > ul > li:nth-child(4) > textformat > font:nth-child(2)').text
+        SpecializationNumer5 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > div > ul > li:nth-child(5) > textformat > font:nth-child(2)').text
+
+        # 제압
+        Domination = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(3) > span:nth-child(2)').text
+        DominationNumer1 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(3) > div > ul > li:nth-child(1) > textformat > font:nth-child(2)').text
+        DominationNumer2 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(3) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
+        DominationNumer3 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(3) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
+        # 신속
+        Swiftness = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(4) > span:nth-child(2)').text
+        SwiftnessNumer1 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(4) > div > ul > li:nth-child(1) > textformat > font:nth-child(2)').text
+        SwiftnessNumer2 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(4) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
+        SwiftnessNumer3 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(4) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
+        SwiftnessNumer4 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(4) > div > ul > li:nth-child(4) > textformat > font:nth-child(2)').text
+
+        # 인내
+        Endurance = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > span:nth-child(2)').text
+        EnduranceNumer1 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > div > ul > li:nth-child(1) > textformat > font:nth-child(2)').text
+        EnduranceNumer2 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
+        EnduranceNumer3 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
+        EnduranceNumer4 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > div > ul > li:nth-child(4) > textformat > font:nth-child(2)').text
+        EnduranceNumer5 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > div > ul > li:nth-child(5) > textformat > font:nth-child(2)').text
+        # 숙련
+        Expertise = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(6) > span:nth-child(2)').text
+        ExpertiseNumer1 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(6) > div > ul > li:nth-child(1) > textformat > font:nth-child(2)').text
+        ExpertiseNumer2 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(6) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
+        ExpertiseNumer3 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(6) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
+        ExpertiseNumer4 = soup.select_one(
+            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(6) > div > ul > li:nth-child(4) > textformat > font:nth-child(2)').text
+
+        # 각인효과 리스트화
+        Engravelist = soup.select_one('#profile-ability > div.profile-ability-engrave > div > div.swiper-wrapper').text
+        Engrave = Engravelist.split('\n')
+        Engrave = list(filter(None, Engrave))
+
+        doc = {
+            'Power': Power,
+            'Life': Life,
+            'Critical': Critical,
+            'Specialization': Specialization,
+            'Domination': Domination,
+            'Swiftness': Swiftness,
+            'Endurance': Endurance,
+            'Expertise': Expertise
+        }
+        db.AbilityStats.update_one({"name": name}, {'$set': doc}, upsert=True)
+
+        doc = {
+            'PowerNumer1': PowerNumer1,
+            'PowerNumer2': PowerNumer2,
+            'LifeNumer1': LifeNumer1,
+            'LifeNumer2': LifeNumer2,
+            'CriticalNumer1': CriticalNumer1,
+            'CriticalNumer2': CriticalNumer2,
+            'SpecializationNumer1': SpecializationNumer1,
+            'SpecializationNumer2': SpecializationNumer2,
+            'SpecializationNumer3': SpecializationNumer3,
+            'SpecializationNumer4': SpecializationNumer4,
+            'SpecializationNumer5': SpecializationNumer5,
+            'DominationNumer1': DominationNumer1,
+            'DominationNumer2': DominationNumer2,
+            'DominationNumer3': DominationNumer3,
+            'SwiftnessNumer1': SwiftnessNumer1,
+            'SwiftnessNumer2': SwiftnessNumer2,
+            'SwiftnessNumer3': SwiftnessNumer3,
+            'SwiftnessNumer4': SwiftnessNumer4,
+            'EnduranceNumer1': EnduranceNumer1,
+            'EnduranceNumer2': EnduranceNumer2,
+            'EnduranceNumer3': EnduranceNumer3,
+            'EnduranceNumer4': EnduranceNumer4,
+            'EnduranceNumer5': EnduranceNumer5,
+            'ExpertiseNumer1': ExpertiseNumer1,
+            'ExpertiseNumer2': ExpertiseNumer2,
+            'ExpertiseNumer3': ExpertiseNumer3,
+            'ExpertiseNumer4': ExpertiseNumer4
+        }
+        db.AbilityStatsTooltip.update_one({"name": name}, {'$set': doc}, upsert=True)
+
+        doc = {
+            'Engrave': Engrave
+        }
+        db.Engrave.update_one({"name": name}, {'$set': doc}, upsert=True)
+
         return jsonify({'msg': 'suc'})
+
+# GET ----------------------------------------------------------------------------------------------------------------------------------------
 
 @app.route("/api/jewels", methods=["GET"])
 def jewels_get():
@@ -270,6 +408,16 @@ def cardset():
 
     return jsonify({'cardset_title': cardset_title, 'cardset_dsc': cardset_dsc})
 
+
+# 덕현 스텟 -------------------------------------------------------------------------------------------------------------------------------------
+@app.route("/ability", methods=['GET'])
+def ability():
+    abilityStats = db.AbilityStats.find_one({'name': f'{name}'}, {'_id': False})
+    abilityStatTooltips = db.AbilityStatsTooltip.find_one({'name': f'{name}'}, {'_id': False})
+    engrave = db.Engrave.find_one({'name': f'{name}'}, {'_id': False})
+    engraveList = engrave['Engrave']
+
+    return jsonify({'abilityStats': abilityStats, 'abilityStatTooltips': abilityStatTooltips, 'engraveList': engraveList})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)

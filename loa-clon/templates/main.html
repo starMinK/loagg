@@ -1764,7 +1764,7 @@
                 success: function (response) {
                     let imgRows = response['jewels_img']
                     let lvRows = response['jewels_lv']
-                    console.log(imgRows)
+                    // console.log(imgRows)
 
 
                     for (let i = 0; i < imgRows.length; i++) {
@@ -2061,7 +2061,7 @@
                             cardset_dsc_list[i] = ""
                         }
                     }
-                    console.log(cardset_title_list)
+                    // console.log(cardset_title_list)
 
                 }
             })
@@ -2281,12 +2281,44 @@
 
                     }
 
-                }
-            )
-            ;
+                });
         }
 
 
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            ability();
+        });
+
+        function ability() {
+             $.ajax({
+                    type: 'GET',
+                    url: '/ability',
+                    data: {},
+                    success: function (response) {
+                        let abilityStats = response['abilityStats']
+                        let abilityStatTooltips = response['abilityStatTooltips']
+                        let engrave = response['engraveList']
+
+                        let engraveTitle = []
+                        let engraveInfo = []
+
+                        for(let i = 0; i < engrave.length; i++) {
+                            if(i==0) {
+                                engraveTitle.push(engrave[i])
+                            } else if(i % 2 == 1) {
+                                engraveInfo.push(engrave[i])
+                            } else if (i % 2 == 0) {
+                                engraveTitle.push(engrave[i])
+                            }
+                            console.log(engraveTitle[i])
+                            console.log(engraveInfo[i])
+                        }
+                    }
+            })
+        }
     </script>
 </head>
 <body>
