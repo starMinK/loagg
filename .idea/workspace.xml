@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2c1c53bf-2f6a-4363-893d-897b8657c1ed" name="변경" comment="변경">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loa-clon/jewel.py" beforeDir="false" afterPath="$PROJECT_DIR$/loa-clon/jewel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loa-clon/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/loa-clon/templates/main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +89,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Python310\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\덕현\AppData\Local\Programs\Python\Python38\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/loa-clon" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -126,6 +126,12 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="JavaScript 디버그.main.html" />
+      <item itemvalue="Python.jewel" />
+      <item itemvalue="Python.ScriptCrowlingTest" />
+      <item itemvalue="Python.test" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.jewel" />
@@ -160,6 +166,8 @@
       <workItem from="1666509129777" duration="6604000" />
       <workItem from="1666531575452" duration="155000" />
       <workItem from="1666536223075" duration="1451000" />
+      <workItem from="1666602680985" duration="7409000" />
+      <workItem from="1666686446017" duration="1011000" />
     </task>
     <servers />
   </component>
@@ -178,10 +186,10 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/workspace_xml$test.coverage" NAME="test 커버리지 결과" MODIFIED="1665991233802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
-    <SUITE FILE_PATH="coverage/workspace_xml$jewel.coverage" NAME="jewel 커버리지 결과" MODIFIED="1666537618725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
     <SUITE FILE_PATH="coverage/loagg$python.coverage" NAME="python 커버리지 결과" MODIFIED="1665061007651" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
     <SUITE FILE_PATH="coverage/loagg$jewel.coverage" NAME="jewel 커버리지 결과" MODIFIED="1665751921674" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
     <SUITE FILE_PATH="coverage/workspace_xml$ScriptCrowlingTest.coverage" NAME="ScriptCrowlingTest 커버리지 결과" MODIFIED="1666536519470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
+    <SUITE FILE_PATH="coverage/workspace_xml$test.coverage" NAME="test 커버리지 결과" MODIFIED="1665991233802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
+    <SUITE FILE_PATH="coverage/workspace_xml$jewel.coverage" NAME="jewel 커버리지 결과" MODIFIED="1666604027212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
   </component>
 </project>
