@@ -2024,9 +2024,11 @@
                 url: "/api/save-info",
                 data: {name_give: name},
                 success: function (response) {
-                    if (response['msg'] == "suc") {
-                        window.location.href = 'main'
-                    } else {
+                    if(response['msg'] == "suc"){
+                        window.location.href='/main'
+                    }else if(response['msg'] == "error"){
+                        alert('활동중이지 않은 캐릭터입니다.')
+                    }else{
                         alert(response['msg'])
                     }
                 }

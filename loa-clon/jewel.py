@@ -45,344 +45,348 @@ def save_jewels():
     if is_exist_name is None:
         return jsonify({'msg': f'{name} 캐릭터 정보가 없습니다.\n캐릭터명을 확인해주세요.'})
     else:
-        #gem 존재 여부 확인 list
-        isGemExistList = [soup.select_one('#gem00'),
-                          soup.select_one('#gem01'),
-                          soup.select_one('#gem02'),
-                          soup.select_one('#gem03'),
-                          soup.select_one('#gem04'),
-                          soup.select_one('#gem05'),
-                          soup.select_one('#gem06'),
-                          soup.select_one('#gem07'),
-                          soup.select_one('#gem08'),
-                          soup.select_one('#gem09'),
-                          soup.select_one('#gem10')]
+        try:
+            #gem 존재 여부 확인 list
+            isGemExistList = [soup.select_one('#gem00'),
+                              soup.select_one('#gem01'),
+                              soup.select_one('#gem02'),
+                              soup.select_one('#gem03'),
+                              soup.select_one('#gem04'),
+                              soup.select_one('#gem05'),
+                              soup.select_one('#gem06'),
+                              soup.select_one('#gem07'),
+                              soup.select_one('#gem08'),
+                              soup.select_one('#gem09'),
+                              soup.select_one('#gem10')]
 
 
-        #존재하는 만큼 들어가는 list
-        gemImgList = []
-        gemLvList = []
+            #존재하는 만큼 들어가는 list
+            gemImgList = []
+            gemLvList = []
 
-        num = 0
-        for a in isGemExistList:
-            numStr = str(num)
-            if a is not None:
-                gemImg = soup.select_one(f'#gem{numStr.zfill(2)} > span.jewel_img > img')
-                gemImgList.append(gemImg['src'])
+            num = 0
+            for a in isGemExistList:
+                numStr = str(num)
+                if a is not None:
+                    gemImg = soup.select_one(f'#gem{numStr.zfill(2)} > span.jewel_img > img')
+                    gemImgList.append(gemImg['src'])
 
-                gemLv = soup.select_one(f'#gem{numStr.zfill(2)} > span.jewel_level')
-                gemLvList.append(gemLv.text)
+                    gemLv = soup.select_one(f'#gem{numStr.zfill(2)} > span.jewel_level')
+                    gemLvList.append(gemLv.text)
 
-            num = num + 1
+                num = num + 1
 
-        doc = {}
-        doc['gemImgList'] = []
-        doc['gemLvList'] = []
+            doc = {}
+            doc['gemImgList'] = []
+            doc['gemLvList'] = []
 
-        num = 0
-        for a in gemImgList:
-            numStr = str(num)
+            num = 0
+            for a in gemImgList:
+                numStr = str(num)
 
-            doc['gemImgList'].append(a)  # gemImgList[num]
+                doc['gemImgList'].append(a)  # gemImgList[num]
 
-            doc['gemLvList'].append(gemLvList[num])
+                doc['gemLvList'].append(gemLvList[num])
 
-            num += 1
-
-        db.gemInfoList.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True)
-
-######
-
-        skillImgList = []
-        skillNameList = []
-        skillEffectList = []
-
-        num = 1
-        for a in isGemExistList:
-            if a is not None:
-                skillImg = soup.select_one(
-                    f'#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child({str(num)}) > span > img')
-                # profile-jewel > div > div.jewel-effect__list > div > ul > li.active > span > img
-                # profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(2) > span > img
-                skillImgList.append(skillImg['src'])
-
-                skillName = soup.select_one(
-                    f'#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child({str(num)}) > strong')
-                skillNameList.append(skillName.text)
-
-                skillEffect = soup.select_one(
-                    (f'#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child({str(num)}) > p'))
-                skillEffectList.append(skillEffect.text)
                 num += 1
 
+            db.gemInfoList.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True)
 
-        doc = {}
-        doc['skillImg'] = []
-        doc['skillName'] = []
-        doc['skillEffect'] = []
+    ######
 
-        num = 0
-        for a in skillImgList:
-            numStr = str(num)
+            skillImgList = []
+            skillNameList = []
+            skillEffectList = []
 
-            doc['skillImg'].append(a)  # gemImgList[num]
-            doc['skillName'].append(skillNameList[num])
-            doc['skillEffect'].append(skillEffectList[num])
+            num = 1
+            for a in isGemExistList:
+                if a is not None:
+                    skillImg = soup.select_one(
+                        f'#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child({str(num)}) > span > img')
+                    # profile-jewel > div > div.jewel-effect__list > div > ul > li.active > span > img
+                    # profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child(2) > span > img
+                    skillImgList.append(skillImg['src'])
 
-            num += 1
+                    skillName = soup.select_one(
+                        f'#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child({str(num)}) > strong')
+                    skillNameList.append(skillName.text)
 
-        db.gemSkillList.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True)
+                    skillEffect = soup.select_one(
+                        (f'#profile-jewel > div > div.jewel-effect__list > div > ul > li:nth-child({str(num)}) > p'))
+                    skillEffectList.append(skillEffect.text)
+                    num += 1
 
-######
 
-        doc = {}
-        doc['gemTooltipName'] = []
-        doc['gemTooltipTear'] = []
-        doc['gemTooltipEffect'] = []
+            doc = {}
+            doc['skillImg'] = []
+            doc['skillName'] = []
+            doc['skillEffect'] = []
 
-        num = 0
-        for a in isGemExistList:
-            numStr = str(num)
-            if a is not None:
-                # 보석창 진입
-                browser.find_element(By.XPATH, '//*[@id="profile-ability"]/div[1]/div[1]/a[3]').click()
-                #보석 Tooltip창 hover
-                browser.find_element(By.XPATH, f'//*[@id="gem{numStr.zfill(2)}"]').click()
+            num = 0
+            for a in skillImgList:
+                numStr = str(num)
 
-                # 보석 이름
-                gemTooltipName = browser.find_element(By.XPATH, '//*[@id="lostark-wrapper"]/div[2]/div[1]/p/font').text
-                doc['gemTooltipName'].append(gemTooltipName)
-                # 보석 티어
-                gemTooltipTear = browser.find_element(By.XPATH, '//*[@id="lostark-wrapper"]/div[2]/div[2]/span[4]/font').text
-                doc['gemTooltipTear'].append(gemTooltipTear)
-                # 보석 효과
-                if gemTooltipName.find('(귀속)') >= 0:
-                    gemTooltipEffect = browser.find_element(By.XPATH, '//*[@id="lostark-wrapper"]/div[2]/div[6]').text
-                else:
-                    gemTooltipEffect = browser.find_element(By.XPATH, '//*[@id="lostark-wrapper"]/div[2]/div[5]').text
+                doc['skillImg'].append(a)  # gemImgList[num]
+                doc['skillName'].append(skillNameList[num])
+                doc['skillEffect'].append(skillEffectList[num])
 
-                doc['gemTooltipEffect'].append(gemTooltipEffect.replace("효과\n", ""))
-                # //*[@id="lostark-wrapper"]/div[2]/div[6]
+                num += 1
 
-            num += 1
-        db.gemTooltipList.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True)
+            db.gemSkillList.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True)
 
-        # 카드-재하----------------------------------------------------------------------
-        cardlist = [soup.select_one('#cardList > li:nth-child(1)'),
-                    soup.select_one('#cardList > li:nth-child(2)'),
-                    soup.select_one('#cardList > li:nth-child(3)'),
-                    soup.select_one('#cardList > li:nth-child(4)'),
-                    soup.select_one('#cardList > li:nth-child(5)'),
-                    soup.select_one('#cardList > li:nth-child(6)'), ]
+    ######
 
-        cardimglist = []
-        cardnamelist = []
-        cardawakelist = []
+            doc = {}
+            doc['gemTooltipName'] = []
+            doc['gemTooltipTear'] = []
+            doc['gemTooltipEffect'] = []
 
-        cardsetlist = [soup.select_one('#cardSetList > li:nth-child(1)'),
-                       soup.select_one('#cardSetList > li:nth-child(2)'),
-                       soup.select_one('#cardSetList > li:nth-child(3)'),
-                       soup.select_one('#cardSetList > li:nth-child(4)'),
-                       soup.select_one('#cardSetList > li:nth-child(5)'),
-                       soup.select_one('#cardSetList > li:nth-child(6)'), ]
-        cardsettitlelist = []
-        cardsetdsclist = []
+            num = 0
+            for a in isGemExistList:
+                numStr = str(num)
+                if a is not None:
+                    # 보석창 진입
+                    browser.find_element(By.XPATH, '//*[@id="profile-ability"]/div[1]/div[1]/a[3]').click()
+                    #보석 Tooltip창 hover
+                    browser.find_element(By.XPATH, f'//*[@id="gem{numStr.zfill(2)}"]').click()
 
-        for card in cardlist:
-            cardname = card.select_one('div > strong > font').text
-            cardnamelist.append(cardname)
-            cardimg = card.select_one('div > img')['src']
-            cardimglist.append(cardimg)
-            cardawake = card.select_one('div')['data-awake']
-            cardawakelist.append(cardawake)
-            doc = {
-                'name': name,
-                'cardname': cardnamelist,
-                'cardimg': cardimglist,
-                'cardawake': cardawakelist
-            };
-            db.cardlist.update_one({"name": name}, {'$set': doc}, upsert=True)
+                    # 보석 이름
+                    gemTooltipName = browser.find_element(By.XPATH, '//*[@id="lostark-wrapper"]/div[2]/div[1]/p/font').text
+                    doc['gemTooltipName'].append(gemTooltipName)
+                    # 보석 티어
+                    gemTooltipTear = browser.find_element(By.XPATH, '//*[@id="lostark-wrapper"]/div[2]/div[2]/span[4]/font').text
+                    doc['gemTooltipTear'].append(gemTooltipTear)
+                    # 보석 효과
+                    if gemTooltipName.find('(귀속)') >= 0:
+                        gemTooltipEffect = browser.find_element(By.XPATH, '//*[@id="lostark-wrapper"]/div[2]/div[6]').text
+                    else:
+                        gemTooltipEffect = browser.find_element(By.XPATH, '//*[@id="lostark-wrapper"]/div[2]/div[5]').text
 
-        for cardset in cardsetlist:
-            if cardset is not None:
-                cardsettitle = cardset.select_one('div.card-effect__title').text
-                cardsettitlelist.append(cardsettitle)
-                cardsetdsc = cardset.select_one('div.card-effect__dsc').text
-                cardsetdsclist.append(cardsetdsc)
+                    doc['gemTooltipEffect'].append(gemTooltipEffect.replace("효과\n", ""))
+                    # //*[@id="lostark-wrapper"]/div[2]/div[6]
+
+                num += 1
+            db.gemTooltipList.update_one({"name": f'{name}'}, {'$set': doc}, upsert=True)
+
+            # 카드-재하----------------------------------------------------------------------
+            cardlist = [soup.select_one('#cardList > li:nth-child(1)'),
+                        soup.select_one('#cardList > li:nth-child(2)'),
+                        soup.select_one('#cardList > li:nth-child(3)'),
+                        soup.select_one('#cardList > li:nth-child(4)'),
+                        soup.select_one('#cardList > li:nth-child(5)'),
+                        soup.select_one('#cardList > li:nth-child(6)'), ]
+
+            cardimglist = []
+            cardnamelist = []
+            cardawakelist = []
+
+            cardsetlist = [soup.select_one('#cardSetList > li:nth-child(1)'),
+                           soup.select_one('#cardSetList > li:nth-child(2)'),
+                           soup.select_one('#cardSetList > li:nth-child(3)'),
+                           soup.select_one('#cardSetList > li:nth-child(4)'),
+                           soup.select_one('#cardSetList > li:nth-child(5)'),
+                           soup.select_one('#cardSetList > li:nth-child(6)'), ]
+            cardsettitlelist = []
+            cardsetdsclist = []
+
+            for card in cardlist:
+                cardname = card.select_one('div > strong > font').text
+                cardnamelist.append(cardname)
+                cardimg = card.select_one('div > img')['src']
+                cardimglist.append(cardimg)
+                cardawake = card.select_one('div')['data-awake']
+                cardawakelist.append(cardawake)
                 doc = {
                     'name': name,
-                    'cardsettitle': cardsettitlelist,
-                    'cardsetdsc': cardsetdsclist
-                }
-                db.cardsetlist.update_one({"name": name}, {'$set': doc}, upsert=True)
+                    'cardname': cardnamelist,
+                    'cardimg': cardimglist,
+                    'cardawake': cardawakelist
+                };
+                db.cardlist.update_one({"name": name}, {'$set': doc}, upsert=True)
 
-        # 스텟-덕현-----------------------------------------------------------------------------
+            for cardset in cardsetlist:
+                if cardset is not None:
+                    cardsettitle = cardset.select_one('div.card-effect__title').text
+                    cardsettitlelist.append(cardsettitle)
+                    cardsetdsc = cardset.select_one('div.card-effect__dsc').text
+                    cardsetdsclist.append(cardsetdsc)
+                    doc = {
+                        'name': name,
+                        'cardsettitle': cardsettitlelist,
+                        'cardsetdsc': cardsetdsclist
+                    }
+                    db.cardsetlist.update_one({"name": name}, {'$set': doc}, upsert=True)
 
-        # 공격력
-        Power = soup.select_one(
-            '#profile-ability > div.profile-ability-basic > ul > li:nth-child(1) > span:nth-child(2)').text
-        PowerNumber1 = soup.select_one(
-            '#profile-ability > div.profile-ability-basic > ul > li:nth-child(1) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
-        PowerNumber2 = soup.select_one(
-            '#profile-ability > div.profile-ability-basic > ul > li:nth-child(1) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
-        # 최대 생명력
-        Life = soup.select_one(
-            '#profile-ability > div.profile-ability-basic > ul > li:nth-child(2) > span:nth-child(2)').text
-        LifeNumber1 = soup.select_one(
-            '#profile-ability > div.profile-ability-basic > ul > li:nth-child(2) > div > ul > li:nth-child(2) > textformat > textformat > font:nth-child(2)').text
-        LifeNumber2 = soup.select_one(
-            '#profile-ability > div.profile-ability-basic > ul > li:nth-child(2) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
-        # 치명
-        Critical = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(1) > span:nth-child(2)').text
-        CriticalNumber1 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(1) > div > ul > li:nth-child(1) > textformat > font:nth-child(2)').text
-        CriticalNumber2 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(1) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
-        # 특화
-        Specialization = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > span:nth-child(2)').text
-        SpecializationNumber1 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > div > ul > li:nth-child(1) > textformat > font:nth-child(2)').text
-        SpecializationNumber2 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
-        SpecializationNumber3 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
-        SpecializationNumber4 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > div > ul > li:nth-child(4) > textformat > font:nth-child(2)').text
-        SpecializationNumber5 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > div > ul > li:nth-child(5) > textformat > font:nth-child(2)').text
+            # 스텟-덕현-----------------------------------------------------------------------------
 
-        # 제압
-        Domination = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(3) > span:nth-child(2)').text
-        DominationNumber1 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(3) > div > ul > li:nth-child(1) > textformat > font:nth-child(2)').text
-        DominationNumber2 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(3) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
-        DominationNumber3 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(3) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
+            # 공격력
+            Power = soup.select_one(
+                '#profile-ability > div.profile-ability-basic > ul > li:nth-child(1) > span:nth-child(2)').text
+            PowerNumber1 = soup.select_one(
+                '#profile-ability > div.profile-ability-basic > ul > li:nth-child(1) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
+            PowerNumber2 = soup.select_one(
+                '#profile-ability > div.profile-ability-basic > ul > li:nth-child(1) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
+            # 최대 생명력
+            Life = soup.select_one(
+                '#profile-ability > div.profile-ability-basic > ul > li:nth-child(2) > span:nth-child(2)').text
+            LifeNumber1 = soup.select_one(
+                '#profile-ability > div.profile-ability-basic > ul > li:nth-child(2) > div > ul > li:nth-child(2) > textformat > textformat > font:nth-child(2)').text
+            LifeNumber2 = soup.select_one(
+                '#profile-ability > div.profile-ability-basic > ul > li:nth-child(2) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
+            # 치명
+            Critical = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(1) > span:nth-child(2)').text
+            CriticalNumber1 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(1) > div > ul > li:nth-child(1) > textformat > font:nth-child(2)').text
+            CriticalNumber2 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(1) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
+            # 특화
+            Specialization = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > span:nth-child(2)').text
+            SpecializationNumber1 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > div > ul > li:nth-child(1) > textformat > font:nth-child(2)').text
+            SpecializationNumber2 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
+            SpecializationNumber3 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
+            SpecializationNumber4 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > div > ul > li:nth-child(4) > textformat > font:nth-child(2)').text
+            SpecializationNumber5 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > div > ul > li:nth-child(5) > textformat > font:nth-child(2)').text
 
-        # 신속
-        Swiftness = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(4) > span:nth-child(2)').text
-        SwiftnessNumber1 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(4) > div > ul > li:nth-child(1) > textformat > font:nth-child(2)').text
-        SwiftnessNumber2 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(4) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
-        SwiftnessNumber3 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(4) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
-        SwiftnessNumber4 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(4) > div > ul > li:nth-child(4) > textformat > font:nth-child(2)').text
+            # 제압
+            Domination = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(3) > span:nth-child(2)').text
+            DominationNumber1 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(3) > div > ul > li:nth-child(1) > textformat > font:nth-child(2)').text
+            DominationNumber2 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(3) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
+            DominationNumber3 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(3) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
 
-        # 인내
-        Endurance = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > span:nth-child(2)').text
-        EnduranceNumber1 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > div > ul > li:nth-child(1) > textformat > font:nth-child(2)').text
-        EnduranceNumber2 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
-        EnduranceNumber3 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
-        EnduranceNumber4 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > div > ul > li:nth-child(4) > textformat > font:nth-child(2)').text
-        EnduranceNumber5 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > div > ul > li:nth-child(5) > textformat > font:nth-child(2)').text
-        # 숙련
-        Expertise = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(6) > span:nth-child(2)').text
-        ExpertiseNumber1 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(6) > div > ul > li:nth-child(1) > textformat > font:nth-child(2)').text
-        ExpertiseNumber2 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(6) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
-        ExpertiseNumber3 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(6) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
-        ExpertiseNumber4 = soup.select_one(
-            '#profile-ability > div.profile-ability-battle > ul > li:nth-child(6) > div > ul > li:nth-child(4) > textformat > font:nth-child(2)').text
+            # 신속
+            Swiftness = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(4) > span:nth-child(2)').text
+            SwiftnessNumber1 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(4) > div > ul > li:nth-child(1) > textformat > font:nth-child(2)').text
+            SwiftnessNumber2 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(4) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
+            SwiftnessNumber3 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(4) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
+            SwiftnessNumber4 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(4) > div > ul > li:nth-child(4) > textformat > font:nth-child(2)').text
 
-        # 각인효과 리스트화
-        Engravelist = soup.select_one('#profile-ability > div.profile-ability-engrave > div > div.swiper-wrapper').text
-        Engrave = Engravelist.split('\n')
-        Engrave = list(filter(None, Engrave))
-        
-        doc = {
-            'Power': Power,
-            'Life': Life,
-            'Critical': Critical,
-            'Specialization': Specialization,
-            'Domination': Domination,
-            'Swiftness': Swiftness,
-            'Endurance': Endurance,
-            'Expertise': Expertise
-        }
-        db.AbilityStats.update_one({"name": name}, {'$set': doc}, upsert=True)
+            # 인내
+            Endurance = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > span:nth-child(2)').text
+            EnduranceNumber1 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > div > ul > li:nth-child(1) > textformat > font:nth-child(2)').text
+            EnduranceNumber2 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
+            EnduranceNumber3 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
+            EnduranceNumber4 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > div > ul > li:nth-child(4) > textformat > font:nth-child(2)').text
+            EnduranceNumber5 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > div > ul > li:nth-child(5) > textformat > font:nth-child(2)').text
+            # 숙련
+            Expertise = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(6) > span:nth-child(2)').text
+            ExpertiseNumber1 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(6) > div > ul > li:nth-child(1) > textformat > font:nth-child(2)').text
+            ExpertiseNumber2 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(6) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
+            ExpertiseNumber3 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(6) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
+            ExpertiseNumber4 = soup.select_one(
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(6) > div > ul > li:nth-child(4) > textformat > font:nth-child(2)').text
 
-        doc = {
-            'PowerNumer1': PowerNumber1,
-            'PowerNumer2': PowerNumber2,
-            'LifeNumer1': LifeNumber1,
-            'LifeNumer2': LifeNumber2,
-            'CriticalNumer1': CriticalNumber1,
-            'CriticalNumer2': CriticalNumber2,
-            'SpecializationNumer1': SpecializationNumber1,
-            'SpecializationNumer2': SpecializationNumber2,
-            'SpecializationNumer3': SpecializationNumber3,
-            'SpecializationNumer4': SpecializationNumber4,
-            'SpecializationNumer5': SpecializationNumber5,
-            'DominationNumer1': DominationNumber1,
-            'DominationNumer2': DominationNumber2,
-            'DominationNumer3': DominationNumber3,
-            'SwiftnessNumer1': SwiftnessNumber1,
-            'SwiftnessNumer2': SwiftnessNumber2,
-            'SwiftnessNumer3': SwiftnessNumber3,
-            'SwiftnessNumer4': SwiftnessNumber4,
-            'EnduranceNumer1': EnduranceNumber1,
-            'EnduranceNumer2': EnduranceNumber2,
-            'EnduranceNumer3': EnduranceNumber3,
-            'EnduranceNumer4': EnduranceNumber4,
-            'EnduranceNumer5': EnduranceNumber5,
-            'ExpertiseNumer1': ExpertiseNumber1,
-            'ExpertiseNumer2': ExpertiseNumber2,
-            'ExpertiseNumer3': ExpertiseNumber3,
-            'ExpertiseNumer4': ExpertiseNumber4
-        }
-        db.AbilityStatsTooltip.update_one({"name": name}, {'$set': doc}, upsert=True)
+            # 각인효과 리스트화
+            Engravelist = soup.select_one('#profile-ability > div.profile-ability-engrave > div > div.swiper-wrapper').text
+            Engrave = Engravelist.split('\n')
+            Engrave = list(filter(None, Engrave))
 
-        doc = {
-            'Engrave': Engrave
-        }
-        db.Engrave.update_one({"name": name}, {'$set': doc}, upsert=True)
+            doc = {
+                'Power': Power,
+                'Life': Life,
+                'Critical': Critical,
+                'Specialization': Specialization,
+                'Domination': Domination,
+                'Swiftness': Swiftness,
+                'Endurance': Endurance,
+                'Expertise': Expertise
+            }
+            db.AbilityStats.update_one({"name": name}, {'$set': doc}, upsert=True)
 
-        specialEquipRoute = [
-            '#lostark-wrapper > div > main > div > div.profile-ingame > div.profile-info > div.special-info > div > ul > li:nth-child(1) > div > div > img',
-            '#lostark-wrapper > div > main > div > div.profile-ingame > div.profile-info > div.special-info > div > ul > li:nth-child(2) > div > div > img',
-            '#lostark-wrapper > div > main > div > div.profile-ingame > div.profile-info > div.special-info > div > ul > li:nth-child(3) > div > div > img'
-        ]
+            doc = {
+                'PowerNumer1': PowerNumber1,
+                'PowerNumer2': PowerNumber2,
+                'LifeNumer1': LifeNumber1,
+                'LifeNumer2': LifeNumber2,
+                'CriticalNumer1': CriticalNumber1,
+                'CriticalNumer2': CriticalNumber2,
+                'SpecializationNumer1': SpecializationNumber1,
+                'SpecializationNumer2': SpecializationNumber2,
+                'SpecializationNumer3': SpecializationNumber3,
+                'SpecializationNumer4': SpecializationNumber4,
+                'SpecializationNumer5': SpecializationNumber5,
+                'DominationNumer1': DominationNumber1,
+                'DominationNumer2': DominationNumber2,
+                'DominationNumer3': DominationNumber3,
+                'SwiftnessNumer1': SwiftnessNumber1,
+                'SwiftnessNumer2': SwiftnessNumber2,
+                'SwiftnessNumer3': SwiftnessNumber3,
+                'SwiftnessNumer4': SwiftnessNumber4,
+                'EnduranceNumer1': EnduranceNumber1,
+                'EnduranceNumer2': EnduranceNumber2,
+                'EnduranceNumer3': EnduranceNumber3,
+                'EnduranceNumer4': EnduranceNumber4,
+                'EnduranceNumer5': EnduranceNumber5,
+                'ExpertiseNumer1': ExpertiseNumber1,
+                'ExpertiseNumer2': ExpertiseNumber2,
+                'ExpertiseNumer3': ExpertiseNumber3,
+                'ExpertiseNumer4': ExpertiseNumber4
+            }
+            db.AbilityStatsTooltip.update_one({"name": name}, {'$set': doc}, upsert=True)
 
-        specialEquip = []
-        for i in specialEquipRoute:
+            doc = {
+                'Engrave': Engrave
+            }
+            db.Engrave.update_one({"name": name}, {'$set': doc}, upsert=True)
 
-            if soup.select_one(i) is not None:
-                specialEquip.append(soup.select_one(i)['src'])
-            else:
-                specialEquip.append("none")
+            specialEquipRoute = [
+                '#lostark-wrapper > div > main > div > div.profile-ingame > div.profile-info > div.special-info > div > ul > li:nth-child(1) > div > div > img',
+                '#lostark-wrapper > div > main > div > div.profile-ingame > div.profile-info > div.special-info > div > ul > li:nth-child(2) > div > div > img',
+                '#lostark-wrapper > div > main > div > div.profile-ingame > div.profile-info > div.special-info > div > ul > li:nth-child(3) > div > div > img'
+            ]
 
-        doc = {'0': specialEquip[0], '1': specialEquip[1], '2': specialEquip[2]}
+            specialEquip = []
+            for i in specialEquipRoute:
 
-        db.specialEquip.update_one({"name": name}, {'$set': doc}, upsert=True)
-###
-        browser.find_element(By.XPATH, '//*[@id="profile-ability"]/div[1]/div[1]/a[1]').click()
+                if soup.select_one(i) is not None:
+                    specialEquip.append(soup.select_one(i)['src'])
+                else:
+                    specialEquip.append("none")
 
-        tendency0 = browser.find_element(By.XPATH, '//*[@id="chart-states-wrap"]/div[2]/span[1]/span/em').text
-        tendency1 = browser.find_element(By.XPATH, '//*[@id="chart-states-wrap"]/div[2]/span[2]/span/em').text
-        tendency2 = browser.find_element(By.XPATH, '//*[@id="chart-states-wrap"]/div[2]/span[3]/span/em').text
-        tendency3 = browser.find_element(By.XPATH, '//*[@id="chart-states-wrap"]/div[2]/span[4]/span/em').text
+            doc = {'0': specialEquip[0], '1': specialEquip[1], '2': specialEquip[2]}
 
-        doc = {'0': tendency0, '1': tendency1, '2': tendency2, '3': tendency3}
+            db.specialEquip.update_one({"name": name}, {'$set': doc}, upsert=True)
+    ###
+            browser.find_element(By.XPATH, '//*[@id="profile-ability"]/div[1]/div[1]/a[1]').click()
 
-        db.tendency.update_one({"name": name}, {'$set': doc}, upsert=True)
+            tendency0 = browser.find_element(By.XPATH, '//*[@id="chart-states-wrap"]/div[2]/span[1]/span/em').text
+            tendency1 = browser.find_element(By.XPATH, '//*[@id="chart-states-wrap"]/div[2]/span[2]/span/em').text
+            tendency2 = browser.find_element(By.XPATH, '//*[@id="chart-states-wrap"]/div[2]/span[3]/span/em').text
+            tendency3 = browser.find_element(By.XPATH, '//*[@id="chart-states-wrap"]/div[2]/span[4]/span/em').text
 
-        return jsonify({'msg': 'suc'})
+            doc = {'0': tendency0, '1': tendency1, '2': tendency2, '3': tendency3}
+
+            db.tendency.update_one({"name": name}, {'$set': doc}, upsert=True)
+
+            return jsonify({'msg': 'suc'})
+
+        except :
+            return jsonify({'msg': 'error'})
 
 # GET ----------------------------------------------------------------------------------------------------------------------------------------
 

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>로스트아크.gg</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script:400" rel="stylesheet">
 
     <script>
          function save_name() {
@@ -17,6 +17,8 @@
                 success: function (response) {
                     if(response['msg'] == "suc"){
                         window.location.href='/main'
+                    }else if(response['msg'] == "error"){
+                        alert('에러')
                     }else{
                         alert(response['msg'])
                     }
@@ -27,9 +29,12 @@
 
 
     <style>
+        @import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script:400');
         * {
-            font-family: 'Noto Serif KR', serif;
+            font-family: 'Nanum Brush Script', sans-serif;
+            font-size: 30px;
         }
+
         body {
             background-color: black;
             background-image: url('http://geimgaideu.com/wp-content/uploads/2021/06/Lost-Ark%EC%9D%98-%EC%B6%9C%EC%8B%9C%EC%9D%BC%EC%9D%80-%EC%96%B8%EC%A0%9C%EC%9D%B8%EA%B0%80%EC%9A%94.jpg');
@@ -67,10 +72,29 @@
             border-radius: 35px;
             font-size : 20px;
         }
+
+        .index{
+            position: absolute;
+            top: 40%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            font-size: large;
+            color: white;
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
+    <div class="index">
+        <span>해당 사이트는 (920*1080) 2k 모니터에서 제작되었습니다.</span></br>
+        <span>모니터 크기별 객체들의 크기 최적화를 진행하지 않았으므로 화소가 다른 모니터라면 일그러짐이 있을 수 있습니다.</span></br></br>
+        <span><strong><font style="color: rgba(231,5,5,0.98)">※주의</font></strong></span></br>
+        <span>몇몇 캐릭터들(사용하지 않는 캐릭터 등)이 정상적으로 검색되지 않을 수 있습니다.</span></br>
+        <span>검색 버튼을 누르고 크롬 창이 실행되었다면 해당 창을 조작하지 말고 기다려주세요.</span>
+    </div>
     <div class="mysearch">
            <input class="myinput" type="text" maxlength="12"/>
            <input class="mybtn" type="submit" value="확인" onclick="save_name()"/>
