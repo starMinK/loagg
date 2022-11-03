@@ -7,10 +7,15 @@
     <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script:400" rel="stylesheet">
 
     <script>
+        $(document).ready(function () {
+             $('.loading').hide();
+        });
+
          function save_name() {
             let name = $('.myinput').val()
-
-            $.ajax({
+            alert('검색 시 자동으로 실행되는 새 창을 조작하지 말아주세요!\n해당 창을 조작할 시 에러가 날 수 있습니다.\n검색은 캐릭터에 따라 최대 2초~10초 걸립니다.\n확인을 누르면 검색이 시작됩니다.');
+            $('.loading').show()
+             $.ajax({
                 type: "POST",
                 url: "/api/save-info",
                 data: {name_give: name},
@@ -18,8 +23,10 @@
                     if(response['msg'] == "suc"){
                         window.location.href='/main'
                     }else if(response['msg'] == "error"){
-                        alert('에러')
+                        $('.loading').hide();
+                        alert('에러\n다른 닉네임을 검색해주세요.\n마우스를 움직이거나 활동 중이지 않은 캐릭터는 검색이 되지 않습니다.')
                     }else{
+                        $('.loading').hide();
                         alert(response['msg'])
                     }
                 }
@@ -85,19 +92,43 @@
             text-align: center;
         }
     </style>
+
+    <style>
+        .loading {
+            width: 100%;
+            height: 100%;
+
+            background-color: rgba(0, 0, 0, 0.53);
+            color: white;
+
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            z-index: 2;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 
 <body>
     <div class="index">
-        <span>해당 사이트는 (920*1080) 2k 모니터에서 제작되었습니다.</span></br>
-        <span>모니터 크기별 객체들의 크기 최적화를 진행하지 않았으므로 화소가 다른 모니터라면 일그러짐이 있을 수 있습니다.</span></br></br>
+        <span>해당 사이트는 1920*1080 해상도에서 제작되었습니다.</span></br>
+        <span>다른 크기의 해상도에서는 일그러짐이 있을 수 있습니다.</span></br></br>
         <span><strong><font style="color: rgba(231,5,5,0.98)">※주의</font></strong></span></br>
-        <span>몇몇 캐릭터들(사용하지 않는 캐릭터 등)이 정상적으로 검색되지 않을 수 있습니다.</span></br>
-        <span>검색 버튼을 누르고 크롬 창이 실행되었다면 해당 창을 조작하지 말고 기다려주세요.</span>
+        <span>사용하지 않는 캐릭터는 검색되지 않습니다.</span>
     </div>
     <div class="mysearch">
            <input class="myinput" type="text" maxlength="12"/>
            <input class="mybtn" type="submit" value="확인" onclick="save_name()"/>
+    </div>
+
+    <div class="loading">
+        <img src="https://t1.daumcdn.net/cfile/tistory/233F6D505786DA870A">
+        <h2>로딩중입니다...</h2>
     </div>
 </body>
 </html>

@@ -162,35 +162,24 @@
         /*********************종열*****************************/
 
         .profile-equipment_character {
-            background-image: url("https://img.lostark.co.kr/profile/2/908CD4B929440BF1FD2D7E6A517F8D225395700072ECFD9590B8C81620683B65.PNG");
-            background-size: cover;
-            background-position: center;
-
             width: 35%;
             height: 100%;
 
+            position: relative;
             margin-left: 30px;
             display: flex;
 
             border-radius: 20px;
 
-            /*overflow: hidden;*/
-        }
-
-        .profile-equipment__slot {
-
-            z-index: 2;
-            display: flex;
-            margin-left: 30px;
-            flex-direction: column;
+            overflow: hidden;
         }
 
         .profile-equipment_character_under {
             position: absolute;
 
             bottom: 15px;
-            /*left: 50%;*/
-            /*transform: translate(-50%, -50%);*/
+            left: 50%;
+            transform: translate(-50%, -50%);
 
             width: 35%;
 
@@ -199,29 +188,42 @@
             color: white;
         }
 
-        .profile-equipment__slot > div{
-            background: linear-gradient(135deg,#3d3325,#dcc999);
-            justify-content: center;
-            align-items: center;
-            margin-top: 5%;
-
-
-
-        }
-        .slot9 {
-            background-color: blue;
-
-            -ms-flex-align: center;
-            align-items: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            box-sizing: border-box;
-            right: 67px;
-            top: 127px;
+        .profile-equipment__slot_left {
+            width: auto;
+            position: absolute;
+            left: 5%;
+            top: 50%;
+            transform: translate(0, -50%);
         }
 
+        .profile-equipment__slot_right {
+            width: auto;
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+
+        .equipmentSlot {
+            width: 60px;
+            height: 60px;
+
+            border: #6046c6 2px solid;
+            border-radius: 20%;
+
+            margin: 10px 0;
+
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        .equipmentSlot > img {
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+        }
         /*----------------------------------------------*/
         .profile-character {
             width: 60%;
@@ -558,7 +560,8 @@
             color: #c17502;
             position: absolute;
             top: 30%;
-            left: 10%;
+            left: 5%;
+
         }
 
         .cardimg-1 {
@@ -571,7 +574,7 @@
             color: #c17502;
             position: absolute;
             top: 30%;
-            left: 23%;
+            left: 20%;
         }
 
         .cardimg-2 {
@@ -584,7 +587,7 @@
             color: #c17502;
             position: absolute;
             top: 30%;
-            left: 36%;
+            left: 35%;
         }
 
         .cardimg-3 {
@@ -597,7 +600,7 @@
             color: #c17502;
             position: absolute;
             top: 30%;
-            left: 49%;
+            left: 50%;
         }
 
         .cardimg-4 {
@@ -610,7 +613,7 @@
             color: #c17502;
             position: absolute;
             top: 30%;
-            left: 62%;
+            left: 65%;
         }
 
         .cardimg-5 {
@@ -623,7 +626,7 @@
             color: #c17502;
             position: absolute;
             top: 30%;
-            left: 75%;
+            left: 80%;
         }
 
         .cardimg-6 {
@@ -687,12 +690,21 @@
             list-style: none;
         }
 
+        .cardWarning {
+            /*background-color: #6046c6;*/
+            width: 90%;
+
+            text-align: center;
+
+            position: absolute;
+            top: 95%;
+            left: 5%;
+        }
         /*상륜영역*/
         .lv0 {
-            margin-left: 10px;
             font-size: 0.7vw;
-            max-width: 13%;
-            width: auto;
+            max-width: 14%;
+            width: 90%;
             border-radius: 50px;
             border: 1px solid white;
             padding: 10px;
@@ -702,7 +714,8 @@
             align-items: center;
             position: absolute;
             top: 10%;
-            right: 86%;
+            right: 85%;
+            text-align: center;
         }
 
         .lv1 {
@@ -738,25 +751,28 @@
         }
 
         .lv3 {
-            margin-left: 10px;
             font-size: 0.7vw;
-            width: 15%;
+            width: 16%;
+
             border-radius: 50px;
             border: 1px solid white;
             padding: 10px;
+
             display: inline-block;
             flex-direction: row;
             justify-content: center;
             align-items: center;
+
             position: absolute;
             top: 10%;
-            right: 42%;
+            right: 41%;
         }
 
         .lv4 {
-            margin-left: 10px;
             font-size: 0.7vw;
-            width: 15%;
+
+            width: 16%;
+
             border-radius: 50px;
             border: 1px solid white;
             padding: 10px;
@@ -766,38 +782,109 @@
             align-items: center;
             position: absolute;
             top: 10%;
-            right: 25%;
+            right: 24%;
         }
 
-        .lv5 {
-            margin-left: 10px;
+        .lv5-1 {
             font-size: 0.7vw;
-            width: 22%;
+
+            width: auto;
+            padding: 3px;
+
             border-radius: 50px;
             border: 1px solid white;
-            padding: 10px;
+
             display: inline-block;
             flex-direction: row;
             justify-content: center;
             align-items: center;
             position: absolute;
             top: 10%;
-            right: 1%;
+            right: 17%;
             word-spacing: 15px;
 
         }
 
-        .lv10 {
-            margin-top: 20px;
-            margin-left: 10px;
+        .lv5-2 {
             font-size: 0.7vw;
-            width: 20%;
+
+            width: auto;
+            padding: 3px;
+
+            border-radius: 50px;
+            border: 1px solid white;
+
             display: inline-block;
             flex-direction: row;
             justify-content: center;
             align-items: center;
+
+            position: absolute;
+            top: 32%;
+            right: 17%;
+            word-spacing: 15px;
+
+        }
+
+        .lv5-3 {
+            font-size: 0.7vw;
+
+            width: auto;
+            padding: 3px;
+
+            border-radius: 50px;
+            border: 1px solid white;
+
+            display: inline-block;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            position: absolute;
+            top: 54%;
+            right: 17.5%;
+            word-spacing: 15px;
+
+        }
+
+        .lv5-4 {
+            font-size: 0.7vw;
+
+            width: auto;
+            padding: 3px;
+
+            border-radius: 50px;
+            border: 1px solid white;
+
+            display: inline-block;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            position: absolute;
+            top: 76%;
+            right: 17%;
+            word-spacing: 15px;
+
+        }
+
+
+        .lv10 {
+            margin-top: 20px;
+            margin-left: 10px;
+
+            font-size: 0.7vw;
             word-spacing: 10px;
+
+            width: 20%;
+
+            display: inline-block;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
             color: mediumpurple;
+
             position: absolute;
             top: 50%;
             right: 73%;
@@ -832,7 +919,7 @@
             color: white;
             position: absolute;
             top: 50%;
-            right: 46%;
+            right: 47.5%;
         }
 
         .lv13 {
@@ -867,22 +954,78 @@
             right: 15%;
         }
 
-        .lv15 {
-            margin-top: 20px;
-            margin-left: 10px;
-            font-size: 0.7vw;
-            width: 20%;
+        .lv15-1 {
+            font-size: 90%;
+
+            width: 22%;
+
             display: inline-block;
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            word-spacing: 10px;
-            color: goldenrod;
-            position: absolute;
-            top: 50%;
-            right: 2%;
 
+            color: goldenrod;
+
+            position: absolute;
+            top: 10%;
+            left: 73%;
+            transform: translate(50%, 0);
         }
+
+        .lv15-2 {
+            font-size: 90%;
+
+            width: 22%;
+
+            display: inline-block;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            color: goldenrod;
+
+            position: absolute;
+            top: 32%;
+            left: 73%;
+            transform: translate(50%, 0);
+        }
+
+        .lv15-3 {
+            font-size: 90%;
+
+            width: 22%;
+
+            display: inline-block;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            color: goldenrod;
+
+            position: absolute;
+            top: 54%;
+            left: 73%;
+            transform: translate(50%, 0);
+        }
+
+        .lv15-4 {
+            font-size: 90%;
+
+            width: 22%;
+
+            display: inline-block;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            color: goldenrod;
+
+            position: absolute;
+            top: 76%;
+            left: 73%;
+            transform: translate(50%, 0);
+        }
+
 
         .mtbox {
             width: 100%;
@@ -900,170 +1043,13 @@
             right: 78%;
         }
 
-        .btn11 {
-            display: inline-block;
-            position: absolute;
-            top: 62%;
-            right: 85.5%;
-            width: 2%;
-            height: 15%;
-        }
+        .profile-character-info__img {
+            max-width: 30px;
+            width: 90%;
+            max-height: 30px;
+            height: 90%;
 
-        .btn {
-            display: block;
-            width: 40px;
-            height: 40px;
-            background: #4fbe79;
-            text-align: center;
-            line-height: 50px;
-            color: white;
-        }
-
-        .popup {
-            display: inline-block;
-            position: absolute;
-            left: 50%;
-            top: 240%;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-            width: 80%;
-            height: 300%;
-            border-radius: 10px;
-            border: 1px solid white;
-            text-align: right;
-            padding: 20px;
-            box-sizing: border-box;
-            opacity: 0;
-            transition: all 0.5s;
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .popup a {
-            color: white;
-            text-decoration: none;
-
-        }
-
-        .popup:target {
-            opacity: 1;
-            z-index: 2;
-        }
-
-        .in00 {
-            position: absolute;
-            text-align: left;
-
-        }
-
-        .in0 {
-            font-size: 1.5vw;
-            text-align: left;
-            margin-top: 10px;
-            background-color: #15181d;
-        }
-
-        .in1 {
-            font-size: 1vw;
-            text-align: left;
-            margin-top: 10px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            width: 24%;
-            border: 0;
-            outline: 0;
-        }
-
-        .in2 {
-            font-size: 1vw;
-            text-align: left;
-            margin-top: 10px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            width: 24%;
-            border: 0;
-            outline: 0;
-        }
-
-        .in3 {
-            font-size: 1vw;
-            text-align: left;
-            margin-top: 10px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            width: 24%;
-            border: 0;
-            outline: 0;
-        }
-
-        .in4 {
-            font-size: 1vw;
-            text-align: left;
-            margin-top: 10px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            width: 24%;
-            border: 0;
-            outline: 0;
-        }
-
-        .in5 {
-            font-size: 1vw;
-            text-align: left;
-            margin-top: 35px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            width: 24%;
-            border: 0;
-            outline: 0;
-        }
-
-        input[id="menuicon"] {
-            display: none;
-        }
-
-        input[id="menuicon"] + label {
-            display: block;
-            width: 100%;
-            height: 100%;
-            position: relative;
-            cursor: pointer;
-        }
-
-        input[id="menuicon"] + label span {
-            display: block;
-            position: absolute;
-            width: 100%;
-            height: 5px;
-            border-radius: 30px;
-            background: black;
-            transition: all .35s;
-        }
-
-        input[id="menuicon"] + label span:nth-child(1) {
-            top: 0;
-        }
-
-        input[id="menuicon"] + label span:nth-child(2) {
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        input[id="menuicon"] + label span:nth-child(3) {
-            bottom: 0;
-        }
-
-        input[id="menuicon"]:checked + label span:nth-child(1) {
-            top: 50%;
-            transform: translateY(-50%) rotate(720deg);
-        }
-
-        input[id="menuicon"]:checked + label span:nth-child(2) {
-
-        }
-
-        input[id="menuicon"]:checked + label span:nth-child(3) {
-            bottom: 50%;
-            transform: translateY(50%) rotate(-720deg);
+            margin-bottom: 20px;
         }
 
 
@@ -1655,59 +1641,25 @@
         }
 
 
+    </style>
 
-        input[id="menuicon"] {
-            display: none;
-        }
-
-        input[id="menuicon"] + label {
-            display: block;
+    <style>
+        .loading {
             width: 100%;
             height: 100%;
-            position: relative;
-            cursor: pointer;
-        }
 
-        input[id="menuicon"] + label span {
-            display: block;
+            background-color: rgba(0, 0, 0, 0.53);
+            color: white;
+
             position: absolute;
-            width: 100%;
-            height: 5px;
-            border-radius: 30px;
-            background: black;
-            transition: all .35s;
+            top: 0%;
+            left: 0%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-
-        input[id="menuicon"] + label span:nth-child(1) {
-            top: 0;
-        }
-
-        input[id="menuicon"] + label span:nth-child(2) {
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        input[id="menuicon"] + label span:nth-child(3) {
-            bottom: 0;
-        }
-
-        input[id="menuicon"]:checked + label span:nth-child(1) {
-            top: 50%;
-            transform: translateY(-50%) rotate(720deg);
-        }
-
-        input[id="menuicon"]:checked + label span:nth-child(2) {
-        }
-
-        
-
-        input[id="menuicon"]:checked + label span:nth-child(3) {
-            bottom: 50%;
-            transform: translateY(50%) rotate(-720deg);
-            color: #bc3001;
-        }
-
-
     </style>
 
     <script>
@@ -1717,6 +1669,7 @@
             load_skills();
             equipDisplayOn();
             loadGemTooltip();
+            $('.loading').hide();
         });
 
         /********************************네비게이션 버튼 기능******************************************/
@@ -1973,10 +1926,10 @@
                         let gemTooltipTrade = ''
                         let gemTooltipTradeColor = ''
 
-                        if(gemTooltipName[i].indexOf('(귀속)') >= 0) {
+                        if (gemTooltipName[i].indexOf('(귀속)') >= 0) {
                             gemTooltipTrade = '거래 불가';
                             gemTooltipTradeColor = '#b91919';
-                        }else {
+                        } else {
                             gemTooltipTrade = '거래가능'
                             gemTooltipTradeColor = '#fff';
                         }
@@ -2018,17 +1971,21 @@
 
         function searchBtn() {
             let name = $('.search-input').val()
-
+            alert('검색 시 자동으로 실행되는 새 창을 조작하지 말아주세요!\n해당 창을 조작할 시 에러가 날 수 있습니다.\n검색은 캐릭터에 따라 최대 2초~10초 걸립니다.\n확인을 누르면 검색이 시작됩니다.')
+            $('.loading').show();
             $.ajax({
                 type: "POST",
                 url: "/api/save-info",
                 data: {name_give: name},
                 success: function (response) {
-                    if(response['msg'] == "suc"){
-                        window.location.href='/main'
-                    }else if(response['msg'] == "error"){
-                        alert('활동중이지 않은 캐릭터입니다.')
-                    }else{
+                    if (response['msg'] == "suc") {
+                        $('.loading').hide();
+                        window.location.href = '/main'
+                    } else if (response['msg'] == "error") {
+                        $('.loading').hide();
+                        alert('error: 활동중이지 않은 캐릭터입니다.')
+                    } else {
+                        $('.loading').hide();
                         alert(response['msg'])
                     }
                 }
@@ -2072,18 +2029,18 @@
 
 
             $.ajax({
-                    type: 'GET',
-                    url: '/card',
-                    data: {},
-                    success: function (response) {
-                        let cardimgrow = response['card_img']
-                        let cardnamerow = response['card_name']
-                        let cardawakerow = response['card_awake']
-                        let awake = [0, 1, 2, 3, 4, 5]
+                type: 'GET',
+                url: '/card',
+                data: {},
+                success: function (response) {
+                    let cardimgrow = response['card_img']
+                    let cardnamerow = response['card_name']
+                    let cardawakerow = response['card_awake']
+                    let awake = [0, 1, 2, 3, 4, 5]
 
-                        for (let i = 0; i < cardawakerow.length; i++) {
-                            if (cardawakerow[i] == 0) {
-                                awake[i] = `<div class="awake">
+                    for (let i = 0; i < cardawakerow.length; i++) {
+                        if (cardawakerow[i] == 0) {
+                            awake[i] = `<div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_1.png">
                                             </div>
                                             <div class="awake">
@@ -2098,8 +2055,8 @@
                                             <div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_1.png">
                                             </div>`
-                            } else if (cardawakerow[i] == 1) {
-                                awake[i] = `<div class="awake">
+                        } else if (cardawakerow[i] == 1) {
+                            awake[i] = `<div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_0.png">
                                             </div>
                                             <div class="awake">
@@ -2114,8 +2071,8 @@
                                             <div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_1.png">
                                             </div>`
-                            } else if (cardawakerow[i] == 2) {
-                                awake[i] = `<div class="awake">
+                        } else if (cardawakerow[i] == 2) {
+                            awake[i] = `<div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_0.png">
                                             </div>
                                             <div class="awake">
@@ -2130,8 +2087,8 @@
                                             <div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_1.png">
                                             </div>`
-                            } else if (cardawakerow[i] == 3) {
-                                awake[i] = `<div class="awake">
+                        } else if (cardawakerow[i] == 3) {
+                            awake[i] = `<div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_0.png">
                                             </div>
                                             <div class="awake">
@@ -2146,8 +2103,8 @@
                                             <div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_1.png">
                                             </div>`
-                            } else if (cardawakerow[i] == 4) {
-                                awake[i] = `<div class="awake">
+                        } else if (cardawakerow[i] == 4) {
+                            awake[i] = `<div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_0.png">
                                             </div>
                                             <div class="awake">
@@ -2162,8 +2119,8 @@
                                             <div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_1.png">
                                             </div>`
-                            } else {
-                                awake[i] = `<div class="awake">
+                        } else {
+                            awake[i] = `<div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_0.png">
                                             </div>
                                             <div class="awake">
@@ -2178,10 +2135,10 @@
                                             <div class="awake">
                                                 <img src="https://static.loawa.com/icons/gem_active_0.png">
                                             </div>`
-                            }
                         }
+                    }
 
-                        let temp_card = `
+                    let temp_card = `
                             <div class="card-1">
                                 <div class=cardimg-1>
                                     <img width="110px"
@@ -2277,15 +2234,15 @@
                                     <span style="color:#35c37b">${cardset_dsc_list[5]}</span>
                                     <li>${cardset_dsc_list[5]}</li>
                                 </div>
-
                             </div>
+                            <span class="cardWarning">※undefined로 보인다면 새로고침을 여러 번 해주세요.</span>
                         `
 
-                        $('.cards').append(temp_card);
+                    $('.cards').append(temp_card);
 
-                    }
+                }
 
-                });
+            });
         }
 
 
@@ -2301,31 +2258,32 @@
 
         let engraveTitle = []
         let engraveInfo = []
+
         function ability() {
-             $.ajax({
-                    type: 'GET',
-                    url: '/ability',
-                    data: {},
-                    success: function (response) {
-                        let abilityStats = response['abilityStats']
-                        let abilityStatTooltips = response['abilityStatTooltips']
-                        let engrave = response['engraveList']
+            $.ajax({
+                type: 'GET',
+                url: '/ability',
+                data: {},
+                success: function (response) {
+                    let abilityStats = response['abilityStats']
+                    let abilityStatTooltips = response['abilityStatTooltips']
+                    let engrave = response['engraveList']
 
-                        for(let i = 0; i < engrave.length; i++) {
-                            if(i==0) {
-                                engraveTitle.push(engrave[i])
-                            } else if(i % 2 == 1) {
-                                engraveInfo.push(engrave[i])
-                            } else if (i % 2 == 0) {
-                                engraveTitle.push(engrave[i])
-                            }
+                    for (let i = 0; i < engrave.length; i++) {
+                        if (i == 0) {
+                            engraveTitle.push(engrave[i])
+                        } else if (i % 2 == 1) {
+                            engraveInfo.push(engrave[i])
+                        } else if (i % 2 == 0) {
+                            engraveTitle.push(engrave[i])
                         }
+                    }
 
-                        let basicAbilityTempHtml = ``
-                        let battleAbilityTempHtml = ``
-                        let engraveBasicTempHtml = ``
+                    let basicAbilityTempHtml = ``
+                    let battleAbilityTempHtml = ``
+                    let engraveBasicTempHtml = ``
 
-                        basicAbilityTempHtml = `<p class="ability-title">기본특성</p>
+                    basicAbilityTempHtml = `<p class="ability-title">기본특성</p>
                                         <div class="ability-text">
                                         <span class="ability-power">공격력
                                         <div class="tooltip-ability">
@@ -2349,7 +2307,7 @@
                                             <span class="ability-life-number">${abilityStats['Life']}</span>
                                         </div>`
 
-                        battleAbilityTempHtml = `<p class="stats-title">전투특성</p>
+                    battleAbilityTempHtml = `<p class="stats-title">전투특성</p>
                                                     <div class="stats-text">
                                                         <span class="stats-Critical">치명
                                                             <div class="tooltip-stats">
@@ -2424,20 +2382,21 @@
                                                         <span class="stats-Expertise-number">${abilityStats['Expertise']}</span>
                                                     </div>`
 
-                        engraveBasicTempHtml =  `<div class="engrave-list1">${engraveTitle[0]}</div>
+                    engraveBasicTempHtml = `<div class="engrave-list1">${engraveTitle[0]}</div>
                                                  <div class="engrave-list2">${engraveTitle[1]}</div>
                                                  <div class="engrave-list3">${engraveTitle[2]}</div>`
 
-                        $('.ability').append(basicAbilityTempHtml)
-                        $('.stats').append(battleAbilityTempHtml)
-                        $('.side-engrave').append(engraveBasicTempHtml)
-                    }
+                    $('.ability').append(basicAbilityTempHtml)
+                    $('.stats').append(battleAbilityTempHtml)
+                    $('.side-engrave').append(engraveBasicTempHtml)
+                }
             })
         }
+
         let engravePage = 0
 
         function engravePageBack() {
-            if(engravePage >= 1){
+            if (engravePage >= 1) {
                 engravePage -= 1
             }
             engrave();
@@ -2447,14 +2406,14 @@
         function engravePageFront() {
             let pageNum = 0
 
-            if(engraveTitle[3] != undefined)
+            if (engraveTitle[3] != undefined)
                 pageNum = 1
-            else if(engraveTitle[6] != undefined)
+            else if (engraveTitle[6] != undefined)
                 pageNum = 2
             else
                 pageNum = 0
 
-            if(engravePage < pageNum) {
+            if (engravePage < pageNum) {
                 engravePage += 1
             }
             engrave();
@@ -2464,8 +2423,8 @@
         function engrave() {
             let engraveTempHtml = ``
 
-            for (let i = 0; i < 8; i++){
-                if (engraveTitle[i] == undefined){
+            for (let i = 0; i < 8; i++) {
+                if (engraveTitle[i] == undefined) {
                     engraveTitle[i] = "";
                 }
             }
@@ -2474,11 +2433,11 @@
                 engraveTempHtml = `<div class="engrave-list1">${engraveTitle[0]}</div>
                                  <div class="engrave-list2">${engraveTitle[1]}</div>
                                  <div class="engrave-list3">${engraveTitle[2]}</div>`
-            }else if(engravePage == 1) {
+            } else if (engravePage == 1) {
                 engraveTempHtml = `<div class="engrave-list1">${engraveTitle[3]}</div>
                                  <div class="engrave-list2">${engraveTitle[4]}</div>
                                  <div class="engrave-list3">${engraveTitle[5]}</div>`
-            }else{
+            } else {
                 engraveTempHtml = `<div class="engrave-list1">${engraveTitle[6]}</div>
                                  <div class="engrave-list2">${engraveTitle[7]}</div>
                                  <div class="engrave-list3">${engraveTitle[8]}</div>`
@@ -2488,38 +2447,38 @@
         }
 
         function specialEquip() {
-             $.ajax({
-                    type: 'GET',
-                    url: '/specialEquip',
-                    data: {},
-                    success: function (response) {
-                        let specialEquipImg = [response['specialEquipImg'][0], response['specialEquipImg'][1], response['specialEquipImg'][2]]
+            $.ajax({
+                type: 'GET',
+                url: '/specialEquip',
+                data: {},
+                success: function (response) {
+                    let specialEquipImg = [response['specialEquipImg'][0], response['specialEquipImg'][1], response['specialEquipImg'][2]]
 
-                        for(let i = 0; i < specialEquipImg.length; i++) {
-                            if(specialEquipImg[i] != "none"){
-                                $(`.special-weapon-${i}`).css({
-                                    "background-image": `url(${specialEquipImg[i]})`
-                                })
-                            }else{
-                                $(`.special-weapon-${i}`).css({
-                                    "background-image": `url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_special_slot.png?34cb99193be738b4ae3c78bba02395b1')`
-                                })
-                            }
+                    for (let i = 0; i < specialEquipImg.length; i++) {
+                        if (specialEquipImg[i] != "none") {
+                            $(`.special-weapon-${i}`).css({
+                                "background-image": `url(${specialEquipImg[i]})`
+                            })
+                        } else {
+                            $(`.special-weapon-${i}`).css({
+                                "background-image": `url('https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/game/bg_special_slot.png?34cb99193be738b4ae3c78bba02395b1')`
+                            })
                         }
-                        console.log(specialEquipImg[0], specialEquipImg[1], specialEquipImg[2])
                     }
+                    console.log(specialEquipImg[0], specialEquipImg[1], specialEquipImg[2])
+                }
             })
         }
 
         function tendency() {
             $.ajax({
-                    type: 'GET',
-                    url: '/tendency',
-                    data: {},
-                    success: function (response) {
+                type: 'GET',
+                url: '/tendency',
+                data: {},
+                success: function (response) {
 
-                        let tendencyTempHtml = ``
-                        tendencyTempHtml = `<p class="tendency-title">성향</p>
+                    let tendencyTempHtml = ``
+                    tendencyTempHtml = `<p class="tendency-title">성향</p>
                                             <span class="tendency-intellect">지성</span>
                                             <span class="tendency-courage">담력</span>
                                             <span class="tendency-Charm">매력</span>
@@ -2530,75 +2489,181 @@
                                             <span class="tendency-kindness-number">${response['tendency'][3]}</span>
                                           `
 
-                        $('.tendency').append(tendencyTempHtml)
+                    $('.tendency').append(tendencyTempHtml)
+                }
+            })
+        }
+    </script>
+
+    <!--종열-->
+    <script>
+         $(document).ready(function () {
+
+             equips();
+        });
+
+         function equips() {
+            $.ajax({
+                type: 'GET',
+                url: '/equips',
+                data: {},
+                success: function (response) {
+                    let characterImg = response['characterImg']
+                    let equipSlot = response['equipSlot']
+                    let accessorySlot = response['accessorySlot']
+                    let engraveSlot = response['engraveSlot']
+
+                    let equipSlotExist = []
+                    let accessorySlotExist = []
+                    let engraveSlotExist = []
+
+                    for(let i = 0; i < 6; i++) {
+                        if(!equipSlot[i]) {
+                            equipSlotExist.push('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FbzGJFD%2FbtrOvc61n4N%2F5QWy1JkhlUvfAdNHiII1K1%2Fimg.png')
+                        }else{
+                            equipSlotExist.push(equipSlot[i])
+                        }
                     }
+
+                    for(let i = 0; i < 2; i++) {
+                        if(!engraveSlot[i]) {
+                            engraveSlotExist.push('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FbzGJFD%2FbtrOvc61n4N%2F5QWy1JkhlUvfAdNHiII1K1%2Fimg.png')
+                        }else{
+                            engraveSlotExist.push(engraveSlot[i])
+                        }
+                    }
+
+                    for(let i = 0; i < 7; i++) {
+                        if(!accessorySlot[i]) {
+                            accessorySlotExist.push('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FbzGJFD%2FbtrOvc61n4N%2F5QWy1JkhlUvfAdNHiII1K1%2Fimg.png')
+                        }else{
+                            accessorySlotExist.push(accessorySlot[i])
+                        }
+                    }
+
+                    let characterTempHtml = ``
+                    characterTempHtml =
+                    `
+                    <div class="profile-equipment__slot_left">
+                        <div class="equipmentSlot"><img
+                                src=${equipSlotExist[0]}></div>
+                        <div class="equipmentSlot"><img
+                                src=${equipSlotExist[1]}></div>
+                        <div class="equipmentSlot"><img
+                                src=${equipSlotExist[2]}></div>
+                        <div class="equipmentSlot"><img
+                                src=${equipSlotExist[3]}></div>
+                        <div class="equipmentSlot"><img
+                                src=${equipSlotExist[4]}></div>
+                        <div class="equipmentSlot"><img
+                                src=${equipSlotExist[5]}></div>
+                        <div class="equipmentSlot"><img
+                                src=${engraveSlotExist[0]}></div>
+                        <div class="equipmentSlot"><img
+                                src=${engraveSlotExist[1]}></div>
+                    </div>
+
+                    <div class="profile-equipment__slot_right">
+                        <div class="equipmentSlot"><img
+                                src=${accessorySlotExist[0]}></div>
+                        <div class="equipmentSlot"><img
+                                src=${accessorySlotExist[1]}></div>
+                        <div class="equipmentSlot"><img
+                                src=${accessorySlotExist[2]}></div>
+                        <div class="equipmentSlot"><img
+                                src=${accessorySlotExist[3]}></div>
+                        <div class="equipmentSlot"><img
+                                src=${accessorySlotExist[4]}></div>
+                        <div class="equipmentSlot"><img
+                                src=${accessorySlotExist[5]}></div>
+                        <div class="equipmentSlot"><img
+                                src=${accessorySlotExist[6]}></div>
+                    </div>
+
+                    <span class="profile-equipment_character_under">캐릭터 착용 장비와 이미지는 게임 내 이미지와 상이할 수 있습니다.</span>
+                    `
+                    $('.profile-equipment_character').append(characterTempHtml)
+
+                    $('.profile-equipment_character').css({
+                        'background-image': `url(${characterImg})`,
+                        'background-size': 'cover',
+                        'background-position': 'center'
+                    });
+                }
+            })
+        }
+    </script>
+
+    <!--상륜-->
+    <script>
+        $(document).ready(function () {
+             characterInfo();
+        });
+
+         function characterInfo() {
+            $.ajax({
+                type: 'GET',
+                url: '/characterInfo',
+                data: {},
+                success: function (response) {
+                    let characterInfo = response['characterInfo']
+                    let characterName = response['characterName']
+
+                    let infoTempHtml = ``
+                    infoTempHtml =
+                    `
+                    <div>
+                            <h1 class="lv0">${characterName}</h1>
+                            <h1 class="lv10">${characterInfo['server']}</h1>
+                            <h1 class="job">
+                                <img class="profile-character-info__img" src=${characterInfo['jobImg']}>
+                            </h1>
+
+                        </div>
+                        <div>
+                            <h1 class="lv1">원정대 레벨</h1>
+                            <h1 class="lv11">${characterInfo['townLv']}</h1>
+                        </div>
+                        <div>
+                            <h1 class="lv2">전투 레벨</h1>
+                            <h1 class="lv12">${characterInfo['fightLv']}</h1>
+                        </div>
+                        <div>
+                            <h1 class="lv3">장착 아이템 레벨</h1>
+                            <h1 class="lv13">${characterInfo['itemLv']}</h1>
+                        </div>
+                        <div>
+                            <h1 class="lv4">달성 아이템 레벨</h1>
+                            <h1 class="lv14">${characterInfo['maxItemLv']}</h1>
+                        </div>
+                        <div>
+                            <h1 class="lv5-1">칭호</h1>
+                            <h1 class="lv15-1" style="overflow:hidden; white-space:nowrap;">${characterInfo['badge']}</h1>
+                            <h1 class="lv5-2">길드</h1>
+                            <h1 class="lv15-2" style="overflow:hidden; white-space:nowrap;">${characterInfo['guild']}</h1>
+                            <h1 class="lv5-3">pvp</h1>
+                            <h1 class="lv15-3" style="overflow:hidden; white-space:nowrap;">${characterInfo['pvp']}</h1>
+                            <h1 class="lv5-4">영지</h1>
+                            <h1 class="lv15-4" style="overflow:hidden; white-space:nowrap;">${characterInfo['townLv']}</h1>
+                        </div>
+                    `
+                    $('.mtbox').append(infoTempHtml)
+                }
             })
         }
     </script>
 </head>
 <body>
-<!--페이지 전체(background) 페이지-->
-<div class="middle">
-    <!--내용-->
-    <main id="contents">
+    <!--페이지 전체(background) 페이지-->
+    <div class="middle">
+        <!--내용-->
+        <div id="contents">
+            <div class="profile-ingame">
 
-        <!--캐릭터 장비 정보 박스 : 종열-->
-        <div class="profile-ingame">
-            <div class="profile-equipment_character">
-                <span class="profile-equipment_character_under">캐릭터 착용 장비와 이미지는 게임 내 이미지와 상이할 수 있습니다.</span>
-                <div class="profile-equipment__slot">
-                    <div class="profile-equipment_slot1">
-                        <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_227.png" alt>
-                    </div>
-                    <div class="profile-equipment_slot2">
-                        <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_239.png" alt>
-                    </div>
-                    <div class="profile-equipment_slot3">
-                        <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_230.png" alt>
-                    </div>
-                    <div class="profile-equipment_slot4">
-                        <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_242.png" alt>
-                    </div>
-                    <div class="profile-equipment_slot5">
-                        <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_229.png" alt>
-                    </div>
-                    <div class="profile-equipment_slot6">
-                        <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/DH_Item/DH_Item_01_244.png" alt>
-                    </div>
-                    <div class="slot9">
-
-                    </div>
-
-<!--?                <div class="profile-equipment__slot_left">-->
-<!--?                    <div class="equipmentSlot"> <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/IF_Item/IF_Item_01_156.png"> </div>-->
-<!--?                    <div class="equipmentSlot"> <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/IF_Item/IF_Item_01_156.png"> </div>-->
-<!--?                    <div class="equipmentSlot"> <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/IF_Item/IF_Item_01_156.png"> </div>-->
-<!--?                    <div class="equipmentSlot"> <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/IF_Item/IF_Item_01_156.png"> </div>-->
-<!--?                    <div class="equipmentSlot"> <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/IF_Item/IF_Item_01_156.png"> </div>-->
-<!--?                    <div class="equipmentSlot"> <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/IF_Item/IF_Item_01_156.png"> </div>-->
-<!--?                    <div class="equipmentSlot"> <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/IF_Item/IF_Item_01_156.png"> </div>-->
-<!--?                    <div class="equipmentSlot"> <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/IF_Item/IF_Item_01_156.png"> </div>-->
-<!--?                </div>-->
-
-<!--?                <div class="profile-equipment__character_image">-->
-<!--?                    <img src="https://img.lostark.co.kr/profile/8/7FE6BE374F87854DFA915E06BEC8A62C513117A8B3D41BDAD9E0BE37B8539E0F.PNG">-->
-<!--?                </div>-->
-
-<!--?                <div class="profile-equipment__slot_right">-->
-<!--?                    <div class="equipmentSlot"> <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_212.png"> </div>-->
-<!--?                    <div class="equipmentSlot"> <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_212.png"> </div>-->
-<!--?                    <div class="equipmentSlot"> <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_212.png"> </div>-->
-<!--?                    <div class="equipmentSlot"> <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_212.png"> </div>-->
-<!--?                    <div class="equipmentSlot"> <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_212.png"> </div>-->
-<!--?                    <div class="equipmentSlot"> <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_212.png"> </div>-->
-<!--?                    <div class="equipmentSlot"> <img src="https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/Acc/Acc_212.png"> </div>-->
-<!--?                </div>-->
-<!--?            <span class="profile-equipment_character_under">캐릭터 착용 장비와 이미지는 게임 내 이미지와 상이할 수 있습니다.</span>-->
-                <!--장비-->
+                <!--캐릭터 장비 정보 박스 : 종열-->
+                <div class="profile-equipment_character">
 
                 </div>
-            </div>
-
 
             <!--캐릭터 정보 컨테이너 : 규민, 덕현, 재하-->
             <div class="profile-character">
@@ -2623,69 +2688,7 @@
 
                 <div class="profile-character-name_into">
                     <div class="mtbox">
-                        <div>
-                            <h1 class="lv0">lv.60 수테비아</h1>
-                            <h1 class="lv10">루페온</h1>
-                            <h1 class="job"><img class="profile-character-info__img"
-                                                 src="https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/emblem_devil_hunter.png"
-                                                 alt="데빌헌터"></h1>
-                            <a href="#pop1" class="btn11"><input type="hidden" class="btn" id="menuicon">
-                                <label for="menuicon">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </label></a>
-                            <div class="popup" id="pop1">
-                                <a>
-                                    <a href="#a">close</a>
-                                    <div class="in00">
-                                        <h1 class="in0">보유 캐릭터</h1>
-                                        <button class="in1"><img class="pc1"
-                                                                 src="https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/emblem_devil_hunter.png"
-                                                                 alt="데빌헌터">lv.60 시라호시
-                                        </button>
-                                        <button class="in2"><img class="profile-character-info__img"
-                                                                 src="https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/emblem_force_master.png"
-                                                                 alt="기공사">lv.60 qwe
-                                        </button>
-                                        <button class="in3"><img class="profile-character-info__img"
-                                                                 src="https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/emblem_yinyangshi.png"
-                                                                 alt="도화가">lv.60 tregfd
-                                        </button>
-                                        <button class="in4"><img class="profile-character-info__img"
-                                                                 src="https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/emblem_arcana.png"
-                                                                 alt="아르카나">lv.60 ertert
-                                        </button>
-                                        <button class="in5"><img class="profile-character-info__img"
-                                                                 src="https://cdn-lostark.game.onstove.com/2018/obt/assets/images/common/thumb/emblem_reaper.png"
-                                                                 alt="리퍼">lv.60 fdhfgh
-                                        </button>
-                                    </div>
 
-                                </a>
-                            </div>
-
-                        </div>
-                        <div>
-                            <h1 class="lv1">원정대 레벨</h1>
-                            <h1 class="lv11">lv.232</h1>
-                        </div>
-                        <div>
-                            <h1 class="lv2">전투 레벨</h1>
-                            <h1 class="lv12">lv.60</h1>
-                        </div>
-                        <div>
-                            <h1 class="lv3">장착 아이템 레벨</h1>
-                            <h1 class="lv13">lv.1500</h1>
-                        </div>
-                        <div>
-                            <h1 class="lv4">달성 아이템 레벨</h1>
-                            <h1 class="lv14">lv.1500</h1>
-                        </div>
-                        <div>
-                            <h1 class="lv5">칭호 길드 pvp 영지</h1>
-                            <h1 class="lv15">모코코 길드 20급 lv.70</h1>
-                        </div>
                     </div>
 
                 </div>
@@ -2752,7 +2755,12 @@
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 </div>
+<div class="loading">
+        <img src="https://t1.daumcdn.net/cfile/tistory/233F6D505786DA870A">
+        <h2>로딩중입니다...</h2>
+    </div>
 </body>
 </html>

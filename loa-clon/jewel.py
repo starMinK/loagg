@@ -252,7 +252,11 @@ def save_jewels():
             SpecializationNumber4 = soup.select_one(
                 '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > div > ul > li:nth-child(4) > textformat > font:nth-child(2)').text
             SpecializationNumber5 = soup.select_one(
-                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > div > ul > li:nth-child(5) > textformat > font:nth-child(2)').text
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(2) > div > ul > li:nth-child(5) > textformat > font:nth-child(2)')
+            if SpecializationNumber5 is not None:
+                SpecializationNumber5 = SpecializationNumber5.text
+            else:
+                SpecializationNumber5 = "0"
 
             # 제압
             Domination = soup.select_one(
@@ -262,7 +266,11 @@ def save_jewels():
             DominationNumber2 = soup.select_one(
                 '#profile-ability > div.profile-ability-battle > ul > li:nth-child(3) > div > ul > li:nth-child(2) > textformat > font:nth-child(2)').text
             DominationNumber3 = soup.select_one(
-                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(3) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(3) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)')
+            if DominationNumber3 is not None:
+                DominationNumber3 = DominationNumber3.text
+            else:
+                DominationNumber3 = "0"
 
             # 신속
             Swiftness = soup.select_one(
@@ -274,7 +282,11 @@ def save_jewels():
             SwiftnessNumber3 = soup.select_one(
                 '#profile-ability > div.profile-ability-battle > ul > li:nth-child(4) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
             SwiftnessNumber4 = soup.select_one(
-                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(4) > div > ul > li:nth-child(4) > textformat > font:nth-child(2)').text
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(4) > div > ul > li:nth-child(4) > textformat > font:nth-child(2)')
+            if SwiftnessNumber4 is not None:
+                SwiftnessNumber4 = SwiftnessNumber4.text
+            else:
+                SwiftnessNumber4 = "0"
 
             # 인내
             Endurance = soup.select_one(
@@ -288,7 +300,12 @@ def save_jewels():
             EnduranceNumber4 = soup.select_one(
                 '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > div > ul > li:nth-child(4) > textformat > font:nth-child(2)').text
             EnduranceNumber5 = soup.select_one(
-                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > div > ul > li:nth-child(5) > textformat > font:nth-child(2)').text
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(5) > div > ul > li:nth-child(5) > textformat > font:nth-child(2)')
+            if EnduranceNumber5 is not None:
+                EnduranceNumber5 = EnduranceNumber5.text
+            else:
+                EnduranceNumber5 = "0"
+
             # 숙련
             Expertise = soup.select_one(
                 '#profile-ability > div.profile-ability-battle > ul > li:nth-child(6) > span:nth-child(2)').text
@@ -299,7 +316,11 @@ def save_jewels():
             ExpertiseNumber3 = soup.select_one(
                 '#profile-ability > div.profile-ability-battle > ul > li:nth-child(6) > div > ul > li:nth-child(3) > textformat > font:nth-child(2)').text
             ExpertiseNumber4 = soup.select_one(
-                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(6) > div > ul > li:nth-child(4) > textformat > font:nth-child(2)').text
+                '#profile-ability > div.profile-ability-battle > ul > li:nth-child(6) > div > ul > li:nth-child(4) > textformat > font:nth-child(2)')
+            if ExpertiseNumber4 is not None:
+                ExpertiseNumber4 = ExpertiseNumber4.text
+            else:
+                ExpertiseNumber4 = "0"
 
             # 각인효과 리스트화
             Engravelist = soup.select_one('#profile-ability > div.profile-ability-engrave > div > div.swiper-wrapper').text
@@ -383,6 +404,66 @@ def save_jewels():
 
             db.tendency.update_one({"name": name}, {'$set': doc}, upsert=True)
 
+            ###종열###
+            characterImg = soup.select_one('#profile-equipment > div.profile-equipment__character > img')['src']
+
+            equipSlot00 = [soup.select_one('#profile-equipment > div.profile-equipment__slot > div.slot1 > img'),
+                         soup.select_one('#profile-equipment > div.profile-equipment__slot > div.slot2 > img'),
+                         soup.select_one('#profile-equipment > div.profile-equipment__slot > div.slot3 > img'),
+                         soup.select_one('#profile-equipment > div.profile-equipment__slot > div.slot4 > img'),
+                         soup.select_one('#profile-equipment > div.profile-equipment__slot > div.slot5 > img'),
+                         soup.select_one('#profile-equipment > div.profile-equipment__slot > div.slot6 > img')]
+
+            engraveSlot00 = [soup.select_one('#profile-equipment > div.profile-equipment__slot > div.slot14 > img'),
+                           soup.select_one('#profile-equipment > div.profile-equipment__slot > div.slot15 > img')]
+
+            accessorySlot00 = [soup.select_one('#profile-equipment > div.profile-equipment__slot > div.slot7 > img'),
+                               soup.select_one('#profile-equipment > div.profile-equipment__slot > div.slot8 > img'),
+                               soup.select_one('#profile-equipment > div.profile-equipment__slot > div.slot9 > img'),
+                               soup.select_one('#profile-equipment > div.profile-equipment__slot > div.slot10 > img'),
+                               soup.select_one('#profile-equipment > div.profile-equipment__slot > div.slot11 > img'),
+                               soup.select_one('#profile-equipment > div.profile-equipment__slot > div.slot12 > img'),
+                               soup.select_one('#profile-equipment > div.profile-equipment__slot > div.slot13 > img')]
+
+            equipSlot01 = []
+            engraveSlot01 = []
+            accessorySlot01 = []
+
+            for a in equipSlot00:
+                if a is not None:
+                    equipSlot01.append(a['src'])
+            for a in engraveSlot00:
+                if a is not None:
+                    engraveSlot01.append(a['src'])
+            for a in accessorySlot00:
+                if a is not None:
+                    accessorySlot01.append(a['src'])
+
+            doc = {'characterImg': characterImg, 'equipSlot': equipSlot01, 'engraveSlot': engraveSlot01, 'accessorySlot': accessorySlot01}
+
+            db.Equips.update_one({"name": name}, {'$set': doc}, upsert=True)
+
+            ###상륜###
+            server = soup.select_one('#lostark-wrapper > div > main > div > div.profile-character-info > span.profile-character-info__server').text
+
+            jobImg = soup.select_one('#lostark-wrapper > div > main > div > div.profile-character-info > img')['src']
+
+            townLv = soup.select_one('#lostark-wrapper > div > main > div > div.profile-ingame > div.profile-info > div.level-info > div.level-info__expedition > span:nth-child(2)').text
+            fightLv = soup.select_one('#lostark-wrapper > div > main > div > div.profile-ingame > div.profile-info > div.level-info2 > div.level-info2__expedition > span:nth-child(2)').text
+            itemLv = soup.select_one('#lostark-wrapper > div > main > div > div.profile-ingame > div.profile-info > div.level-info2 > div.level-info2__expedition > span:nth-child(2)').text
+            maxItemLv = soup.select_one('#lostark-wrapper > div > main > div > div.profile-ingame > div.profile-info > div.level-info2 > div.level-info2__item > span:nth-child(2)').text
+
+            badge = soup.select_one('#lostark-wrapper > div > main > div > div.profile-ingame > div.profile-info > div.game-info > div.game-info__title > span:nth-child(2)').text
+            guild = soup.select_one('#lostark-wrapper > div > main > div > div.profile-ingame > div.profile-info > div.game-info > div.game-info__guild > span:nth-child(2)').text
+            pvp = soup.select_one('#lostark-wrapper > div > main > div > div.profile-ingame > div.profile-info > div.game-info > div.level-info__pvp > span:nth-child(2)').text
+
+            doc = {'server': server, 'jobImg': jobImg, 'townLv': townLv,
+                   'fightLv': fightLv, 'itemLv': itemLv, 'maxItemLv': maxItemLv, 'itemLv': itemLv,
+                   'badge': badge, 'guild': guild, 'pvp': pvp}
+
+            db.characterInfo.update_one({"name": name}, {'$set': doc}, upsert=True)
+
+            browser.quit()
             return jsonify({'msg': 'suc'})
 
         except :
@@ -465,6 +546,26 @@ def tendency():
     tendency = db.tendency.find_one({'name': f'{name}'}, {'_id': False})
 
     return jsonify({'tendency': tendency})
+
+#종열 장비 -------------------------------------------------------------------------------------------------------------------------------------
+
+@app.route("/equips", methods=['GET'])
+def equips():
+    equips = db.Equips.find_one({'name': f'{name}'}, {'_id': False})
+    characterImg = equips['characterImg']
+    equipSlot = equips['equipSlot']
+    accessorySlot = equips['accessorySlot']
+    engraveSlot = equips['engraveSlot']
+
+    return jsonify({'characterImg': characterImg, 'equipSlot': equipSlot, 'accessorySlot': accessorySlot, 'engraveSlot': engraveSlot})
+
+# 상륜 정보 -------------------------------------------------------------------------------------------------------------------------------------
+
+@app.route("/characterInfo", methods=['GET'])
+def info():
+    characterInfo = db.characterInfo.find_one({'name': f'{name}'}, {'_id': False})
+    characterName = name
+    return jsonify({'characterInfo': characterInfo, 'characterName': characterName})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
