@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2c1c53bf-2f6a-4363-893d-897b8657c1ed" name="변경" comment="변경">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loa-clon/jewel.py" beforeDir="false" afterPath="$PROJECT_DIR$/loa-clon/jewel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loa-clon/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/loa-clon/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loa-clon/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/loa-clon/templates/search.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,11 +48,11 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/덕현/Desktop/git loa&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gkim3/PycharmProjects/pythonProject1&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
 }</component>
   <component name="RunManager" selected="Python.jewel">
@@ -129,16 +126,14 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JavaScript 디버그.main.html" />
-      <item itemvalue="Python.jewel" />
+      <item itemvalue="JavaScript Debug.main.html" />
       <item itemvalue="Python.ScriptCrowlingTest" />
+      <item itemvalue="Python.jewel" />
       <item itemvalue="Python.test" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.jewel" />
-        <item itemvalue="Python.ScriptCrowlingTest" />
-        <item itemvalue="JavaScript 디버그.main.html" />
       </list>
     </recent_temporary>
   </component>
@@ -181,6 +176,15 @@
       <workItem from="1667036862209" duration="3023000" />
       <workItem from="1667289472278" duration="202000" />
       <workItem from="1667301826788" duration="3000" />
+      <workItem from="1667650054108" duration="975000" />
+      <workItem from="1667651513437" duration="211000" />
+      <workItem from="1667651865365" duration="54000" />
+      <workItem from="1667651929702" duration="799000" />
+      <workItem from="1667652738343" duration="1864000" />
+      <workItem from="1667802438165" duration="207000" />
+      <workItem from="1667910267462" duration="167000" />
+      <workItem from="1667910548268" duration="929000" />
+      <workItem from="1667955399395" duration="296000" />
     </task>
     <servers />
   </component>
@@ -198,11 +202,8 @@
       </map>
     </option>
   </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/workspace_xml$test.coverage" NAME="test 커버리지 결과" MODIFIED="1665991233802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
-    <SUITE FILE_PATH="coverage/workspace_xml$jewel.coverage" NAME="jewel 커버리지 결과" MODIFIED="1667482414210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
-    <SUITE FILE_PATH="coverage/loagg$python.coverage" NAME="python 커버리지 결과" MODIFIED="1665061007651" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
-    <SUITE FILE_PATH="coverage/loagg$jewel.coverage" NAME="jewel 커버리지 결과" MODIFIED="1665751921674" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
-    <SUITE FILE_PATH="coverage/workspace_xml$ScriptCrowlingTest.coverage" NAME="ScriptCrowlingTest 커버리지 결과" MODIFIED="1666536519470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loa-clon" />
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
